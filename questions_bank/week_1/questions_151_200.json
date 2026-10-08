@@ -1,0 +1,502 @@
+[
+  {
+    "question": "What is the purpose of acceptance criteria?",
+    "options": [
+      "To decide which sprint a user story belongs in",
+      "To define how we know a user story has been completed correctly",
+      "To record who is responsible for writing the user story",
+      "To estimate how many story points a user story is worth"
+    ],
+    "answer": 1
+  },
+  {
+    "question": "In the registration example (Bob wants to register so he can save videos), which of these is an acceptance criterion?",
+    "options": [
+      "The story is worth five story points",
+      "A confirmation email should be sent to the user",
+      "As Bob, I want to register for an account so I can save videos for later viewing",
+      "The sprint goal is to launch the video library"
+    ],
+    "answer": 1
+  },
+  {
+    "question": "Which is the correct order of the Gherkin keywords for acceptance criteria?",
+    "options": [
+      "Given, When, Then (with And to add extra information)",
+      "Given, Then, When (with And to add extra information)",
+      "When, Given, Then (with And to add extra information)",
+      "Then, Given, When (with And to add extra information)"
+    ],
+    "answer": 0
+  },
+  {
+    "question": "In Gherkin, what does each keyword mean?",
+    "options": [
+      "Given is the action, When is the starting context, Then is the expected outcome",
+      "Given is the expected outcome, When is the starting context, Then is the action",
+      "Given is the starting context, When is the action, Then is the expected outcome",
+      "Given is the action, When is the expected outcome, Then is the starting context"
+    ],
+    "answer": 2
+  },
+  {
+    "question": "The Given / When / Then format is used to structure which of these?",
+    "options": [
+      "Epics, to group related stories together",
+      "Definitions of done, to confirm each story is complete",
+      "Acceptance criteria",
+      "User stories, to describe who wants what and why"
+    ],
+    "answer": 2
+  },
+  {
+    "question": "'Given I am on the sign-in screen and enter a valid email and a valid password, when I click Sign In, then I should see a welcome message and have access to my profile.' What kind of path is this?",
+    "options": [
+      "An alternative path",
+      "The happy path",
+      "An unhappy alternative path",
+      "The sad path"
+    ],
+    "answer": 1
+  },
+  {
+    "question": "'Given I am on the sign-in page and enter a valid email and an invalid password, when I click Sign In, then I get an error message saying my credentials are incorrect.' What kind of path is this?",
+    "options": [
+      "The sad path",
+      "The happy alternative path",
+      "The happy path",
+      "An alternative path"
+    ],
+    "answer": 0
+  },
+  {
+    "question": "'Given I have linked my account to a Facebook account, when I sign in via Facebook, then I should see a welcome message and have access to my profile.' What kind of path is this?",
+    "options": [
+      "The sad path, because the user needs a different account",
+      "The main happy path, with nothing different from valid credentials",
+      "An alternative path, a happy alternative as the user still gets in",
+      "A non-functional requirement about security and compliance"
+    ],
+    "answer": 2
+  },
+  {
+    "question": "Which three kinds of path may acceptance criteria need to cover?",
+    "options": [
+      "Happy, sad and neutral, covering every user outcome",
+      "Main, backup and error, covering every user outcome",
+      "Happy, sad (unhappy) and alternative",
+      "Success, failure and retry, covering every user outcome"
+    ],
+    "answer": 2
+  },
+  {
+    "question": "A customer on a T-shirt page selects a size that is out of stock. How is this best described, and how might it be avoided?",
+    "options": [
+      "A non-functional requirement; it can only be fixed by scaling the system to handle more load",
+      "The happy path; nothing can be done to avoid it, because stock levels cannot be shown to users",
+      "An alternative path; the size filter should always be removed so the customer is not confused",
+      "A sad path; clever UX, such as greying out or labelling out-of-stock sizes, can prevent it"
+    ],
+    "answer": 3
+  },
+  {
+    "question": "A group wrote 'Given I'm on the dashboard, when I click the status tab, then view wind speed, view temperature and view precipitation.' What improvement was suggested?",
+    "options": [
+      "Remove the Given and keep only the When, since the user's location does not matter",
+      "Add more story points to the story, so that the extra detail is allowed for in the estimate",
+      "Be more specific about where the user is and what they should see, such as format, units and direction",
+      "Move the criteria into the definition of done, so that the developers can tick them off"
+    ],
+    "answer": 2
+  },
+  {
+    "question": "Can one user story have more than one set of acceptance criteria?",
+    "options": [
+      "Yes, different scenarios or paths may each need their own acceptance criteria",
+      "No, there is exactly one set of criteria for each story, whatever the paths",
+      "Yes, but only for the sad paths, because the happy path never needs criteria",
+      "No, acceptance criteria belong to epics, not to the user stories under them"
+    ],
+    "answer": 0
+  },
+  {
+    "question": "Which description of the product backlog is correct?",
+    "options": [
+      "A list owned by the development team that the product owner is not allowed to change",
+      "The list of items chosen for the current sprint, which the team works through in priority order",
+      "An ordered list of everything needed in the product and the single source of requirements; it is never complete",
+      "A fixed list of requirements agreed at the start of the project and finalised after the first sprint"
+    ],
+    "answer": 2
+  },
+  {
+    "question": "Which information helps the product owner prioritise user stories?",
+    "options": [
+      "Business value, estimated effort and dependencies",
+      "The number of stakeholders who attend the sprint review",
+      "The sprint length and the number of ceremonies",
+      "The Scrum Master's availability and the retrospective mood"
+    ],
+    "answer": 0
+  },
+  {
+    "question": "In what can the estimated effort of a user story be represented?",
+    "options": [
+      "The product owner's rating out of ten",
+      "The number of meetings needed",
+      "Lines of code",
+      "Time, or story points"
+    ],
+    "answer": 3
+  },
+  {
+    "question": "What does planning poker estimate?",
+    "options": [
+      "The business value of a user story",
+      "The length of the next sprint",
+      "The number of developers needed on the team",
+      "The effort a user story is likely to need"
+    ],
+    "answer": 3
+  },
+  {
+    "question": "Which sequence correctly describes planning poker?",
+    "options": [
+      "Discuss the story, the product owner reveals a card first, then everyone else matches that card",
+      "Everyone reveals a card in turn, the average is taken, and then the vote is final",
+      "Discuss the story, everyone picks a card, all reveal together, outliers explain, then vote again",
+      "Everyone picks a card, outliers explain their reasoning, all reveal together, then discuss the story"
+    ],
+    "answer": 2
+  },
+  {
+    "question": "Why must everyone reveal their estimate at the same time in planning poker?",
+    "options": [
+      "So that each person gives their own opinion rather than copying others",
+      "So that the Scrum Master can mark the quickest estimator",
+      "So that estimates can be used straight in the burn down chart",
+      "So that the product owner can approve the estimates faster"
+    ],
+    "answer": 0
+  },
+  {
+    "question": "In planning poker, one person holds a 2 and another a 5. What happens?",
+    "options": [
+      "The team tries to understand the reasoning behind the outliers, then estimates again",
+      "The two numbers are averaged and the result is used as the estimate for the story",
+      "The highest number is used to be safe, since it is better to over-estimate than under",
+      "The product owner picks which number is correct and the team moves on to the next story"
+    ],
+    "answer": 0
+  },
+  {
+    "question": "What did the building-height estimation exercise demonstrate?",
+    "options": [
+      "Explaining the reasoning behind outlying estimates helps the team converge on a more agreed estimate",
+      "The first estimate given is always the most accurate, so the rest of the team should follow it",
+      "Estimates should be given in whatever units each person prefers, to keep the range of opinion wide",
+      "The product owner should have the final say on estimates, as they know the business best"
+    ],
+    "answer": 0
+  },
+  {
+    "question": "What does a burn down chart show?",
+    "options": [
+      "The mood of the team across the sprint, with a point plotted for each day of the sprint",
+      "The story points completed, starting at zero and rising each day as the stories are done",
+      "The number of bugs found in each sprint, shown against the number that have since been fixed",
+      "The story points remaining in the sprint, starting at the total planned and falling as stories are done"
+    ],
+    "answer": 3
+  },
+  {
+    "question": "A sprint burn down chart starts at 40. What does this mean?",
+    "options": [
+      "The sprint is 40 days long and so has 40 daily scrums",
+      "The team has planned 40 story points of work for the sprint",
+      "The team has chosen 40 user stories for the sprint backlog",
+      "The product backlog contains 40 user stories to be done"
+    ],
+    "answer": 1
+  },
+  {
+    "question": "What was the dashed line on the burn down chart most likely showing?",
+    "options": [
+      "A guide to the points that should be remaining each day to stay on track",
+      "The date of the sprint review, which the team is working towards",
+      "The points that the stakeholders added to the sprint part-way through",
+      "The number of blockers that the team raised at each daily scrum"
+    ],
+    "answer": 0
+  },
+  {
+    "question": "What do the letters in MoSCoW stand for?",
+    "options": [
+      "Must have, Should have, Could have, Would have",
+      "Must have, Should have, Can have, Won't have",
+      "Must have, Should have, Could have, Won't have",
+      "Must have, Shall have, Could have, Won't have"
+    ],
+    "answer": 2
+  },
+  {
+    "question": "Which technique is used to prioritise requirements?",
+    "options": [
+      "MoSCoW",
+      "Planning poker",
+      "Gherkin",
+      "A burn down chart"
+    ],
+    "answer": 0
+  },
+  {
+    "question": "What is a minimum viable product (MVP)?",
+    "options": [
+      "A version of a new product that lets the team gather maximum validated learning from customers with least effort",
+      "A wireframe that is shown to stakeholders before any development has started on the product",
+      "The final, complete version of the product, with every item on the backlog done and signed off",
+      "The goal of the first sprint, chosen by the product owner whatever the product needs to do"
+    ],
+    "answer": 0
+  },
+  {
+    "question": "A team releases only the absolute essentials so users can start trying things and giving feedback. Which concept is this?",
+    "options": [
+      "A definition of done",
+      "A minimum viable product",
+      "A sprint retrospective",
+      "A burn down chart"
+    ],
+    "answer": 1
+  },
+  {
+    "question": "The story points for a sprint add up to 512, but the team can only handle 40. What does this show?",
+    "options": [
+      "The burn down chart should start at 512 so that it shows the full amount of planned work",
+      "The team has a very ambitious but acceptable sprint goal that it can reach with extra effort",
+      "The team has taken on far too much, and the sprint is not ready to start",
+      "The product owner should add more stories, because the team has plenty of capacity left"
+    ],
+    "answer": 2
+  },
+  {
+    "question": "What is the difference between a definition of ready and a definition of done?",
+    "options": [
+      "Done is a checklist of prerequisites before starting; ready is a checklist confirming something has been completed properly",
+      "Both are checked after the work is finished, but by different roles",
+      "Ready is a checklist of prerequisites before starting; done is a checklist confirming something has been completed properly",
+      "Both are checked before the work starts, but at different levels"
+    ],
+    "answer": 2
+  },
+  {
+    "question": "At which levels can a definition of ready and a definition of done apply?",
+    "options": [
+      "Only the user story, because a sprint is too short to have one",
+      "Only the sprint, because the project is too large to have one",
+      "The project, the sprint and the user story",
+      "Only the project, because stories and sprints are covered by it"
+    ],
+    "answer": 2
+  },
+  {
+    "question": "How does the checklist apply within a level, and between levels?",
+    "options": [
+      "It is the same checklist for every item at that level, but different from the checklists at other levels",
+      "It is the same checklist for sprints and for user stories, and it applies to the whole project",
+      "It is set by Scrum and cannot be changed by the team, whatever the project or the product",
+      "It is different for every sprint and every user story, and is rewritten before each one begins"
+    ],
+    "answer": 0
+  },
+  {
+    "question": "Who decides what goes into a team's definition of ready or done?",
+    "options": [
+      "The stakeholders alone, who set the list when the contract for the project is written",
+      "The team decides its own checklist; the examples in the training are not fixed rules",
+      "Scrum fixes the list for every team, so that every project is measured in the same way",
+      "The Scrum Master alone, who then asks the team to sign it off at the retrospective"
+    ],
+    "answer": 1
+  },
+  {
+    "question": "Which of these is an example of a definition of ready at the sprint level?",
+    "options": [
+      "The documentation has been updated",
+      "The sprint goal has been agreed",
+      "The performance test has passed",
+      "The unit tests have passed on the code"
+    ],
+    "answer": 1
+  },
+  {
+    "question": "The sprint backlog does not completely define what needs to be done in the sprint. What does this mean for the definition of ready?",
+    "options": [
+      "The product owner must cancel the sprint and the stories go back into the product backlog",
+      "The team is not ready to start the sprint until those user stories are fleshed out",
+      "The team can start and flesh the stories out at the sprint review, once the stakeholders attend",
+      "The stories are moved straight to done, because the team will have enough detail later"
+    ],
+    "answer": 1
+  },
+  {
+    "question": "Halfway through a sprint, the team finds that it does not have a subscription it needs. Which item was missing from its sprint-level definition of ready?",
+    "options": [
+      "Test coverage has been checked",
+      "Necessary technical resources are available",
+      "Every user story is done",
+      "The bugs have been closed or postponed"
+    ],
+    "answer": 1
+  },
+  {
+    "question": "Which sprint-level definition of ready item catches the problem of a story having to be done before another one?",
+    "options": [
+      "Documentation has been updated",
+      "The acceptance tests have passed",
+      "Any dependencies have been resolved",
+      "The product owner and stakeholders are happy"
+    ],
+    "answer": 2
+  },
+  {
+    "question": "Which of these is NOT part of a user-story definition of ready?",
+    "options": [
+      "Any dependencies and blockers have been identified in advance",
+      "The acceptance criteria are written and agreed by the team",
+      "The code and unit tests have been checked into version control",
+      "The size of the story has been estimated by the team"
+    ],
+    "answer": 2
+  },
+  {
+    "question": "Which of these is an example of a sprint-level definition of done?",
+    "options": [
+      "Every user story on the sprint backlog is done and the performance test has passed",
+      "The sprint goal has been agreed and the technical resources are available",
+      "The user stories are estimated and prioritised, ready for sprint planning",
+      "The Three Amigos have met to discuss the story and agreed what it means"
+    ],
+    "answer": 0
+  },
+  {
+    "question": "Why might a sprint-level definition of done include a performance test?",
+    "options": [
+      "So the team does not find out later that the working software is very slow, a non-functional requirement",
+      "So the Scrum Master can check how quickly each developer is working during the sprint",
+      "So the burn down chart ends on zero and the sprint can be shown to have been a success",
+      "So the product owner can estimate the story points for the stories in the next sprint"
+    ],
+    "answer": 0
+  },
+  {
+    "question": "Which of these also appears in an example sprint-level definition of done?",
+    "options": [
+      "Enough time exists to complete the user stories in the sprint backlog, given the story points",
+      "The sprint backlog has been agreed and its stories are ready to be worked on in the sprint",
+      "The sprint goal has been agreed by the product owner and the whole of the development team",
+      "Bugs have been closed or postponed, and documentation has been updated"
+    ],
+    "answer": 3
+  },
+  {
+    "question": "What does test coverage measure?",
+    "options": [
+      "How many stakeholders have reviewed the increment",
+      "How much of the code is covered by tests, such as unit tests",
+      "How many requirements have acceptance criteria",
+      "How many sprints have been completed"
+    ],
+    "answer": 1
+  },
+  {
+    "question": "What is a unit test?",
+    "options": [
+      "A test where stakeholders try the full system and sign it off",
+      "A test that checks the Given / When / Then wording of the acceptance criteria",
+      "The most basic test, checking each part of the code and the different paths through it",
+      "A test of how the system performs under heavy load"
+    ],
+    "answer": 2
+  },
+  {
+    "question": "Which of these belongs in a user-story definition of done?",
+    "options": [
+      "The code and unit tests are in version control, the tests pass, the acceptance criteria are met and coding standards pass",
+      "The sprint goal is agreed, the sprint backlog is agreed and the technical resources are available",
+      "The user story is estimated, its dependencies are identified and its acceptance criteria are written",
+      "Every user story is done and the product owner has re-ordered the product backlog for the next sprint"
+    ],
+    "answer": 0
+  },
+  {
+    "question": "What are linters used for in a definition of done?",
+    "options": [
+      "To check that the code meets a certain coding standard",
+      "To estimate the story points for the code before it is written",
+      "To run the performance test on the code in each sprint",
+      "To deploy the code to production once the tests have passed"
+    ],
+    "answer": 0
+  },
+  {
+    "question": "Acceptance criteria appear in two checklists at user-story level. Which statement is correct?",
+    "options": [
+      "Both statements appear only in the definition of done, because both are checked as the story is completed",
+      "Neither statement appears in a checklist, because acceptance criteria are not part of ready or done",
+      "'Acceptance criteria are met' is in the definition of ready; 'acceptance criteria are written' is in the definition of done",
+      "'Acceptance criteria are written' is in the definition of ready; 'acceptance criteria are met' is in the definition of done"
+    ],
+    "answer": 3
+  },
+  {
+    "question": "A developer's code for a story works, but it is not in version control and has no unit tests. Is the story done?",
+    "options": [
+      "Yes, because it works and the sprint is nearly over",
+      "Yes, as long as the product owner is happy at the review",
+      "No, but only because the Scrum Master has not yet approved it",
+      "No, it does not yet meet the definition of done for a user story"
+    ],
+    "answer": 3
+  },
+  {
+    "question": "What is a wireframe?",
+    "options": [
+      "A list of the acceptance criteria for the app, written in the Given, When, Then structure",
+      "A finished, coloured design of the app, ready for the developers to copy into code line for line",
+      "A blueprint or skeleton of an app or website, usually without colour or fonts, showing navigation and options",
+      "A diagram of the database tables behind the app, showing how the data is stored and linked"
+    ],
+    "answer": 2
+  },
+  {
+    "question": "How does a storyboard relate to a wireframe?",
+    "options": [
+      "It is a list of all the user stories in the product backlog, ordered by business value",
+      "It is the final colour scheme and font selection, agreed with the stakeholders before coding",
+      "It is the test plan for the finished app, listing each test to be run before release",
+      "It shows the journey a user takes from screen to screen, often with a short description under each wireframe"
+    ],
+    "answer": 3
+  },
+  {
+    "question": "Why is it useful to present wireframes to stakeholders early in the software development life cycle?",
+    "options": [
+      "It means the requirements can be locked once the stakeholders have seen it, and never changed again",
+      "It removes the need for acceptance criteria, because the wireframe already shows what the user does",
+      "You get the maximum feedback as early as possible, and stakeholders often realise what they want when they see it",
+      "It means the product owner no longer needs to attend the sprint review at the end of the sprint"
+    ],
+    "answer": 2
+  },
+  {
+    "question": "A stakeholder looks at a wireframe showing wind speed for the last three hours and asks whether it helps them decide about a jump tomorrow. What does this illustrate?",
+    "options": [
+      "Stakeholders must not give feedback before development starts, since it slows the sprint down",
+      "The wireframe has failed its definition of done, so it must be redrawn before the stakeholder sees it",
+      "Stakeholders raise new needs when they see a visual, which fits welcoming changing requirements",
+      "The user story should never have been written, because it did not mention the forecast"
+    ],
+    "answer": 2
+  }
+]

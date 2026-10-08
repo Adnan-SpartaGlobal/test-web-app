@@ -1,0 +1,402 @@
+[
+  {
+    "question": "Which statement best describes a project, as opposed to business as usual?",
+    "options": [
+      "A set of repeating daily tasks that carry on indefinitely",
+      "A unique, temporary piece of work with a set timeframe, goals to meet and a desired outcome",
+      "A unique piece of work with no deadline that carries on indefinitely",
+      "A set of recurring tasks with a set timeframe and a desired outcome"
+    ],
+    "answer": 1
+  },
+  {
+    "question": "Which of these is an example of business as usual rather than a project?",
+    "options": [
+      "Implementing a new customer relationship management (CRM) system by a deadline",
+      "Building a booking website for a parachuting school over three months",
+      "A level 2 support engineer resolving tickets escalated from level 1 support every day",
+      "Launching an online store as part of a digital transformation"
+    ],
+    "answer": 2
+  },
+  {
+    "question": "What is a programme?",
+    "options": [
+      "A single large project that spans several years",
+      "A group of unrelated projects run by different companies",
+      "A detailed plan of the tasks inside one project",
+      "An overarching umbrella of multiple related projects, which can span several years"
+    ],
+    "answer": 3
+  },
+  {
+    "question": "Why did the instructor use the NHS Test and Trace programme as an example?",
+    "options": [
+      "To show that programmes always succeed when they are well funded",
+      "To show that a project can be repeated exactly if the same team runs it again",
+      "To show the importance of effective project management, because failures can affect people's lives",
+      "To show that technology matters more than people in a programme"
+    ],
+    "answer": 2
+  },
+  {
+    "question": "Which is the correct order of the five project lifecycle stages?",
+    "options": [
+      "Planning, initiation, execution, monitoring and control, closure",
+      "Initiation, planning, monitoring and control, execution, closure",
+      "Initiation, execution, planning, monitoring and control, closure",
+      "Initiation, planning, execution, monitoring and control, closure"
+    ],
+    "answer": 3
+  },
+  {
+    "question": "In which stage are the objectives and requirements identified and the overall project scope defined?",
+    "options": [
+      "Planning",
+      "Execution",
+      "Initiation",
+      "Closure"
+    ],
+    "answer": 2
+  },
+  {
+    "question": "Creating a budget, developing a work breakdown structure and producing a schedule happen in which stage?",
+    "options": [
+      "Planning",
+      "Initiation",
+      "Execution",
+      "Monitoring and control"
+    ],
+    "answer": 0
+  },
+  {
+    "question": "Formal acceptance, delivering the final product and reviewing lessons learnt happen in which stage?",
+    "options": [
+      "Monitoring and control",
+      "Execution",
+      "Initiation",
+      "Closure"
+    ],
+    "answer": 3
+  },
+  {
+    "question": "What is the purpose of the monitoring and control stage?",
+    "options": [
+      "To carry out the actual work, usually overseen by a project manager",
+      "To define the overall scope and objectives of the project",
+      "To formally hand over the final product and review lessons learnt",
+      "To check the project is going according to plan by tracking performance"
+    ],
+    "answer": 3
+  },
+  {
+    "question": "In the parachuting school activity, the developers wanted to start writing code straight away. Why couldn't they?",
+    "options": [
+      "Initiation comes first to define objectives, requirements and scope, and detailed planning follows before the work is executed",
+      "Code can only be written after the project has been closed",
+      "Developers are not stakeholders, so they cannot start work",
+      "The whole programme must finish before any project can begin"
+    ],
+    "answer": 0
+  },
+  {
+    "question": "Which consideration at the initiation stage covers legal and data protection requirements such as GDPR, and security?",
+    "options": [
+      "Resource planning",
+      "Success metrics",
+      "Stakeholder analysis",
+      "Compliance"
+    ],
+    "answer": 3
+  },
+  {
+    "question": "What does resource planning involve at the initiation stage?",
+    "options": [
+      "Producing a detailed budget and a full work breakdown structure",
+      "A basic check of whether there is enough money, personnel and technology, with the detailed budget left to the planning stage",
+      "Measuring how successful each project has been after delivery",
+      "Identifying the risks and the strategies to mitigate them"
+    ],
+    "answer": 1
+  },
+  {
+    "question": "Which of these belongs in the planning stage rather than the initiation stage?",
+    "options": [
+      "A detailed budget plan",
+      "Stakeholder analysis",
+      "A risk assessment with mitigation strategies",
+      "Success metrics for each project"
+    ],
+    "answer": 0
+  },
+  {
+    "question": "In the triple constraint triangle, which element did the instructor say is non-negotiable?",
+    "options": [
+      "Time",
+      "Quality",
+      "Cost",
+      "Scope"
+    ],
+    "answer": 1
+  },
+  {
+    "question": "A project is running out of time and the deadline cannot move. Which two options did the instructor give?",
+    "options": [
+      "Reduce the quality or extend the deadline",
+      "Spend more on resources such as people or compute, or reduce the scope to the critical features",
+      "Reduce the scope or reduce the quality",
+      "Cut costs or reduce the quality"
+    ],
+    "answer": 1
+  },
+  {
+    "question": "On a student's journaling-app project with an MVP deadline halfway through, what did the team do, as praised by the instructor?",
+    "options": [
+      "Moved the deadline until every feature was finished",
+      "Dropped the critical features so the social features could ship first",
+      "Prioritised the critical features and pushed lower-priority ones, such as the social features, back until after the MVP",
+      "Added more developers so every feature was built by the deadline"
+    ],
+    "answer": 2
+  },
+  {
+    "question": "Which set lists the four areas impacted by a project in the instructor's triangle?",
+    "options": [
+      "Processes, products, technology and organisation",
+      "Processes, people, time and organisation",
+      "Policies, people, technology and operations",
+      "Processes, people, technology and organisation"
+    ],
+    "answer": 3
+  },
+  {
+    "question": "Which best describes a stakeholder?",
+    "options": [
+      "Anyone with an interest in, or who is impacted by, the project, even if they are not very interested",
+      "Only the people who fund the project",
+      "Only the developers who build the project",
+      "Only the customers who will use the end product"
+    ],
+    "answer": 0
+  },
+  {
+    "question": "What does stakeholder analysis involve?",
+    "options": [
+      "Listing everyone who works at the company",
+      "Deciding which stakeholders to remove from the project",
+      "Measuring how successful the project was for each stakeholder after closure",
+      "Understanding the stakeholders' needs, their level of interest and influence, and how much engagement the project needs from them"
+    ],
+    "answer": 3
+  },
+  {
+    "question": "What is the correct order for stakeholder work in the initiation stage?",
+    "options": [
+      "Analyse the stakeholders, identify them, then come up with strategies",
+      "Identify the stakeholders, analyse them, then come up with strategies to manage them",
+      "Come up with strategies, identify the stakeholders, then analyse them",
+      "Identify the stakeholders, come up with strategies, then analyse them"
+    ],
+    "answer": 1
+  },
+  {
+    "question": "Why should stakeholder management strategies be reviewed during execution?",
+    "options": [
+      "Because the list of stakeholders is fixed but the budget changes",
+      "Because strategies are only drafted once execution begins",
+      "Because regulators require a review every quarter",
+      "Because stakeholders' interest, influence and attitudes can change over time"
+    ],
+    "answer": 3
+  },
+  {
+    "question": "Which two factors make up the power/interest grid used to analyse stakeholders?",
+    "options": [
+      "Power (influence) and interest",
+      "Power and attitude",
+      "Interest and budget",
+      "Influence and cost"
+    ],
+    "answer": 0
+  },
+  {
+    "question": "What approach applies to a stakeholder with high power and high interest?",
+    "options": [
+      "A regular newsletter to keep them informed",
+      "Monthly briefings and occasional meetings",
+      "Monitoring them and updating them only on major developments",
+      "Constant, active management with regular detailed communication and involvement in critical decisions"
+    ],
+    "answer": 3
+  },
+  {
+    "question": "What approach applies to a stakeholder with high power but low interest?",
+    "options": [
+      "Watch them closely and inform them of major developments, because new information could raise their interest",
+      "Manage them closely with constant, active management",
+      "Ignore them completely, because they are not interested",
+      "Keep them informed with a newsletter and leave them out of decisions"
+    ],
+    "answer": 0
+  },
+  {
+    "question": "What approach applies to a stakeholder with high power and only some interest (keep satisfied)?",
+    "options": [
+      "Give them constant, active management with detailed daily updates",
+      "Keep them satisfied with less detail and less frequent meetings, such as milestone updates, but still give them a direct line for feedback",
+      "Send them a newsletter only and keep them out of decisions",
+      "Watch them silently and never contact them"
+    ],
+    "answer": 1
+  },
+  {
+    "question": "What approach applies to a stakeholder with some power and some interest (keep on side)?",
+    "options": [
+      "Give them constant, active management with daily meetings",
+      "Send them a newsletter and leave them out of all decisions",
+      "Keep them onside with monthly briefings and occasional meetings to get their input on decisions that affect them",
+      "Watch them and only contact them about major developments"
+    ],
+    "answer": 2
+  },
+  {
+    "question": "What approach applies to a stakeholder with low power but some or high interest?",
+    "options": [
+      "Keep them informed through newsletters, emails or large group meetings, without involving them in decisions",
+      "Give them constant, active management",
+      "Involve them in all the critical project decisions",
+      "Watch them closely in case their power grows"
+    ],
+    "answer": 0
+  },
+  {
+    "question": "What did the instructor mean by 'ignore' for stakeholders with no power and no interest?",
+    "options": [
+      "They are not ruled out: they are monitored lightly and kept informed through broad updates",
+      "They receive no communication of any kind",
+      "They are watched as closely as high-power stakeholders",
+      "They are given constant, active management"
+    ],
+    "answer": 0
+  },
+  {
+    "question": "Why are regulators considered stakeholders?",
+    "options": [
+      "They fund the project and decide its budget",
+      "They can set rules about how things must be done and stored, and can fine you if you do not follow them",
+      "They build the technical solution for the project team",
+      "They are the end users who will use the final product"
+    ],
+    "answer": 1
+  },
+  {
+    "question": "How did the instructor describe competitors as stakeholders?",
+    "options": [
+      "High power and high interest, so they should be managed closely",
+      "They are not stakeholders at all",
+      "Low direct power over the project, but they can still influence its direction, so they should be monitored",
+      "No influence of any kind, so they can be ignored"
+    ],
+    "answer": 2
+  },
+  {
+    "question": "What did the instructor conclude about developers as stakeholders?",
+    "options": [
+      "They are not stakeholders, because they only report to stakeholders",
+      "They have low power, so they should only be kept informed",
+      "The development team can be included as stakeholders with high power and interest, because they make many decisions about what is feasible",
+      "Only team leads count as stakeholders and developers should be excluded"
+    ],
+    "answer": 2
+  },
+  {
+    "question": "Which is the correct order of stakeholder attitudes, from most positive to most negative?",
+    "options": [
+      "Champion, supporter, critic, neutral, opponent, blocker",
+      "Champion, supporter, neutral, critic, opponent, blocker",
+      "Supporter, champion, neutral, critic, opponent, blocker",
+      "Champion, supporter, neutral, critic, blocker, opponent"
+    ],
+    "answer": 1
+  },
+  {
+    "question": "What is the difference between a champion and a supporter?",
+    "options": [
+      "A supporter actively works for the project's success, while a champion is in favour but not necessarily actively working towards it",
+      "A champion is neutral, while a supporter is a critic",
+      "A champion actively works for the project's success, while a supporter is in favour but not necessarily actively working towards it",
+      "There is no difference, because both actively work towards success"
+    ],
+    "answer": 2
+  },
+  {
+    "question": "How did the instructor describe a critic?",
+    "options": [
+      "Actively working to obstruct the project",
+      "On the fence, with no real opinion",
+      "Not in favour of the project, but not actively opposing it",
+      "In favour of the project, but not working towards it"
+    ],
+    "answer": 2
+  },
+  {
+    "question": "What is the difference between an opponent and a blocker?",
+    "options": [
+      "An opponent actively works to obstruct the project, while a blocker is actually obstructing progress",
+      "A blocker actively works to obstruct the project, while an opponent is actually obstructing progress",
+      "An opponent is neutral, while a blocker is a critic",
+      "There is no difference, because both only voice disagreement"
+    ],
+    "answer": 0
+  },
+  {
+    "question": "How did the instructor suggest handling a stakeholder who persistently shows a bad attitude?",
+    "options": [
+      "Remove them from the project immediately",
+      "Ignore them and hope their attitude changes",
+      "Start with a light touch, involve experienced people such as management or HR to bring them on side, and take firmer action if they persist",
+      "Move them to the 'ignore' box on the grid"
+    ],
+    "answer": 2
+  },
+  {
+    "question": "In a personal development plan (PDP), what is the relationship between objectives and tasks?",
+    "options": [
+      "Tasks are the goals, and objectives are the stepping stones towards achieving a task",
+      "Objectives are the goals, and tasks are the stepping stones towards achieving an objective",
+      "Objectives and tasks are the same thing under two names",
+      "Tasks are set by the client, and objectives are set by the learner"
+    ],
+    "answer": 1
+  },
+  {
+    "question": "Which set correctly spells out SMART objectives?",
+    "options": [
+      "Specific, measurable, attainable (realistic), relevant, time-bound",
+      "Specific, manageable, attainable, relevant, time-bound",
+      "Simple, measurable, attainable, relevant, time-bound",
+      "Specific, measurable, attainable, reliable, time-bound"
+    ],
+    "answer": 0
+  },
+  {
+    "question": "What does SWOT stand for, as used to help identify PDP objectives?",
+    "options": [
+      "Strengths, weaknesses, objectives, tasks",
+      "Strengths, weaknesses, opportunities, threats",
+      "Skills, weaknesses, opportunities, targets",
+      "Strengths, workload, opportunities, timeframes"
+    ],
+    "answer": 1
+  },
+  {
+    "question": "Which structure did the instructor suggest for a 'tell me about yourself' answer?",
+    "options": [
+      "Future, present, then past, with hobbies at the very start",
+      "Hobbies and interests first, then the future, with the past left out",
+      "A single hourglass structure applied to the whole answer",
+      "Past, present, then future, with hobbies and interests woven in and the future aspirations at the end"
+    ],
+    "answer": 3
+  }
+]

@@ -1,0 +1,502 @@
+[
+  {
+    "question": "A team member is struggling with a task. What would usually NOT happen?",
+    "options": [
+      "They raise it at the daily scrum as soon as they realise there is a problem",
+      "The sprint is lengthened by a couple of days to give them more time",
+      "Teammates with capacity chip in to help them get the task finished",
+      "The Scrum Master works to remove impediments and get the right support"
+    ],
+    "answer": 1
+  },
+  {
+    "question": "When should blockers be raised?",
+    "options": [
+      "At the sprint retrospective, once the sprint has ended",
+      "As early as possible, such as at the next daily scrum",
+      "At the next sprint planning meeting",
+      "At the sprint review, so the stakeholders hear about them"
+    ],
+    "answer": 1
+  },
+  {
+    "question": "During sprint planning, how should a team decide how much to take on?",
+    "options": [
+      "Whatever the product owner asks for, because the product owner knows the product best",
+      "Realistically, based on the story points it can handle, so that the sprint is sustainable",
+      "As much as possible, so that the product goal is reached sooner than the stakeholders expect",
+      "The same number of items as the previous sprint, regardless of how big each item is"
+    ],
+    "answer": 1
+  },
+  {
+    "question": "Which of these is NOT something that Scrum says about the Scrum Master?",
+    "options": [
+      "They coach the team in following the framework",
+      "They help remove impediments for the team",
+      "They facilitate the Scrum meetings",
+      "They act as the boss and tell people what to do"
+    ],
+    "answer": 3
+  },
+  {
+    "question": "The mood-tracking retrospective board with sticky notes (cliffs and valleys) was described as suited to which point?",
+    "options": [
+      "A final retrospective, looking back over all of the sprints",
+      "Sprint planning, to decide how many story points the team can take on",
+      "Requirements gathering, to rank the stakeholders by power and interest",
+      "The daily scrum, to track each person's blockers every morning"
+    ],
+    "answer": 0
+  },
+  {
+    "question": "What are requirements for a software project?",
+    "options": [
+      "The documentation produced after the software has been delivered, to describe how it works",
+      "The list of meetings the team must hold during each sprint, and the order in which they happen",
+      "The roles that the Scrum team needs to fill, and the responsibilities of each person in it",
+      "The tasks and conditions that must be met for the project to finish successfully, including what the software should do"
+    ],
+    "answer": 3
+  },
+  {
+    "question": "Which groups use requirements?",
+    "options": [
+      "Only the stakeholders who pay for the project",
+      "Only developers and testers",
+      "Only the product owner and the Scrum Master",
+      "Business and stakeholders, developers and testers"
+    ],
+    "answer": 3
+  },
+  {
+    "question": "Why do developers and testers each need the requirements?",
+    "options": [
+      "Both only need them to estimate the effort in story points",
+      "Developers need to know what to test; testers need to know what to develop",
+      "Developers need to know what to develop; testers need to know what to test",
+      "Neither needs them once the user stories are written"
+    ],
+    "answer": 2
+  },
+  {
+    "question": "Which statement correctly distinguishes functional from non-functional requirements?",
+    "options": [
+      "Functional requirements are written by developers; non-functional requirements are written by stakeholders",
+      "Non-functional requirements describe what the system does in response to actions; functional requirements describe qualities such as performance, security and reliability",
+      "Functional requirements must be done first; non-functional requirements can be dropped if there is no time",
+      "Functional requirements describe what the system does in response to actions; non-functional requirements describe qualities such as performance, security and reliability"
+    ],
+    "answer": 3
+  },
+  {
+    "question": "A student suggests non-functional requirements can be left behind when time is short, since functional ones are the essentials. What is the correct view?",
+    "options": [
+      "It is wrong; non-functional requirements are always higher priority than functional ones",
+      "That is correct; functional requirements are never negotiable and non-functional ones are always optional",
+      "That is correct; non-functional requirements are always lower priority",
+      "Priority is a separate matter; both functional and non-functional requirements can be high or low priority"
+    ],
+    "answer": 3
+  },
+  {
+    "question": "'When I log in, I should see my customer portal.' How is this requirement best classified?",
+    "options": [
+      "Non-functional (security)",
+      "Functional",
+      "Non-functional (usability)",
+      "Non-functional (performance)"
+    ],
+    "answer": 1
+  },
+  {
+    "question": "'When I add an item to my basket, the total cost and item count should update immediately.' How is this requirement best classified?",
+    "options": [
+      "Non-functional (legal and compliance)",
+      "Non-functional (maintainability)",
+      "Non-functional (scalability)",
+      "Functional"
+    ],
+    "answer": 3
+  },
+  {
+    "question": "'The system should process transactions within two seconds under normal load conditions.' Which category does this fall under?",
+    "options": [
+      "Non-functional: reliability",
+      "Non-functional: performance",
+      "Functional: transactions",
+      "Non-functional: scalability"
+    ],
+    "answer": 1
+  },
+  {
+    "question": "Why was the two-second transaction requirement described as a bit vague?",
+    "options": [
+      "Two seconds is always impossible to achieve, so the requirement can never be met in practice",
+      "It does not state how many users are logged in, and the product owner has not agreed it",
+      "Transactions are only a functional requirement, so a time limit cannot be set on them at all",
+      "It does not say which transaction, and some, such as a payment, take longer without the system being slow"
+    ],
+    "answer": 3
+  },
+  {
+    "question": "'The system should meet the AA standard of the Web Content Accessibility Guidelines.' Which non-functional category is this?",
+    "options": [
+      "Legal and compliance",
+      "Accessibility",
+      "Maintainability",
+      "Usability"
+    ],
+    "answer": 1
+  },
+  {
+    "question": "Which category describes the ability to add more users without breaking the system, with extra resources spinning up when needed?",
+    "options": [
+      "Performance",
+      "Maintainability",
+      "Reliability",
+      "Scalability"
+    ],
+    "answer": 3
+  },
+  {
+    "question": "Which category covers a certain amount of uptime and the system being highly available?",
+    "options": [
+      "Scalability",
+      "Legal and compliance",
+      "Usability",
+      "Reliability"
+    ],
+    "answer": 3
+  },
+  {
+    "question": "Which category covers how easily the system can be kept up to date, including the way the code is written and the architecture is structured?",
+    "options": [
+      "Accessibility",
+      "Usability",
+      "Scalability",
+      "Maintainability"
+    ],
+    "answer": 3
+  },
+  {
+    "question": "Which category covers how data is handled and where it is allowed to be stored, sometimes requiring redundancy?",
+    "options": [
+      "Reliability",
+      "Maintainability",
+      "Security",
+      "Legal and compliance"
+    ],
+    "answer": 3
+  },
+  {
+    "question": "Which non-functional categories are DevOps engineers often more responsible for implementing?",
+    "options": [
+      "Maintainability and usability only",
+      "Usability, accessibility, maintainability and legal",
+      "Performance, security, reliability and scalability",
+      "Usability and accessibility only"
+    ],
+    "answer": 2
+  },
+  {
+    "question": "Which category pairing is more often thought of by front-end and UX designers than by DevOps engineers?",
+    "options": [
+      "Reliability and legal compliance",
+      "Security and scalability",
+      "Performance and reliability",
+      "Usability and accessibility"
+    ],
+    "answer": 3
+  },
+  {
+    "question": "Which of these is NOT a technique for gathering requirements mentioned in the training?",
+    "options": [
+      "Drawing a burn down chart",
+      "Observation of current workflows",
+      "Document analysis",
+      "Workshops"
+    ],
+    "answer": 0
+  },
+  {
+    "question": "A team watches how staff currently carry out a process and reads the existing documentation to see what could be improved. Which technique is this?",
+    "options": [
+      "Observation, together with document analysis",
+      "Prototyping, together with surveys",
+      "Workshops, together with questionnaires",
+      "Brainstorming, together with interviews"
+    ],
+    "answer": 0
+  },
+  {
+    "question": "A team shows stakeholders a quick preliminary mock-up, gathers feedback, and tries another version until it fits what they want. Which technique is this?",
+    "options": [
+      "Prototyping",
+      "Document analysis",
+      "Surveys and questionnaires",
+      "Competitor analysis"
+    ],
+    "answer": 0
+  },
+  {
+    "question": "A team gets people from one department together to map out what they do when certain things happen, to build requirements from that. Which technique is this?",
+    "options": [
+      "Questionnaires",
+      "Interviews",
+      "Prototyping",
+      "Workshops"
+    ],
+    "answer": 3
+  },
+  {
+    "question": "What advantage do interviews have over surveys when gathering requirements?",
+    "options": [
+      "You can reach far more people for the same amount of effort and cost as a survey",
+      "They produce statistics that can be used straight away without needing any analysis",
+      "You can ask additional questions if you do not get the information you need",
+      "They need no preparation, because the questions come up naturally during the conversation"
+    ],
+    "answer": 2
+  },
+  {
+    "question": "A team looks at what competitors already offer, to find what they are missing and what could be provided differently. Which technique is this?",
+    "options": [
+      "Brainstorming",
+      "Competitor analysis",
+      "Observation",
+      "Prototyping"
+    ],
+    "answer": 1
+  },
+  {
+    "question": "Which is the correct structure of a user story?",
+    "options": [
+      "As a [type of user], I want [a goal], so that [a reason]",
+      "Given [a context], when [an action], then [an outcome]",
+      "I want [a goal], as a [reason], so that [type of user]",
+      "As a [goal], I want [type of user], so that [a reason]"
+    ],
+    "answer": 0
+  },
+  {
+    "question": "Which is a correctly written user story?",
+    "options": [
+      "As an instructor, I want to see the bookings for the day, so that I can plan my lessons",
+      "I want a booking page that lists the bookings for each day so lessons can be planned",
+      "As an instructor, the system should list the bookings for the day when I log in",
+      "Given I am an instructor, when I log in, then I should see the list of bookings for the day"
+    ],
+    "answer": 0
+  },
+  {
+    "question": "Is the 'so that' part of a user story compulsory?",
+    "options": [
+      "Yes, a user story without it is invalid and cannot be used",
+      "No, but it is often very helpful, so use your judgement",
+      "Yes, but only for epics, where the reason needs to be explained",
+      "No, and it should always be left out to keep the story short"
+    ],
+    "answer": 1
+  },
+  {
+    "question": "What is a user story's level of detail meant to be at first?",
+    "options": [
+      "A full specification, written completely before the project starts and then locked",
+      "A legally binding contract with the exact wording agreed by the stakeholders",
+      "A pointer, with the detail fleshed out later and iteratively as development gets closer",
+      "A complete technical design, with every detail ready for the developers to code from"
+    ],
+    "answer": 2
+  },
+  {
+    "question": "What does it mean that a user story card is 'a promise of a future conversation'?",
+    "options": [
+      "The card does not hold everything; the conversation later fleshes out the requirements",
+      "The developers promise to finish the story in the sprint",
+      "The stakeholders promise to approve the story at the sprint review",
+      "The product owner promises not to change the story once it is written"
+    ],
+    "answer": 0
+  },
+  {
+    "question": "In the secure login example, which of these is the user story that sits under the epic?",
+    "options": [
+      "Secure login for the whole of the customer portal",
+      "Passwords must be hashed before they are stored in the database",
+      "Sprint 1 will deliver the secure login feature to the stakeholders",
+      "As a customer, I need a link so I can reset my password"
+    ],
+    "answer": 3
+  },
+  {
+    "question": "In the same example, what does 'secure login' represent?",
+    "options": [
+      "A single user story, written for the login page only",
+      "The bigger feature, which is broken down into user stories",
+      "The sprint goal for the first sprint of the project",
+      "An acceptance criterion for the registration form"
+    ],
+    "answer": 1
+  },
+  {
+    "question": "What is an epic?",
+    "options": [
+      "A type of meeting held at the end of a sprint",
+      "A bug that cannot be fixed in one sprint",
+      "An umbrella for a group of related user stories",
+      "A single small user story ready for a sprint"
+    ],
+    "answer": 2
+  },
+  {
+    "question": "Who can write user stories?",
+    "options": [
+      "Only the stakeholders, who understand the business need",
+      "Only the Scrum Master, who facilitates the Scrum processes",
+      "Only the product owner, who is responsible for the backlog",
+      "Anyone on the team, and everyone should contribute"
+    ],
+    "answer": 3
+  },
+  {
+    "question": "Why should everyone on a Scrum team contribute user stories?",
+    "options": [
+      "It reduces the number of stories that the product owner has to read and prioritise each sprint",
+      "It means that the Scrum Master never has to review the product backlog before a sprint starts",
+      "It means that only the developers' stories are used, since they know the product best",
+      "People have different opinions and expertise, and one person alone may not realise a story is needed"
+    ],
+    "answer": 3
+  },
+  {
+    "question": "Who is responsible for ordering the user stories in the product backlog?",
+    "options": [
+      "Whoever wrote each story, so that authors can protect their ideas",
+      "The product owner, who has the best understanding of the product",
+      "The Scrum Master, based on how the team is feeling in the sprint",
+      "The stakeholder who is paying for the work, as they know their needs"
+    ],
+    "answer": 1
+  },
+  {
+    "question": "Who are the Three Amigos?",
+    "options": [
+      "A business person (such as the product owner), a tester and a developer",
+      "The product owner, the Scrum Master and a developer working together",
+      "A developer, a tester and a DevOps engineer from the platform team",
+      "The product owner, the Scrum Master and a tester from the test team"
+    ],
+    "answer": 0
+  },
+  {
+    "question": "Why is the tester one of the Three Amigos?",
+    "options": [
+      "To write the code for the story while the business person and the developer talk it through",
+      "To ask how a requirement can be tested; if no test can be written, the story is not well written",
+      "To decide the priority of the story and where it should sit in the product backlog",
+      "To approve the budget for the story and check that it can be afforded in the sprint"
+    ],
+    "answer": 1
+  },
+  {
+    "question": "What does INVEST stand for?",
+    "options": [
+      "Integrated, Negotiable, Valuable, Estimable, Small, Tested",
+      "Independent, Negotiable, Valuable, Estimable, Small, Testable",
+      "Independent, Necessary, Valuable, Estimable, Small, Testable",
+      "Independent, Negotiable, Verifiable, Estimable, Sizeable, Testable"
+    ],
+    "answer": 1
+  },
+  {
+    "question": "Story B cannot be built until story A is done. Which INVEST letter is this breaking?",
+    "options": [
+      "Negotiable",
+      "Estimable",
+      "Small",
+      "Independent"
+    ],
+    "answer": 3
+  },
+  {
+    "question": "Which user story is more negotiable?",
+    "options": [
+      "As a driver, I want a red Porsche 911 with leather seats",
+      "As a driver, I want a car",
+      "As a driver, I want a Porsche 911",
+      "As a driver, I want a Porsche 911 delivered on Friday"
+    ],
+    "answer": 1
+  },
+  {
+    "question": "A developer proposes a feature that would be 'awesome' but does not fit what the product needs to do. Which INVEST letter is this breaking?",
+    "options": [
+      "Independent",
+      "Valuable",
+      "Testable",
+      "Estimable"
+    ],
+    "answer": 1
+  },
+  {
+    "question": "A story is too big to say how long it will take. What does this suggest, and which INVEST letters are affected?",
+    "options": [
+      "It is a sprint goal, and it is not Independent",
+      "It may really be an epic, and it is not Estimable or Small",
+      "It is an acceptance criterion, and it is not Testable",
+      "It is a feature, and it is not Valuable"
+    ],
+    "answer": 1
+  },
+  {
+    "question": "The tester cannot see how to write a test for a story. Which INVEST letter is this breaking?",
+    "options": [
+      "Negotiable",
+      "Testable",
+      "Valuable",
+      "Independent"
+    ],
+    "answer": 1
+  },
+  {
+    "question": "What are the 3 C's of a user story?",
+    "options": [
+      "Customer, Conversation, Confirmation",
+      "Card, Conversation, Confirmation",
+      "Card, Collaboration, Confirmation",
+      "Card, Conversation, Completion"
+    ],
+    "answer": 1
+  },
+  {
+    "question": "In the Card, Conversation, Confirmation model, which C is the acceptance criteria and tests that show the story is done?",
+    "options": [
+      "Card",
+      "Confirmation",
+      "Completion",
+      "Conversation"
+    ],
+    "answer": 1
+  },
+  {
+    "question": "A user story should be understandable by whom?",
+    "options": [
+      "Only the tester who will write tests from it, as they are the specialist",
+      "Only the developers who will build it and understand the technical terms",
+      "People generally, without needing to be a technical specialist",
+      "Only the product owner who wrote it, since it is a note for their own use"
+    ],
+    "answer": 2
+  },
+  {
+    "question": "When the instructor allowed AI to help with user stories and acceptance criteria, what was the condition?",
+    "options": [
+      "AI may only be used after the product owner has approved the output in the sprint review",
+      "AI can only be used for estimating story points, not for writing the stories or the criteria",
+      "The output must be reviewed, because it may not be how you want the product to work",
+      "The output can be accepted as it is, since AI-written stories are accurate and consistent"
+    ],
+    "answer": 2
+  }
+]

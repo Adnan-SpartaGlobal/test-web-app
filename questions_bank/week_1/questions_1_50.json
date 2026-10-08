@@ -1,0 +1,502 @@
+[
+  {
+    "question": "Which statement correctly distinguishes the project life cycle from the software (systems) development life cycle?",
+    "options": [
+      "The project life cycle covers all the activities of the project, while the software development life cycle focuses on realising the product requirements",
+      "The project life cycle covers only coding and testing, while the software development life cycle includes initiation and closure",
+      "They are the same thing; 'software development life cycle' is simply the Agile name for the project life cycle",
+      "The software development life cycle covers all the activities of the project, while the project life cycle focuses on realising the product requirements"
+    ],
+    "answer": 0
+  },
+  {
+    "question": "In which two stages of the five-stage project life cycle does the software development life cycle usually take place?",
+    "options": [
+      "Planning and executing",
+      "Executing, and monitoring and controlling",
+      "Monitoring and controlling, and closure",
+      "Initiation and planning"
+    ],
+    "answer": 1
+  },
+  {
+    "question": "Which sequence lists the five stages of the project life cycle in the correct order?",
+    "options": [
+      "Initiation, executing, planning, monitoring and controlling, closure",
+      "Planning, initiation, executing, monitoring and controlling, closure",
+      "Initiation, planning, executing, closure, monitoring and controlling",
+      "Initiation, planning, executing, monitoring and controlling, closure"
+    ],
+    "answer": 3
+  },
+  {
+    "question": "Which description of the waterfall method is correct?",
+    "options": [
+      "Iterative: the same phases repeat in short cycles, each producing a working piece of software",
+      "Linear: the phases happen one at a time and you cannot go back to a previous phase",
+      "Parallel: all of the phases happen at the same time across different teams",
+      "Linear: the phases happen one at a time, but you can freely return to an earlier phase whenever requirements change"
+    ],
+    "answer": 1
+  },
+  {
+    "question": "Under a waterfall approach, a client asks for a change halfway through because a competitor has moved on. What is the typical response?",
+    "options": [
+      "Finish the current project first, then look at the new requirement in the next one",
+      "Pause the current phase and update the requirements immediately so the project can adapt",
+      "Ask the product owner to re-prioritise the product backlog straight away",
+      "Add the change to the next sprint backlog and carry on"
+    ],
+    "answer": 0
+  },
+  {
+    "question": "Which of these was NOT given as a reason the waterfall method was used so widely?",
+    "options": [
+      "It produced detailed documentation that was passed from one phase to the next",
+      "It provided predictability",
+      "It welcomed new requirements late in development without any renegotiation",
+      "It gave a clear timeline and set of deliverables for each phase"
+    ],
+    "answer": 2
+  },
+  {
+    "question": "Which situation was waterfall described as being well suited to?",
+    "options": [
+      "A team using flexible, modern tools with no requirement for formal documentation or long-term planning",
+      "A team that wants to demonstrate working software to customers every two weeks and adapt to their feedback",
+      "A small start-up with a flat structure whose priorities change every few weeks and which has few formal processes",
+      "A regulated industry such as aerospace, defence or finance, or a hierarchical organisation with formal processes"
+    ],
+    "answer": 3
+  },
+  {
+    "question": "What does the training say about Royce, who outlined the waterfall method around 1970?",
+    "options": [
+      "He invented waterfall in the 1980s and 1990s as a response to the rise of iterative approaches such as Agile",
+      "His original outline allowed going back to earlier phases, but this was largely ignored as waterfall became rigid",
+      "His original outline was strictly linear, and later teams added the ability to go back to earlier phases",
+      "He designed waterfall so that operations and deployment would happen continually throughout the project"
+    ],
+    "answer": 1
+  },
+  {
+    "question": "Why was DevOps not really essential when the waterfall method was used?",
+    "options": [
+      "Operations comes at the end, so the software is deployed once and does not need continual automated deployments",
+      "Waterfall projects never deploy their software, so there is no operations stage or automation to build",
+      "Waterfall teams only produce documentation and specifications, so there is no software to deploy at all",
+      "Waterfall already deploys every night by hand, so there is nothing left for DevOps engineers to automate"
+    ],
+    "answer": 0
+  },
+  {
+    "question": "Why did DevOps become relevant shortly after Agile came into being?",
+    "options": [
+      "Agile forbids automation so that individuals and interactions are always put ahead of processes and tools",
+      "Agile produces incremental code changes and new versions continually, which need to be deployed continually and automatically",
+      "Agile replaces operations teams, so DevOps engineers take over the testing and the product backlog",
+      "Agile projects deploy the software only once, at the very end, so deployment has to be right first time"
+    ],
+    "answer": 1
+  },
+  {
+    "question": "In the story of the two-year waterfall project, what went wrong when all the parts were finally put together at the end?",
+    "options": [
+      "The documentation for the different phases had been lost when the work was handed between teams",
+      "The parts were built on incompatible architectures, so the application could not work and could not be fixed",
+      "The testers ran out of budget before they could run the acceptance tests on the combined system",
+      "The customer changed the contract during the final phase and refused to pay for the finished work"
+    ],
+    "answer": 1
+  },
+  {
+    "question": "Which analogy correctly matches each approach to the football-goal example?",
+    "options": [
+      "Waterfall is one shot at the goal from 100 metres away; Agile is taking one step at a time and adjusting as the goalposts move",
+      "Both approaches take one step at a time, but Agile keeps the goalposts fixed",
+      "Agile is one shot at the goal from 100 metres away; waterfall is taking one step at a time and adjusting as the goalposts move",
+      "Waterfall adjusts its aim after every shot, while Agile takes a single shot at the end"
+    ],
+    "answer": 0
+  },
+  {
+    "question": "Which pair of words best describes the Agile approach to the software development life cycle?",
+    "options": [
+      "Iterative and incremental",
+      "Incremental and sequential",
+      "Linear and incremental",
+      "Iterative and linear"
+    ],
+    "answer": 0
+  },
+  {
+    "question": "Which sequence best describes one cycle of the iterative approach?",
+    "options": [
+      "Code, test, plan, design, check, then release everything once the backlog has been emptied",
+      "Plan, design, code, test, check, then stop and wait until the end-of-project release",
+      "Design, code, plan, check, test, then go around again with the same set of features",
+      "Plan the next features, design, code, test and check them, then go around again with the next set"
+    ],
+    "answer": 3
+  },
+  {
+    "question": "When can the waterfall method still be the perfect solution for the software development life cycle?",
+    "options": [
+      "When stakeholders only discover what they want after seeing the product working",
+      "When the product is novel, with nuance that will need constant feedback",
+      "When the customer wants a working increment every two weeks to review",
+      "When the requirements are known at the start, detailed, and not going to change"
+    ],
+    "answer": 3
+  },
+  {
+    "question": "Which project would be the LEAST suited to waterfall?",
+    "options": [
+      "A government project that needs detailed documentation and justified spending at every phase",
+      "A novel product where stakeholders will keep changing their minds as they see it",
+      "A repeat of a project the company has delivered many times, with fixed requirements",
+      "A regulated finance system whose specification is fully known and documented before starting"
+    ],
+    "answer": 1
+  },
+  {
+    "question": "When does working software normally first become available in waterfall compared with Scrum?",
+    "options": [
+      "Both: only at the end of the whole life cycle, once every phase has been signed off",
+      "Waterfall: at the end of every sprint. Scrum: at the end of the final phase of the project",
+      "Waterfall: at the end of every phase. Scrum: only once, at the end of the whole project",
+      "Waterfall: at the end of the whole life cycle. Scrum: at the end of every sprint, as a working increment"
+    ],
+    "answer": 3
+  },
+  {
+    "question": "What is the relationship between Agile and Scrum?",
+    "options": [
+      "Agile is a framework made of ceremonies, artifacts and roles, and Scrum is one of its values",
+      "Agile does not specify how to work day to day; Scrum is a framework that gives a way to implement it",
+      "Scrum defines the 12 principles, and Agile defines the sprints",
+      "Scrum is the Agile manifesto, and it specifies a two-week sprint"
+    ],
+    "answer": 1
+  },
+  {
+    "question": "How many values and principles make up the Agile manifesto?",
+    "options": [
+      "Twelve values, supported by twelve principles",
+      "Twelve values, supported by four principles",
+      "Four values, supported by four principles",
+      "Four values, supported by twelve principles"
+    ],
+    "answer": 3
+  },
+  {
+    "question": "Which statement correctly reflects one of the four Agile values?",
+    "options": [
+      "Processes and tools are valued over individuals and interactions",
+      "Individuals and interactions are valued over processes and tools",
+      "Comprehensive documentation is valued over working software",
+      "Following a plan is valued over responding to change"
+    ],
+    "answer": 1
+  },
+  {
+    "question": "Customer collaboration is valued over what, according to the manifesto?",
+    "options": [
+      "Following a plan",
+      "Contract negotiation",
+      "Comprehensive documentation",
+      "Processes and tools"
+    ],
+    "answer": 1
+  },
+  {
+    "question": "A team spends three weeks writing detailed documentation for a feature but has no working software to show. Which Agile value does this go against most directly?",
+    "options": [
+      "Responding to change over following a plan",
+      "Individuals and interactions over processes and tools",
+      "Working software over comprehensive documentation",
+      "Customer collaboration over contract negotiation"
+    ],
+    "answer": 2
+  },
+  {
+    "question": "Why does the manifesto value individuals and interactions over processes and tools?",
+    "options": [
+      "Processes and tools were the priority in waterfall; they still have value, but people matter more",
+      "Processes and tools were only invented after Agile and so are not yet proven to be effective",
+      "Agile teams are not allowed to use processes or tools because they slow individuals down",
+      "Individuals work best alone, so interactions should be kept to a minimum to avoid slowing delivery"
+    ],
+    "answer": 0
+  },
+  {
+    "question": "What does 'X over Y' mean in the four Agile values?",
+    "options": [
+      "The item on the right must be removed from the project",
+      "The item on the right is only needed when using Scrum",
+      "Both have value, but the item on the left is valued more",
+      "The item on the left replaces the item on the right entirely"
+    ],
+    "answer": 2
+  },
+  {
+    "question": "A customer asks for a change to a feature. In an Agile approach, what matters most?",
+    "options": [
+      "Understanding why the customer wants it and what they really need, then working out how to deliver it",
+      "Recording the request carefully and addressing it only after the current project has closed",
+      "Renegotiating the whole contract and budget before any of the work is allowed to change direction",
+      "Refusing the change politely, because the original plan was agreed and signed at the start"
+    ],
+    "answer": 0
+  },
+  {
+    "question": "Complete the first principle: 'Our highest priority is to satisfy the customer through ____ delivery of valuable software.'",
+    "options": [
+      "continuous but infrequent",
+      "early and final",
+      "early and continuous",
+      "complete and final"
+    ],
+    "answer": 2
+  },
+  {
+    "question": "At a sprint review, a stakeholder sees the product and asks for changes. Which principle does this show?",
+    "options": [
+      "Welcome changing requirements, even late in development",
+      "Working software is the primary measure of progress",
+      "Business people and developers must work together daily throughout the project",
+      "Continuous attention to technical excellence and good design enhances agility"
+    ],
+    "answer": 0
+  },
+  {
+    "question": "What time scale does the principle on delivering working software frequently describe?",
+    "options": [
+      "From a couple of days to a couple of weeks, with a preference for the longer time scale",
+      "From a couple of months to a couple of years, with a preference for the shorter time scale",
+      "From a couple of weeks to a couple of months, with a preference for the longer time scale",
+      "From a couple of weeks to a couple of months, with a preference for the shorter time scale"
+    ],
+    "answer": 3
+  },
+  {
+    "question": "Which two groups must work together daily throughout the project, according to the principles?",
+    "options": [
+      "Sponsors and testers",
+      "Business people and developers",
+      "The product owner and the project manager",
+      "Testers and the Scrum Master"
+    ],
+    "answer": 1
+  },
+  {
+    "question": "A developer picks up a user story that has acceptance criteria, but still has questions about it. What does this show?",
+    "options": [
+      "Developers and business people must keep communicating, so questions still arise even with acceptance criteria",
+      "The product owner must now rewrite the whole product backlog before any more stories are started",
+      "The developer should save the question for the sprint review, since the story is already in the sprint",
+      "The story must have failed its definition of ready, so the whole sprint has to stop immediately"
+    ],
+    "answer": 0
+  },
+  {
+    "question": "Which Scrum event gives people a daily chance to ask for the support they need, in line with building projects around motivated individuals?",
+    "options": [
+      "Sprint planning",
+      "The sprint retrospective",
+      "The daily scrum (stand-up)",
+      "The sprint review"
+    ],
+    "answer": 2
+  },
+  {
+    "question": "A student argued that 'face-to-face conversation' can be virtual. Why is that acceptable?",
+    "options": [
+      "What matters is being able to see each other, including body language, which is why cameras are on",
+      "Only meetings with stakeholders need to be face-to-face; team conversations can be text only",
+      "Written messages convey information just as efficiently as speaking, so cameras are optional",
+      "Face-to-face only applies to sprint planning, where the whole team must be physically present"
+    ],
+    "answer": 0
+  },
+  {
+    "question": "Which of the three C's of a user story is most closely linked to face-to-face communication?",
+    "options": [
+      "Card",
+      "Collaboration",
+      "Conversation",
+      "Confirmation"
+    ],
+    "answer": 2
+  },
+  {
+    "question": "Is working software only available at the end of a sprint?",
+    "options": [
+      "Yes, working software only exists once the sprint review has been held and the stakeholders have signed it off",
+      "Yes, working software only exists at the end of the final sprint, once the product goal is reached",
+      "No, but only the product owner may declare a piece of software to be working before the sprint ends",
+      "No, some teams have working software daily, for example via version control, even if it is not yet the end product"
+    ],
+    "answer": 3
+  },
+  {
+    "question": "Which statement matches the principle on sustainable development?",
+    "options": [
+      "Sprints should get shorter each time so that delivery speeds up as the project goes on",
+      "Only developers need a constant pace, while the sponsors can vary theirs as they choose",
+      "Teams should work at maximum pace early on and slow down towards the end of the project",
+      "Sponsors, developers and users should be able to maintain a constant pace indefinitely"
+    ],
+    "answer": 3
+  },
+  {
+    "question": "Several team members mention separate blockers at the daily scrum, but they all trace back to the same underlying issue in the product backlog. What does this suggest?",
+    "options": [
+      "Things are not sustainable and the underlying issue needs reviewing",
+      "Each blocker is independent, so nothing needs to change",
+      "The sprint should be extended so everyone can catch up",
+      "The Scrum Master should replace the blocked team members"
+    ],
+    "answer": 0
+  },
+  {
+    "question": "Which pillars were used to show 'continuous attention to technical excellence and good design enhances agility' in action?",
+    "options": [
+      "Transparency (facts are shared), then adaptation (the manager fixes the issue)",
+      "Adaptation (everyone checks what is released), then transparency (the team improves)",
+      "Inspection (everyone checks what is released), then adaptation (the team improves)",
+      "Transparency (everyone checks what is released), then inspection (the team improves)"
+    ],
+    "answer": 2
+  },
+  {
+    "question": "Why are the Agile principles called principles rather than rules?",
+    "options": [
+      "They are enforced by the Scrum Master and must be applied identically by every team using Scrum",
+      "They only apply to teams using Scrum, and they cannot be adapted to the way a team works",
+      "They can be applied in many ways; new teams follow them strictly, while experienced teams gain flexibility",
+      "They are optional for every team unless a regulator requires that they are followed in full"
+    ],
+    "answer": 2
+  },
+  {
+    "question": "Daria saw principle 1 in prototyping during requirements gathering and in the increment produced each sprint. Which part of the principle did each show?",
+    "options": [
+      "Prototyping showed 'continuous' delivery; the increment each sprint showed 'early' delivery",
+      "Both showed only 'continuous' delivery",
+      "Prototyping showed 'early' delivery; the increment each sprint showed 'continuous' delivery",
+      "Prototyping showed 'valuable' software; the increment showed 'early' delivery"
+    ],
+    "answer": 2
+  },
+  {
+    "question": "Who is the go-to person for understanding the product the team is building (what it needs to do and how it should work)?",
+    "options": [
+      "The product owner",
+      "The most senior developer",
+      "The project manager",
+      "The Scrum Master"
+    ],
+    "answer": 0
+  },
+  {
+    "question": "Which of these is the product owner accountable for?",
+    "options": [
+      "Chairing the daily scrum and coaching the team on how the Scrum framework should be followed",
+      "Deciding which developer works on which task in the sprint and tracking each person's progress",
+      "Managing the product backlog, including its content, its availability and its order",
+      "Managing the sprint backlog and deciding mid-sprint what the team should be working on"
+    ],
+    "answer": 2
+  },
+  {
+    "question": "A key stakeholder meets the product owner mid-sprint and explains a new feature that now matters more than others. What should the product owner update?",
+    "options": [
+      "The product backlog, so the new priority is visible at the next sprint planning",
+      "The sprint backlog, so the team switches to the new feature straight away",
+      "Both backlogs, so that the change takes effect immediately in the sprint",
+      "Neither backlog; the change waits until the sprint review to be recorded"
+    ],
+    "answer": 0
+  },
+  {
+    "question": "Why would the product owner not change the sprint backlog in the middle of the sprint?",
+    "options": [
+      "It was decided at sprint planning; changes wait for the next planning meeting, where the product backlog is reviewed",
+      "The sprint backlog is owned by the Scrum Master, who is the only person who is allowed to edit it",
+      "The sprint backlog can only be reviewed by the stakeholders at the retrospective, not changed by anyone",
+      "The sprint backlog is generated automatically from the burn down chart, so it cannot be edited by hand"
+    ],
+    "answer": 0
+  },
+  {
+    "question": "What kind of person is the product owner usually?",
+    "options": [
+      "The most experienced developer on the team, who also chooses the technical design for each story",
+      "The tester with the most Scrum experience, who also writes the acceptance tests for each story",
+      "A business-type person with deep product knowledge, who may also have some technical experience",
+      "A project manager from outside the team who assigns the daily tasks and tracks time and budget"
+    ],
+    "answer": 2
+  },
+  {
+    "question": "Who can cancel a sprint, and under what circumstances?",
+    "options": [
+      "Only the product owner, if the sprint goal has become obsolete",
+      "The Scrum Master, whenever the team is falling behind",
+      "Any stakeholder, if the sprint goal becomes obsolete",
+      "The development team, if the stakeholders request it at the review"
+    ],
+    "answer": 0
+  },
+  {
+    "question": "After a sprint is cancelled because its goal is obsolete, what happens next?",
+    "options": [
+      "The team moves into another sprint planning meeting to plan the next sprint",
+      "The team waits for the next project to be initiated and then starts again",
+      "The team continues the cancelled sprint without a goal until it finishes",
+      "The Scrum Master rewrites the product goal alone and restarts the same sprint"
+    ],
+    "answer": 0
+  },
+  {
+    "question": "Which description fits the Scrum Master?",
+    "options": [
+      "The deputy product owner, who prioritises the backlog",
+      "The boss of the team, who tells people what to do",
+      "A servant leader, facilitator and coach rather than a manager",
+      "The lead developer, who decides the technical design"
+    ],
+    "answer": 2
+  },
+  {
+    "question": "What is the Scrum Master's main job?",
+    "options": [
+      "Deciding which developer takes which user story and monitoring how quickly each one finishes it",
+      "Writing every user story and keeping the product backlog in the right priority order",
+      "Making sure the Scrum processes are followed and removing impediments and blockers from the team",
+      "Approving each finished user story before it moves to done and signing it off with stakeholders"
+    ],
+    "answer": 2
+  },
+  {
+    "question": "Who decides who does which task in a Scrum team?",
+    "options": [
+      "The product owner assigns tasks to individuals, based on who knows each feature best",
+      "The Scrum Master allocates the tasks to individuals each morning at the daily scrum",
+      "The project manager assigns tasks to individuals at the start of the sprint and tracks them",
+      "The team works it out together, with people suggesting or volunteering for tasks"
+    ],
+    "answer": 3
+  },
+  {
+    "question": "How is a Scrum Master usually selected?",
+    "options": [
+      "Because they are the most technically experienced developer and so can review all of the code",
+      "Because they have been with the company the longest and know how the departments are organised",
+      "For their experience in how Scrum is supposed to work, not for being the best coder",
+      "Because the stakeholders nominate them at the sprint review, based on how well the sprint went"
+    ],
+    "answer": 2
+  }
+]

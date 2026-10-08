@@ -1,0 +1,52 @@
+[
+  {
+    "question": "What is 2 + 2?",
+    "options": [
+      "3",
+      "4",
+      "5",
+      "6"
+    ],
+    "answer": 1
+  },
+  {
+    "question": "What color is the sky on a clear day?",
+    "options": [
+      "Blue",
+      "Green",
+      "Red",
+      "Yellow"
+    ],
+    "answer": 0
+  },
+  {
+    "question": "How many days are there in a week?",
+    "options": [
+      "5",
+      "6",
+      "7",
+      "8"
+    ],
+    "answer": 2
+  },
+  {
+    "question": "Which animal is known as man's best friend?",
+    "options": [
+      "Cat",
+      "Dog",
+      "Horse",
+      "Rabbit"
+    ],
+    "answer": 1
+  },
+  {
+    "question": "What is the capital of France?",
+    "options": [
+      "London",
+      "Berlin",
+      "Madrid",
+      "Paris"
+    ],
+    "answer": 3
+  }
+]

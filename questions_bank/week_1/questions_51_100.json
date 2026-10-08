@@ -1,0 +1,502 @@
+[
+  {
+    "question": "Can a Scrum project still have a project manager?",
+    "options": [
+      "No, the Scrum Master replaces the project manager, so the role does not exist in any Scrum project",
+      "Yes, and the project manager assigns the Scrum team's daily tasks and approves each user story",
+      "No, because Scrum teams are not part of a larger project and so have no need for project management",
+      "Yes, the overall project can still have one, but they do not tell the Scrum team what to do"
+    ],
+    "answer": 3
+  },
+  {
+    "question": "A developer says at the daily scrum that they are blocked. What is the best response from the team and Scrum Master?",
+    "options": [
+      "The team can suggest who might help, and the Scrum Master helps remove the impediment",
+      "The blocker is logged and discussed at the next sprint review, once the stakeholders are present",
+      "The sprint is extended by the number of days the developer was blocked, so the work can be finished",
+      "The Scrum Master orders another developer to take over the task and the blocked person moves on"
+    ],
+    "answer": 0
+  },
+  {
+    "question": "A team is new to Scrum. What might be needed?",
+    "options": [
+      "More coaching and training on how Scrum works, from the Scrum Master or from others brought in",
+      "A project manager to run the daily scrum for them until they are comfortable with the framework",
+      "A longer sprint so that they can avoid holding the ceremonies while they learn the framework",
+      "Fewer ceremonies until the product owner is happy that the team understands the framework"
+    ],
+    "answer": 0
+  },
+  {
+    "question": "Who typically chairs the daily scrum, going round the team and asking each person where they are at?",
+    "options": [
+      "The Scrum Master",
+      "The product owner",
+      "A stakeholder invited by the product owner",
+      "The project manager"
+    ],
+    "answer": 0
+  },
+  {
+    "question": "Which description of the development team is correct?",
+    "options": [
+      "Multidisciplinary, self-organising, and decides what work will be done and who will do what",
+      "A group directed by the product owner, who assigns each person's tasks",
+      "A group of developers only, with testers working separately",
+      "Specialists who each only work within their own role, directed by the Scrum Master"
+    ],
+    "answer": 0
+  },
+  {
+    "question": "What does 'cross-functional' mean for a Scrum team?",
+    "options": [
+      "The team is made up of people borrowed from different departments, each with their own line manager",
+      "Every member performs every role at the same time",
+      "Each member only works on tasks matching their job title",
+      "No one has a predefined role; everyone chips in on a task even if it is not their usual type of work"
+    ],
+    "answer": 3
+  },
+  {
+    "question": "A Scrum team has a developer from sales and a DevOps engineer from marketing, each answering to their own line managers. What does the training say?",
+    "options": [
+      "This is fine as long as the Scrum Master approves it and the line managers are kept informed",
+      "This is not how it should work; it complicates things and stops the team focusing on its sprint backlog",
+      "This is encouraged, because it spreads knowledge and good practice across the departments",
+      "This is only acceptable for DevOps engineers, because they work across departments anyway"
+    ],
+    "answer": 1
+  },
+  {
+    "question": "What does 'co-located' mean for a Scrum team?",
+    "options": [
+      "Only the product owner and the Scrum Master need to be together, so they can coach the others",
+      "The team must share a physical office so that the daily scrum can happen face to face in person",
+      "The team must be in the same time zone and the same building, as well as using the same board",
+      "Not necessarily physically together, but with virtual ways to communicate, such as messaging and a virtual board"
+    ],
+    "answer": 3
+  },
+  {
+    "question": "Who is accountable for the development team's productivity?",
+    "options": [
+      "Only the product owner",
+      "Only the Scrum Master",
+      "Everyone on the team",
+      "The project manager"
+    ],
+    "answer": 2
+  },
+  {
+    "question": "You are the DevOps engineer on a Scrum team, and a task needs doing that is not directly DevOps. What should you do?",
+    "options": [
+      "Decline it, because it is not a DevOps task and should go to a developer on the team instead",
+      "Wait for the Scrum Master to assign it to a developer who has the right job title for it",
+      "Do whatever is required if you have the capacity, perhaps with someone alongside you to help",
+      "Pass it back to the product owner, so the story can be re-prioritised for a different team"
+    ],
+    "answer": 2
+  },
+  {
+    "question": "What does it mean that the Scrum team is 'self-organising, accountable and empowered'?",
+    "options": [
+      "The Scrum Master assigns each task and the team then confirms the assignments",
+      "People outside the team need to trust it and let it get on with its work",
+      "A manager approves each task before it starts, to make sure it is accountable",
+      "Stakeholders direct the team's work every day, through the daily scrum"
+    ],
+    "answer": 1
+  },
+  {
+    "question": "What is an artifact in Scrum?",
+    "options": [
+      "One of the three pillars of Scrum",
+      "A tangible thing that is produced and represents work",
+      "A role with specific responsibilities in the team",
+      "A meeting held at a fixed point in the sprint"
+    ],
+    "answer": 1
+  },
+  {
+    "question": "Which list contains ONLY Scrum artifacts?",
+    "options": [
+      "Product backlog, sprint planning, increment",
+      "Product backlog, sprint backlog, sprint review",
+      "Sprint backlog, daily scrum, increment",
+      "Product backlog, sprint backlog, increment"
+    ],
+    "answer": 3
+  },
+  {
+    "question": "Which list contains ONLY Scrum ceremonies (events)?",
+    "options": [
+      "Product backlog, daily scrum, sprint review, sprint retrospective",
+      "Sprint planning, daily scrum, sprint review, sprint retrospective",
+      "Sprint planning, daily scrum, increment, sprint review",
+      "Sprint planning, daily scrum, sprint backlog, sprint retrospective"
+    ],
+    "answer": 1
+  },
+  {
+    "question": "Which list contains ONLY Scrum roles?",
+    "options": [
+      "Product owner, project manager, development team",
+      "Product owner, Scrum Master, increment",
+      "Scrum Master, development team, sprint",
+      "Product owner, Scrum Master, development team"
+    ],
+    "answer": 3
+  },
+  {
+    "question": "Which list contains ONLY the three pillars of Scrum?",
+    "options": [
+      "Collaboration, inspection, adaptation",
+      "Transparency, inspection, retrospection",
+      "Transparency, iteration, adaptation",
+      "Transparency, inspection, adaptation"
+    ],
+    "answer": 3
+  },
+  {
+    "question": "How do the product backlog and the sprint backlog relate?",
+    "options": [
+      "The sprint backlog is the ordered list of everything needed; the product backlog is the subset selected for the current sprint",
+      "The product backlog is only seen by stakeholders; the sprint backlog is only seen by developers",
+      "They are the same list, held in two different tools",
+      "The product backlog is the ordered list of everything needed; the sprint backlog is the subset selected for the current sprint"
+    ],
+    "answer": 3
+  },
+  {
+    "question": "What is an increment?",
+    "options": [
+      "A working piece of software built on top of all previous increments, as a stepping stone towards the product goal",
+      "The list of bugs that were found during the sprint and that the team will fix in the next one",
+      "A single finished feature, considered separately from the rest of the software and the earlier increments",
+      "The document describing what the team will do in the next sprint and which stories it will pick up"
+    ],
+    "answer": 0
+  },
+  {
+    "question": "At the end of a sprint, the new login feature works but the rest of the software no longer does. Is this a proper increment?",
+    "options": [
+      "No, an increment must be a working piece of software, not one feature that breaks the rest",
+      "Yes, as long as the product owner approves the login feature at the sprint review meeting",
+      "No, because increments must always contain at least five user stories to be worth reviewing",
+      "Yes, because the sprint goal was only the login feature and nothing else needed to keep working"
+    ],
+    "answer": 0
+  },
+  {
+    "question": "How do the sprint goal and the product goal differ?",
+    "options": [
+      "The product goal summarises the focus of one sprint; the sprint goal is the product wanted at the end of all the sprints",
+      "The sprint goal is the list of all user stories; the product goal is the burn down chart",
+      "The sprint goal summarises the focus of one sprint; the product goal is the product wanted at the end of all the sprints",
+      "They are the same, but one is written by the product owner and the other by the Scrum Master"
+    ],
+    "answer": 2
+  },
+  {
+    "question": "What decides how many sprints the team has to reach the product goal?",
+    "options": [
+      "It is unlimited; Scrum continues until the product backlog is empty, however long that takes",
+      "The Scrum Master, who fixes it at ten sprints so the team can plan its work in advance",
+      "The time and budget available for allocating people; if the deadline is hard, scope may be reduced",
+      "The stakeholders, who extend the sprints until every item on the backlog has been completed"
+    ],
+    "answer": 2
+  },
+  {
+    "question": "On the course task board, which Scrum idea is the 'To do' list most similar to, and which is 'In progress' most similar to?",
+    "options": [
+      "To do is similar to the increment; in progress is similar to the product goal",
+      "To do is similar to the product backlog; in progress is similar to the sprint",
+      "To do is similar to the sprint; in progress is similar to the product backlog",
+      "To do is similar to the sprint review; in progress is similar to the retrospective"
+    ],
+    "answer": 1
+  },
+  {
+    "question": "When does sprint planning happen, and what is its purpose?",
+    "options": [
+      "At the end of each sprint, to demonstrate the working increment to the stakeholders who attend",
+      "At the start of each sprint, to define the sprint goal, select backlog items and plan how the work will get done",
+      "Every day at the same time, to share progress and raise blockers so the team can help each other",
+      "After the sprint review, to reflect on how the team worked together and what to improve next time"
+    ],
+    "answer": 1
+  },
+  {
+    "question": "A sprint is typically about two weeks long. Which statement is correct?",
+    "options": [
+      "It is always one month, so that each increment is large enough to be worth showing to stakeholders",
+      "It changes in length from sprint to sprint, to match the amount of work that is on the backlog",
+      "It is always exactly two weeks in every team, because that is what the Scrum framework requires",
+      "It can vary, and can even be as short as a day, but within a team it is a fixed length"
+    ],
+    "answer": 3
+  },
+  {
+    "question": "Which items does the team pull into the sprint backlog at sprint planning?",
+    "options": [
+      "Every item on the product backlog that has not yet been started, so nothing is left behind",
+      "Whichever items the individual developers like the most, so that they stay motivated during the sprint",
+      "Items from the top of the prioritised product backlog that the team can realistically get done in the sprint",
+      "Items from the bottom of the product backlog, so that the higher priorities are not rushed"
+    ],
+    "answer": 2
+  },
+  {
+    "question": "What are the three standard daily scrum questions?",
+    "options": [
+      "What did you do last week? What are you going to do next week? Do you have any budget issues?",
+      "What did you do yesterday? What are you going to do today? Do you have any blockers?",
+      "What did you do today? What are you going to do tomorrow? Do you have any blockers?",
+      "What did you do yesterday? What are you going to do this sprint? Do you have any risks?"
+    ],
+    "answer": 1
+  },
+  {
+    "question": "Why is it important to listen to everyone at the daily scrum, rather than just saying your own update?",
+    "options": [
+      "The daily scrum is the place the product backlog is re-ordered",
+      "The Scrum Master marks you down if you are not paying attention",
+      "You might need to help a teammate overcome their blocker",
+      "The stakeholders review the updates at the end of the day"
+    ],
+    "answer": 2
+  },
+  {
+    "question": "What is the sprint review?",
+    "options": [
+      "A blameless meeting where the team reflects on its processes and chooses improvements for next time",
+      "A meeting at the end of the sprint, sometimes with stakeholders invited, to review the work and demonstrate the increment",
+      "A meeting at the start of the sprint where the sprint goal is agreed and the items are selected",
+      "A short daily meeting where each person says what they did yesterday and raises any blockers"
+    ],
+    "answer": 1
+  },
+  {
+    "question": "Which statement correctly contrasts the sprint review with the sprint retrospective?",
+    "options": [
+      "The retrospective demonstrates what was done, to stakeholders; the review is the team's reflection on its process and improvements",
+      "Both are the team's blameless reflection, but one includes the stakeholders",
+      "The review demonstrates what was done, to stakeholders; the retrospective is the team's reflection on its process and improvements",
+      "Both are demonstrations of the increment, but one is held daily"
+    ],
+    "answer": 2
+  },
+  {
+    "question": "Why is the sprint retrospective described as blameless?",
+    "options": [
+      "Because the stakeholders attend and the team does not want to admit its mistakes in front of them",
+      "It is a reflection on how the team can work better together, not a chance to point fingers",
+      "Because the Scrum Master is held responsible for every missed task, so no one else is blamed",
+      "Because only the things that went well are discussed, so that no one feels uncomfortable"
+    ],
+    "answer": 1
+  },
+  {
+    "question": "How should the team feel by the end of a sprint retrospective?",
+    "options": [
+      "That they have a few manageable improvements to work on in the next sprint",
+      "That nothing needs to change because the sprint is already over",
+      "That they have a long list of every possible issue to fix at once",
+      "That they have identified who caused each problem"
+    ],
+    "answer": 0
+  },
+  {
+    "question": "At the end of a sprint, some user stories are only partly finished and others were never started. What happens to them?",
+    "options": [
+      "They are deleted, because the sprint has ended and the stakeholders will raise them again later",
+      "They automatically roll over into the next sprint backlog so the team can carry on with them",
+      "They stay in the sprint backlog until they are done, whichever sprint that ends up being",
+      "They go back into the product backlog and are reviewed at the next sprint planning meeting"
+    ],
+    "answer": 3
+  },
+  {
+    "question": "Why do unfinished items not automatically go into the next sprint?",
+    "options": [
+      "Priorities and requirements may have changed since the last sprint planning meeting",
+      "Only the Scrum Master is allowed to carry items over, and only with the stakeholders' approval",
+      "Unfinished items must be rewritten from scratch by the stakeholders before they can be reused",
+      "The sprint backlog can only contain brand-new items that have never been started by the team"
+    ],
+    "answer": 0
+  },
+  {
+    "question": "Which sequence of events within and around a sprint is correct?",
+    "options": [
+      "Sprint planning, daily scrums during the sprint, sprint retrospective, sprint review",
+      "Sprint planning, sprint review, daily scrums during the sprint, sprint retrospective",
+      "Sprint planning, daily scrums during the sprint, sprint review, sprint retrospective",
+      "Sprint review, sprint planning, daily scrums during the sprint, sprint retrospective"
+    ],
+    "answer": 2
+  },
+  {
+    "question": "Which of these is part of the development work on a user story?",
+    "options": [
+      "Chairing the retrospective, choosing the improvements and recording the action items for next time",
+      "Re-ordering the product backlog and negotiating priorities with stakeholders for the next sprint",
+      "Deciding the sprint goal and the product goal, then agreeing them with the product owner",
+      "Code design, unit testing, coding, reviewing code, version control and updating documentation"
+    ],
+    "answer": 3
+  },
+  {
+    "question": "Which user story should a developer pick next from the sprint backlog?",
+    "options": [
+      "Whichever one the Scrum Master assigns them",
+      "Whichever one they find easiest",
+      "The one the product owner picks during the daily scrum",
+      "One from the top, as the backlog is in priority order"
+    ],
+    "answer": 3
+  },
+  {
+    "question": "What happens when a user story meets its definition of done?",
+    "options": [
+      "It is moved to the next sprint, to be tested again by a different developer before it is released",
+      "It is left in the sprint backlog until the sprint review, when the stakeholders decide if it is done",
+      "It is moved to the relevant column on the task board, and the developer picks the next story",
+      "It is returned to the product backlog for the product owner to close once the sprint has ended"
+    ],
+    "answer": 2
+  },
+  {
+    "question": "What can happen at a retrospective board that tracks mood across the sprint, sometimes called 'cliffs and valleys'?",
+    "options": [
+      "People chart how the sprint felt, such as starting happy and dipping when blockers appeared, with sticky notes",
+      "The team estimates the effort of each backlog item using numbered cards, then discusses the outliers",
+      "The product owner ranks the stakeholders on a power-interest grid to decide who to keep informed",
+      "The Scrum Master plots the story points that are still remaining in the sprint on a daily basis"
+    ],
+    "answer": 0
+  },
+  {
+    "question": "What does a retrospective typically end with?",
+    "options": [
+      "A new set of sprint dates, agreed with the product owner and the Scrum Master",
+      "A demonstration of the new increment to the stakeholders who attended the review",
+      "A re-ordered product backlog, reflecting the new priorities agreed with the stakeholders",
+      "A few manageable action items for improving the next sprint"
+    ],
+    "answer": 3
+  },
+  {
+    "question": "A team lead says that when things go wrong in the team, they should accept responsibility for the whole team. Which Scrum idea is this closest to?",
+    "options": [
+      "Servant leadership of the product owner, who is answerable to the stakeholders for the whole team",
+      "A blameless culture, where the focus is on avoiding the problem next time rather than who is at fault",
+      "The sprint review, where leaders demonstrate the increment and take the stakeholders' questions",
+      "Transparency, where the leader reports each person's failures to the stakeholders in full"
+    ],
+    "answer": 1
+  },
+  {
+    "question": "Which statement defines transparency, the first pillar of Scrum?",
+    "options": [
+      "Stakeholders can see the code as it is written",
+      "Everyone presents the facts as they are, with no hidden agenda",
+      "The team continuously improves based on what it realises",
+      "Anyone on the Scrum team can check the product, process, people and practices"
+    ],
+    "answer": 1
+  },
+  {
+    "question": "Which statement defines inspection?",
+    "options": [
+      "Anyone on the Scrum team can check the product, process, people and practices, rather than a separate inspector",
+      "Everyone presents the facts as they are, with no hidden agenda, in front of the rest of the team",
+      "The team continuously improves its product and processes based on what it realises along the way",
+      "A dedicated inspector reviews the team's work at the end of each sprint and reports to the product owner"
+    ],
+    "answer": 0
+  },
+  {
+    "question": "Which statement defines adaptation?",
+    "options": [
+      "Anyone on the Scrum team can check the product, process, people and practices, not just an inspector",
+      "Changing the sprint length every time that the requirements change during the project",
+      "Everyone presents the facts as they are, with no hidden agenda, in front of the rest of the team",
+      "Continuous improvement based on what the team realises about the product, processes, people and practices"
+    ],
+    "answer": 3
+  },
+  {
+    "question": "A developer admits at the daily scrum that a story is behind schedule, rather than hiding it. Which pillar does this show?",
+    "options": [
+      "Adaptation",
+      "Inspection",
+      "Transparency",
+      "Estimation"
+    ],
+    "answer": 2
+  },
+  {
+    "question": "After a retrospective, the team changes how it runs its daily scrum to make it more useful. Which pillar does this show?",
+    "options": [
+      "Adaptation",
+      "Transparency",
+      "Prioritisation",
+      "Inspection"
+    ],
+    "answer": 0
+  },
+  {
+    "question": "A product manager from outside the Scrum team arrives and criticises how the team works. Why does this not match the inspection pillar?",
+    "options": [
+      "Inspection can only be done by the Scrum Master, who then reports to the rest of the team",
+      "Inspection can only be done by stakeholders, and only at the sprint review at the end of the sprint",
+      "Inspection is only applied to the code and the product, never to the team's processes or people",
+      "Inspection is done by the Scrum team members themselves, not by someone coming in from outside"
+    ],
+    "answer": 3
+  },
+  {
+    "question": "Which statement about a sprint is correct?",
+    "options": [
+      "Scope can never be discussed with the product owner once it has started",
+      "Quality can be reduced to hit the sprint goal if the Scrum Master agrees",
+      "It has a fixed length and always works towards the product goal",
+      "Its length changes from week to week depending on the workload"
+    ],
+    "answer": 2
+  },
+  {
+    "question": "During a sprint, the team learns more about a user story. What can happen to its scope?",
+    "options": [
+      "The Scrum Master decides the new scope alone and tells the developers what has changed",
+      "It may be clarified and renegotiated with the product owner, but the team keeps working on the sprint backlog",
+      "It can never be discussed with anyone until the sprint review, when the stakeholders are present",
+      "The team swaps it for a different story straight away, without checking with the product owner"
+    ],
+    "answer": 1
+  },
+  {
+    "question": "Can the product backlog be changed while a sprint is in progress?",
+    "options": [
+      "No, only the sprint backlog can change during a sprint, and then only by the developers",
+      "No, the product backlog is frozen until the sprint review, to protect the sprint goal",
+      "Yes, it can be refined as needed, such as adding or adjusting stories as the team learns more",
+      "Yes, but only by the Scrum Master, who then tells the product owner what was changed"
+    ],
+    "answer": 2
+  },
+  {
+    "question": "Halfway through a sprint, a developer suggests skipping the performance work to finish on time. What does the sprint rule say?",
+    "options": [
+      "That is allowed if the stakeholders agree at the review",
+      "That is allowed because delivering on time matters more than quality",
+      "That is allowed if the Scrum Master documents it",
+      "Quality does not decrease; changes must not endanger the sprint goal"
+    ],
+    "answer": 3
+  }
+]
