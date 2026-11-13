@@ -10,7 +10,7 @@ from pathlib import Path
 from dash import ALL, Dash, Input, Output, State, ctx, dcc, html, no_update
 
 PASS_MARK = 65   # below this is a fail
-GOOD_MARK = 80   # this and above is good
+GOOD_MARK = 85   # this and above is good
 LETTERS = "ABCD"
 
 
