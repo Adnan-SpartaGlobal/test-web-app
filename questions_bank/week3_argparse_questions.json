@@ -1,0 +1,338 @@
+[
+ {
+  "question": "What is argparse for?",
+  "options": [
+   "Defining which command-line arguments a script accepts and turning them into named values",
+   "Writing log files with timestamps",
+   "Reading environment variables from the shell",
+   "Running other programs from inside Python"
+  ],
+  "answer": 0,
+  "explanation": "ArgumentParser controls what can and cannot be passed in the terminal, and gives you values like args.version instead of positions in a list.",
+  "module": "argparse"
+ },
+ {
+  "question": "Why does argparse exist when sys.argv already gives you the arguments?",
+  "options": [
+   "argparse is faster because it avoids the interpreter",
+   "sys.argv cannot read more than one argument",
+   "With sys.argv you must handle order, defaults, help text and validation yourself, which gets complicated",
+   "sys.argv only works inside the Python IDE"
+  ],
+  "answer": 2,
+  "explanation": "The trainer's point: options can appear in any place, you need defaults, a --help, port numbers and so on. argparse handles all of that.",
+  "module": "argparse"
+ },
+ {
+  "question": "In parser.add_argument(\"version\"), why is version mandatory?",
+  "options": [
+   "Because it is the first call to add_argument",
+   "It has no -- in front, so it is a positional argument",
+   "Because its name is lowercase",
+   "Because it has no default value written in the code"
+  ],
+  "answer": 1,
+  "explanation": "No leading dashes means positional, and positional arguments are required. A -- prefix makes an argument optional.",
+  "module": "argparse"
+ },
+ {
+  "question": "In parser.add_argument(\"--config\", default=\"deploy.yaml\"), what makes --config optional?",
+  "options": [
+   "The fact it comes second",
+   "The default value",
+   "The help text",
+   "The leading -- in its name"
+  ],
+  "answer": 3,
+  "explanation": "The double hyphen marks it optional. The default is what you get when it is left out.",
+  "module": "argparse"
+ },
+ {
+  "question": "A script defines positional \"version\" and optional \"--config\" (default deploy.yaml). What is args.config after parse_args([\"v2\"])?",
+  "options": [
+   "v2",
+   "An error is raised",
+   "None",
+   "deploy.yaml"
+  ],
+  "answer": 3,
+  "explanation": "Config was never supplied, so the default is used.",
+  "module": "argparse"
+ },
+ {
+  "question": "Same parser. What is args.config after parse_args([\"v2\", \"--config\", \"staging.yaml\"])?",
+  "options": [
+   "staging.yaml",
+   "deploy.yaml",
+   "--config",
+   "v2"
+  ],
+  "answer": 0,
+  "explanation": "A value supplied on the command line overrides the default.",
+  "module": "argparse"
+ },
+ {
+  "question": "What does required=True do on an option such as --env?",
+  "options": [
+   "Gives the option a default of True",
+   "Makes the option mandatory, so leaving it out is an error",
+   "Makes the option appear first in the help",
+   "Allows the option to be repeated"
+  ],
+  "answer": 1,
+  "explanation": "Without --env, parse_args prints an error and exits.",
+  "module": "argparse"
+ },
+ {
+  "question": "What happens when parse_args() is called without a required argument?",
+  "options": [
+   "It returns None for the missing value and carries on",
+   "It asks the user to type the value",
+   "It prints a usage error and exits with code 2",
+   "It uses the last value from the previous run"
+  ],
+  "answer": 2,
+  "explanation": "argparse calls SystemExit with code 2 for invalid usage.",
+  "module": "argparse"
+ },
+ {
+  "question": "What exit code does argparse use when the arguments are invalid, for example --port not-a-number?",
+  "options": [
+   "0",
+   "255",
+   "2",
+   "1"
+  ],
+  "answer": 2,
+  "explanation": "The trainer's example printed \"argparse exited with code 2\" after catching SystemExit.",
+  "module": "argparse"
+ },
+ {
+  "question": "What does type=int do in add_argument(\"--port\", type=int, default=8801)?",
+  "options": [
+   "Stops the port being used twice",
+   "Converts the supplied value to an integer, and rejects values that are not numbers",
+   "Forces the default to be a string",
+   "Only affects the help message"
+  ],
+  "answer": 1,
+  "explanation": "Command-line values are strings. type=int converts them and errors on something like \"abc\".",
+  "module": "argparse"
+ },
+ {
+  "question": "What does this print?\n```python\nimport argparse\np = argparse.ArgumentParser()\np.add_argument('--port', type=int, default=8801)\nargs = p.parse_args(['--port', '9000'])\nprint(args.port, type(args.port).__name__)\n```",
+  "options": [
+   "9000 int",
+   "9000 9000",
+   "8801 int",
+   "9000 str"
+  ],
+  "answer": 0,
+  "explanation": "The supplied value 9000 is converted by type=int. type(...).__name__ is the type's name.",
+  "module": "argparse"
+ },
+ {
+  "question": "What is args.port if the user does not pass --port and the default is 8801 with type=int?",
+  "options": [
+   "None",
+   "0",
+   "An error is raised",
+   "8801"
+  ],
+  "answer": 3,
+  "explanation": "The default is used when the option is not given.",
+  "module": "argparse"
+ },
+ {
+  "question": "What does choices=[\"text\", \"json\", \"csv\"] do?",
+  "options": [
+   "It makes the option accept a list of values at once",
+   "Only those three values are accepted for that option",
+   "It prints the choices as a menu",
+   "It sets the default to text"
+  ],
+  "answer": 1,
+  "explanation": "Anything else is rejected with an error and exit code 2.",
+  "module": "argparse"
+ },
+ {
+  "question": "With --format having choices text/json/csv and default text, what is the result of parse_args([\"--format\", \"json\"]).format?",
+  "options": [
+   "csv",
+   "text",
+   "An error",
+   "json"
+  ],
+  "answer": 3,
+  "explanation": "json is one of the allowed choices, so it is accepted.",
+  "module": "argparse"
+ },
+ {
+  "question": "What does action=\"store_true\" do for --dry-run?",
+  "options": [
+   "Makes it a flag: True if it is given, False if it is not",
+   "Makes it store the next word as text",
+   "Makes it a required argument",
+   "Saves the argument to a file"
+  ],
+  "answer": 0,
+  "explanation": "A flag takes no value. Its presence turns it on.",
+  "module": "argparse"
+ },
+ {
+  "question": "What do these two prints show?\n```python\nimport argparse\np = argparse.ArgumentParser()\np.add_argument('--dry-run', action='store_true')\nprint(p.parse_args([]).dry_run)\nprint(p.parse_args(['--dry-run']).dry_run)\n```",
+  "options": [
+   "False, then False",
+   "True, then False",
+   "False, then True",
+   "None, then True"
+  ],
+  "answer": 2,
+  "explanation": "Without the flag the value is False. With --dry-run it is True.",
+  "module": "argparse"
+ },
+ {
+  "question": "How do you read the value of an option declared as --dry-run?",
+  "options": [
+   "args[\"--dry-run\"]",
+   "args.dryrun()",
+   "args.dry_run, with an underscore",
+   "args.dry-run"
+  ],
+  "answer": 2,
+  "explanation": "argparse turns hyphens in the option name into underscores for the attribute name.",
+  "module": "argparse"
+ },
+ {
+  "question": "What does a dry run mean in the trainer's explanation?",
+  "options": [
+   "Deleting the output of the last run",
+   "Running the script with no internet connection",
+   "Running it twice to compare the results",
+   "Showing what the script would do, without actually doing it"
+  ],
+  "answer": 3,
+  "explanation": "A dry run checks that something would work, a bit like simulating it without changing anything.",
+  "module": "argparse"
+ },
+ {
+  "question": "What does parser.parse_args() with NO list argument read from?",
+  "options": [
+   "The environment variables",
+   "The real command line (sys.argv)",
+   "The last test that was run",
+   "A file called args.txt"
+  ],
+  "answer": 1,
+  "explanation": "Passing a list, as the practice code did, just simulates the command line.",
+  "module": "argparse"
+ },
+ {
+  "question": "In the practice code, parse_args([\"--port\", \"9000\"]) was used. Why pass a list?",
+  "options": [
+   "To simulate the arguments a user would type, instead of reading the real command line",
+   "To pass the arguments to a different script",
+   "To make the arguments immutable",
+   "Because parse_args requires a list in every case"
+  ],
+  "answer": 0,
+  "explanation": "Normally you call parse_args() with nothing and it uses the real command line.",
+  "module": "argparse"
+ },
+ {
+  "question": "The order of optional arguments on the command line:",
+  "options": [
+   "Must always be alphabetical",
+   "Must put flags last",
+   "Must match the order in which add_argument was called",
+   "Does not matter, argparse works out which is which"
+  ],
+  "answer": 3,
+  "explanation": "That is one of the problems with sys.argv that argparse solves.",
+  "module": "argparse"
+ },
+ {
+  "question": "What is the effect of description=\"Deploy a release of flask-demo.\" in ArgumentParser?",
+  "options": [
+   "It appears in the --help output",
+   "It becomes the program's name",
+   "It is written into the log file",
+   "It is the default for the first argument"
+  ],
+  "answer": 0,
+  "explanation": "The description is shown beneath the usage line when someone runs the script with --help.",
+  "module": "argparse"
+ },
+ {
+  "question": "What does help=\"the release to deploy, e.g. v2\" do?",
+  "options": [
+   "Prints automatically when the script starts",
+   "Provides the text shown next to that argument in --help",
+   "Validates the value against the text",
+   "Sets the default value of the argument"
+  ],
+  "answer": 1,
+  "explanation": "help is documentation for that argument, displayed by -h/--help.",
+  "module": "argparse"
+ },
+ {
+  "question": "Which options does argparse add automatically?",
+  "options": [
+   "-q and --quiet",
+   "None. You have to define help yourself",
+   "-h and --help",
+   "-v and --version"
+  ],
+  "answer": 2,
+  "explanation": "Running python practice.py --help prints the usage, positional arguments and options.",
+  "module": "argparse"
+ },
+ {
+  "question": "What does parser.print_help() do?",
+  "options": [
+   "Lists only the required arguments",
+   "Prints the same help text that --help shows",
+   "Writes the help to a file",
+   "Exits the script with code 0"
+  ],
+  "answer": 1,
+  "explanation": "You can call it yourself at any point to show the usage.",
+  "module": "argparse"
+ },
+ {
+  "question": "In the usage line \"usage: practice.py [-h] version\", what do the square brackets mean?",
+  "options": [
+   "The argument is a list",
+   "The argument is required",
+   "The argument is a number",
+   "The argument is optional"
+  ],
+  "answer": 3,
+  "explanation": "[-h] is optional, while version has no brackets because it is required.",
+  "module": "argparse"
+ },
+ {
+  "question": "A positional argument is named \"version\". Does the name have to be \"version\"?",
+  "options": [
+   "No. It is just the name you choose, and you read it later as args.<name>",
+   "Yes. argparse only recognises names it knows",
+   "Yes. It has to match the script's file name",
+   "No, but it must be at least 7 letters"
+  ],
+  "answer": 0,
+  "explanation": "The tutorial said version but you can call it whatever you want.",
+  "module": "argparse"
+ },
+ {
+  "question": "What does this raise?\n```python\nimport argparse\np = argparse.ArgumentParser()\np.add_argument('--format', choices=['text', 'json'])\ntry:\n    p.parse_args(['--format', 'cat'])\nexcept BaseException as e:\n    print(type(e).__name__)\n```",
+  "options": [
+   "ValueError",
+   "Nothing. It returns None",
+   "SystemExit, because \"cat\" is not one of the allowed choices",
+   "KeyError"
+  ],
+  "answer": 2,
+  "explanation": "argparse reports invalid choices by printing an error and exiting with code 2.",
+  "module": "argparse"
+ }
+]

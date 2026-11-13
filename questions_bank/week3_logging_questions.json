@@ -1,0 +1,398 @@
+[
+ {
+  "question": "A script prints \"health check failed\" with print(). Which problem does the trainer say logging solves that print() does not?",
+  "options": [
+   "print() only works inside functions, so top-level scripts need the logging module instead",
+   "print() cannot display text that contains numbers, so values have to be converted first",
+   "print() gives no timestamp, importance level or source, and cannot easily send detail to a file while only a summary goes to the screen",
+   "print() always writes to a file, which makes the terminal output impossible to read"
+  ],
+  "answer": 2,
+  "explanation": "Print just prints what you tell it. Logging adds a timestamp, a level and a source, and lets you change the amount of detail easily, for example full detail in a file and less on screen.",
+  "module": "Logging"
+ },
+ {
+  "question": "What is the order of the standard logging levels from least to most severe?",
+  "options": [
+   "CRITICAL, ERROR, WARNING, INFO, DEBUG",
+   "DEBUG, WARNING, INFO, ERROR, CRITICAL",
+   "INFO, DEBUG, WARNING, CRITICAL, ERROR",
+   "DEBUG, INFO, WARNING, ERROR, CRITICAL"
+  ],
+  "answer": 3,
+  "explanation": "Five levels, from DEBUG (least important) up to CRITICAL (most important). Order is a classic sequence trap.",
+  "module": "Logging"
+ },
+ {
+  "question": "After logging.basicConfig(level=logging.INFO), which message is discarded?",
+  "options": [
+   "log.debug(\"loop value: 3\")",
+   "log.error(\"could not connect\")",
+   "log.warning(\"disk is 85% full\")",
+   "log.info(\"starting deploy\")"
+  ],
+  "answer": 0,
+  "explanation": "The level is a threshold. Anything below INFO (that is, DEBUG) is discarded. INFO, WARNING, ERROR and CRITICAL still get logged.",
+  "module": "Logging"
+ },
+ {
+  "question": "The trainer changed the level from INFO to DEBUG and re-ran the script. What changed in the output?",
+  "options": [
+   "Nothing changes, because the level only affects log files",
+   "The debug line now appears as well, because DEBUG and above are logged",
+   "The script raises an error, because DEBUG is not a valid level for basicConfig",
+   "Only the debug line appears, because DEBUG selects just that level"
+  ],
+  "answer": 1,
+  "explanation": "The level means 'this level and above'. Lowering the threshold to DEBUG lets everything through.",
+  "module": "Logging"
+ },
+ {
+  "question": "Which statement about the level threshold is correct?",
+  "options": [
+   "Setting WARNING keeps only the WARNING messages and discards all others",
+   "Setting WARNING has no effect unless a file handler is also attached",
+   "Setting WARNING discards ERROR and CRITICAL because they are above it",
+   "Setting WARNING discards DEBUG and INFO but keeps WARNING, ERROR and CRITICAL"
+  ],
+  "answer": 3,
+  "explanation": "The threshold works upward: it drops the less important levels and keeps that level and everything more important.",
+  "module": "Logging"
+ },
+ {
+  "question": "Why does logging discard the LEAST important levels by default and not the most important ones?",
+  "options": [
+   "Python can only store the first three levels in memory at a time",
+   "You rarely want to throw away the most important messages, while debug detail is mainly useful to developers and testers",
+   "Lower levels use more disk space, so they are removed first to save storage",
+   "The most important levels are written to a file automatically and so no longer need to be shown"
+  ],
+  "answer": 1,
+  "explanation": "DEBUG messages (for example a variable's value inside a loop) help while coding or testing, but are not needed once the code is deployed.",
+  "module": "Logging"
+ },
+ {
+  "question": "In the trainer's rule of thumb, which levels usually mean you may need to ACT on the message?",
+  "options": [
+   "All five levels equally, because every message needs a response",
+   "Only DEBUG, because it contains the most detail",
+   "ERROR and CRITICAL (and WARNING needs reading to decide)",
+   "INFO and WARNING, because they are the most common"
+  ],
+  "answer": 2,
+  "explanation": "DEBUG and INFO usually let things carry on. WARNING is the dividing line: read it and decide whether to act. ERROR and CRITICAL are the ones you most likely need to act on.",
+  "module": "Logging"
+ },
+ {
+  "question": "The trainer sets a console handler to INFO and a file handler to DEBUG. Why?",
+  "options": [
+   "The file keeps extra detail for investigating later, while the console stays uncluttered",
+   "The console cannot display DEBUG messages, so they have to go to a file",
+   "DEBUG messages are written twice if both handlers use the same level",
+   "The file handler only accepts messages from the root logger, while the console accepts the rest"
+  ],
+  "answer": 0,
+  "explanation": "Different destinations can have different levels. Less noise on screen, full detail saved in the log file.",
+  "module": "Logging"
+ },
+ {
+  "question": "basicConfig is set to level=INFO, but the file handler is set to DEBUG. Do debug messages reach the file?",
+  "options": [
+   "Yes. A handler's own level always overrides the logger's level",
+   "No. File handlers cannot receive debug messages at all",
+   "Yes, but only if the file already exists",
+   "No. They are filtered out at the logger's level before any handler sees them"
+  ],
+  "answer": 3,
+  "explanation": "A message must pass the logger's level first. If the logger discards DEBUG, the handler never gets it, so the file never contains it.",
+  "module": "Logging"
+ },
+ {
+  "question": "What does logging.getLogger(\"deploy\") give you?",
+  "options": [
+   "A logger named \"deploy\", whose name can appear in the output and be kept separate from other loggers",
+   "A handler that sends every message to the deployment server",
+   "A file called deploy.log created in the current folder",
+   "A built-in preset logger that only exists for deployments"
+  ],
+  "answer": 0,
+  "explanation": "The name is up to you. It shows in the output (via %(name)s) and lets different parts of a program log separately.",
+  "module": "Logging"
+ },
+ {
+  "question": "A student asked whether they could name a logger \"banana\". What is the answer?",
+  "options": [
+   "No. Only names from a preset list can be used",
+   "Yes, but banana silently turns the logger off",
+   "Yes, it works, but the output would show banana and be confusing, so use a meaningful name",
+   "No. Logger names must match the name of the Python file"
+  ],
+  "answer": 2,
+  "explanation": "Any name works, but the name appears in the log lines, so it should say what is being logged.",
+  "module": "Logging"
+ },
+ {
+  "question": "In the log line \"WARNING deploy attempt 1 failed\", what is \"deploy\"?",
+  "options": [
+   "The hostname of the server",
+   "The name of the logger that produced the message",
+   "The name of the Python file",
+   "The level of the message"
+  ],
+  "answer": 1,
+  "explanation": "With a format containing %(name)s, the logger's name is printed after the level.",
+  "module": "Logging"
+ },
+ {
+  "question": "Which format string adds a timestamp, the level and the message?",
+  "options": [
+   "\"{asctime} {levelname} {message}\"",
+   "\"%(time)s %(level)s %(text)s\"",
+   "\"%(asctime)s %(levelname)s %(message)s\"",
+   "\"%(timestamp)d %(severity)d %(msg)d\""
+  ],
+  "answer": 2,
+  "explanation": "Those are the real attribute names: asctime, levelname and message (name, funcName and lineno are also available).",
+  "module": "Logging"
+ },
+ {
+  "question": "Which format placeholder shows the line number of the logging call?",
+  "options": [
+   "%(lineno)d",
+   "%(linenum)d",
+   "%(number)s",
+   "%(line)s"
+  ],
+  "answer": 0,
+  "explanation": "The trainer's table includes the logger name (%(name)s), the function (%(funcName)s) and the line number (%(lineno)d).",
+  "module": "Logging"
+ },
+ {
+  "question": "In datefmt, which code gives MINUTES?",
+  "options": [
+   "%m",
+   "%i",
+   "%n",
+   "%M"
+  ],
+  "answer": 3,
+  "explanation": "%M is minutes and %m is the month. Capital versus lowercase is a favourite trap (also %S seconds, %H hours).",
+  "module": "Logging"
+ },
+ {
+  "question": "A student guessed the day of the month would be %d, and tried it. What happened?",
+  "options": [
+   "It gave the day of the week",
+   "It worked: %d gives the day of the month",
+   "It failed, because the day needs two letters, %dd",
+   "It gave the number of days in the month"
+  ],
+  "answer": 1,
+  "explanation": "The date and time codes use one character each: %d is the day, %m the month, %Y the four-digit year.",
+  "module": "Logging"
+ },
+ {
+  "question": "What does a timestamp in each line let you work out?",
+  "options": [
+   "Which file contains the code that logged it",
+   "When it happened, in what order, and how long something has been going on",
+   "Which user ran the script",
+   "Only whether the message was an error or not"
+  ],
+  "answer": 1,
+  "explanation": "Without timestamps you cannot tell whether a failure came before or after a restart, or how long a problem has lasted.",
+  "module": "Logging"
+ },
+ {
+  "question": "Which call logs a message AND the full traceback of the exception being handled?",
+  "options": [
+   "log.error(\"could not read the port from config\")",
+   "log.warning(\"could not read the port from config\")",
+   "log.exception(\"could not read the port from config\")",
+   "log.info(\"could not read the port from config\")"
+  ],
+  "answer": 2,
+  "explanation": "log.exception prints your message plus the traceback. log.error gives only the one line.",
+  "module": "Logging"
+ },
+ {
+  "question": "When is log.error() a better choice than log.exception()?",
+  "options": [
+   "When the message is a DEBUG-level detail",
+   "When the program has crashed and cannot continue",
+   "When you are not inside an except block",
+   "When you know exactly what went wrong and do not need the traceback"
+  ],
+  "answer": 3,
+  "explanation": "log.error gives one clean line. Use log.exception when the traceback is worth keeping.",
+  "module": "Logging"
+ },
+ {
+  "question": "Which level does log.exception() record the message at?",
+  "options": [
+   "ERROR",
+   "DEBUG",
+   "WARNING",
+   "CRITICAL"
+  ],
+  "answer": 0,
+  "explanation": "log.exception is an ERROR-level log with the exception information attached. It is meant to be called from an except block.",
+  "module": "Logging"
+ },
+ {
+  "question": "In the example deploy log, the last INFO line says the service is healthy again after a rollback. Why does it matter?",
+  "options": [
+   "It is only there to show the timestamp format",
+   "It proves the DEBUG lines were removed",
+   "It is unimportant, because INFO lines can always be ignored",
+   "It records the outcome, which is important to know even though no action is needed"
+  ],
+  "answer": 3,
+  "explanation": "The trainer stressed that INFO can be very important, especially for recording what finally happened.",
+  "module": "Logging"
+ },
+ {
+  "question": "A health check warning reads \"attempt 1 failed\". How would including the status code improve it?",
+  "options": [
+   "It stops the attempt from being retried",
+   "It tells you WHY the attempt failed, for example a server error",
+   "It makes the log file smaller",
+   "It changes the level of the message"
+  ],
+  "answer": 1,
+  "explanation": "A useful log message names the details (status code, version, attempt number), not just that something failed.",
+  "module": "Logging"
+ },
+ {
+  "question": "According to the trainer, how can you tell whether a log is useful?",
+  "options": [
+   "It is written without timestamps to save space",
+   "It contains as many DEBUG lines as possible",
+   "It tells a story of what happened, even if you only scan the warnings and errors",
+   "It prints every variable in the program"
+  ],
+  "answer": 2,
+  "explanation": "The levels should help the storytelling: attempts failed, the health check failed after five attempts, then the rollback and recovery.",
+  "module": "Logging"
+ },
+ {
+  "question": "Why can logging be turned up or down more easily than print() statements?",
+  "options": [
+   "Changing the configured level changes how much detail is logged, with no edits to each call",
+   "Each print() must be rewritten as logging.info before it can be hidden",
+   "print() has levels but they cannot be changed",
+   "Logging can only be disabled by deleting the module"
+  ],
+  "answer": 0,
+  "explanation": "Raising or lowering the level in one place controls the noise. With print() you must edit or comment out lines.",
+  "module": "Logging"
+ },
+ {
+  "question": "Which statement about the logging module is true?",
+  "options": [
+   "It must be installed with pip first",
+   "It is a third-party package from the Python Package Index",
+   "It only works on Linux",
+   "It is part of the standard library, so there is nothing to install"
+  ],
+  "answer": 3,
+  "explanation": "Just import logging. The trainer pointed out it is already there, so you do not have to write your own logging code.",
+  "module": "Logging"
+ },
+ {
+  "question": "What is basicConfig used for?",
+  "options": [
+   "Setting up the logging system once: level, format, date format and handlers",
+   "Creating an exception to log",
+   "Deleting the old log file",
+   "Writing a single message to the log"
+  ],
+  "answer": 0,
+  "explanation": "It configures the root logger. You call it once near the start of the script.",
+  "module": "Logging"
+ },
+ {
+  "question": "Which two kinds of handler let one logger write to the screen and to a file?",
+  "options": [
+   "A PrintHandler and a SaveHandler",
+   "A ConsoleLevel and a DiskLevel",
+   "A StreamHandler (console) and a FileHandler",
+   "Only a FileHandler, which also prints to the screen"
+  ],
+  "answer": 2,
+  "explanation": "Each handler is a destination with its own level. The same logger can send records to both at once.",
+  "module": "Logging"
+ },
+ {
+  "question": "What does the encoding argument of a FileHandler (for example \"utf-8\") set?",
+  "options": [
+   "The language of the log messages",
+   "The character set used when writing the log file",
+   "The level of messages saved",
+   "The compression format of the file"
+  ],
+  "answer": 1,
+  "explanation": "It is the same idea as encoding when opening a file: how characters are turned into bytes.",
+  "module": "Logging"
+ },
+ {
+  "question": "What does handler.setLevel(logging.INFO) do on a console handler?",
+  "options": [
+   "It sets the level for every handler",
+   "It turns off the handler for INFO",
+   "It converts all messages to INFO",
+   "That handler outputs only INFO and above"
+  ],
+  "answer": 3,
+  "explanation": "Each handler can have its own threshold on top of the logger's level.",
+  "module": "Logging"
+ },
+ {
+  "question": "Why would you log to a file as well as to the screen?",
+  "options": [
+   "The record survives after the terminal closes, so you can investigate later",
+   "Files can show colours that terminals cannot",
+   "Python refuses to log only to the screen",
+   "The screen cannot show timestamps"
+  ],
+  "answer": 0,
+  "explanation": "A log file persists. Combined with timestamps it lets you reconstruct what happened.",
+  "module": "Logging"
+ },
+ {
+  "question": "Which levels does a trainer-style log read as: DEBUG, INFO, WARNING?",
+  "options": [
+   "All three require immediate action",
+   "Things can usually carry on without action, though warnings should be read",
+   "They are only used in unit tests",
+   "They are only produced by crashes"
+  ],
+  "answer": 1,
+  "explanation": "Debug and info are informational. A warning is worth reading to decide if action is needed.",
+  "module": "Logging"
+ },
+ {
+  "question": "A script has logging.basicConfig(level=logging.WARNING). It calls log.info(\"x\") then log.error(\"y\"). Which appears?",
+  "options": [
+   "Neither message",
+   "Both messages",
+   "Only the error message",
+   "Only the info message"
+  ],
+  "answer": 2,
+  "explanation": "INFO is below the WARNING threshold and is discarded. ERROR is above it and is shown.",
+  "module": "Logging"
+ },
+ {
+  "question": "What does this print?\n```python\nimport logging, sys\nlogging.basicConfig(level=logging.INFO, format='%(levelname)s:%(name)s:%(message)s', stream=sys.stdout)\nlog = logging.getLogger('deploy')\nlog.debug('a')\nlog.info('b')\nlog.warning('c')\n```",
+  "options": [
+   "INFO:deploy:b then WARNING:deploy:c",
+   "WARNING:deploy:c only",
+   "INFO:deploy:b only",
+   "DEBUG:deploy:a then INFO:deploy:b then WARNING:deploy:c"
+  ],
+  "answer": 0,
+  "explanation": "Level INFO drops the debug line. The format puts level, logger name and message in that order.",
+  "module": "Logging"
+ }
+]

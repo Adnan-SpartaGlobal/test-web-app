@@ -1,0 +1,422 @@
+[
+ {
+  "question": "In the trainer's explanation, what is an API in simple terms?",
+  "options": [
+   "A tool that converts JSON into a Python dictionary",
+   "A Python library for building websites",
+   "A set of rules that lets software components talk to each other without knowing how the other works inside",
+   "A database that stores every request a server has handled"
+  ],
+  "answer": 2,
+  "explanation": "Both students' answers pointed at the same idea: communicating through agreed rules without needing to understand each other's internals.",
+  "module": "HTTP and requests"
+ },
+ {
+  "question": "Which four things does every HTTP request to a REST API include going OUT (the last is not always present)?",
+  "options": [
+   "A method, a URL, headers and sometimes a body",
+   "A method, a status code, a token and a timeout",
+   "A URL, a port, a log level and a body",
+   "A status code, a URL, headers and a body"
+  ],
+  "answer": 0,
+  "explanation": "What comes BACK is the status code (plus headers and usually a body).",
+  "module": "HTTP and requests"
+ },
+ {
+  "question": "What comes back to you from an HTTP request that tells you whether it worked?",
+  "options": [
+   "A header called Success",
+   "A status code",
+   "A timeout",
+   "A method"
+  ],
+  "answer": 1,
+  "explanation": "The status code gives an idea of what is going on, such as 200 for success or 404 for not found.",
+  "module": "HTTP and requests"
+ },
+ {
+  "question": "Which HTTP method means \"give me this\" (read data)?",
+  "options": [
+   "POST",
+   "PUT",
+   "DELETE",
+   "GET"
+  ],
+  "answer": 3,
+  "explanation": "GET reads. POST usually creates a new record, PUT replaces something, DELETE removes it.",
+  "module": "HTTP and requests"
+ },
+ {
+  "question": "Which method is generally used to create a NEW record?",
+  "options": [
+   "GET",
+   "POST",
+   "DELETE",
+   "PUT"
+  ],
+  "answer": 1,
+  "explanation": "Post is something new: it might create a new record somewhere.",
+  "module": "HTTP and requests"
+ },
+ {
+  "question": "Which method is normally used to REPLACE something that already exists?",
+  "options": [
+   "DELETE",
+   "POST",
+   "PUT",
+   "GET"
+  ],
+  "answer": 2,
+  "explanation": "PUT replaces. DELETE removes.",
+  "module": "HTTP and requests"
+ },
+ {
+  "question": "Why is JSON the most common format for exchanging data between systems?",
+  "options": [
+   "It is the only format Python can read",
+   "It is encrypted by default",
+   "It cannot contain nested data",
+   "It is lightweight, can be compressed to one line and does not depend on indentation like YAML"
+  ],
+  "answer": 3,
+  "explanation": "The trainer: you do not have to worry about spacing, which is why YAML is not usually used for this. XML is another format used for data transfer.",
+  "module": "HTTP and requests"
+ },
+ {
+  "question": "What does REST API usually use to communicate?",
+  "options": [
+   "HTTP or HTTPS methods",
+   "Raw sockets only",
+   "SSH keys",
+   "YAML files"
+  ],
+  "answer": 0,
+  "explanation": "REST APIs use HTTP/HTTPS methods such as GET and POST on URLs (endpoints).",
+  "module": "HTTP and requests"
+ },
+ {
+  "question": "The package called requests is used for what?",
+  "options": [
+   "Running shell commands",
+   "Checking Python syntax",
+   "Parsing command-line arguments",
+   "Making HTTP and API requests"
+  ],
+  "answer": 3,
+  "explanation": "It is not part of the standard library, so you need to install it with pip.",
+  "module": "HTTP and requests"
+ },
+ {
+  "question": "In PyCharm, import requests is underlined in red. What does that usually mean?",
+  "options": [
+   "The code has a syntax error",
+   "The package is not installed in the current environment",
+   "Python does not allow that import",
+   "The file must be renamed"
+  ],
+  "answer": 1,
+  "explanation": "Hover over it and choose Install package, or use pip.",
+  "module": "HTTP and requests"
+ },
+ {
+  "question": "What does this print?\n```python\nstatus_code = 200\ntext = '{\"limit\": 60}'\nprint(type(status_code).__name__, type(text).__name__)\n```",
+  "options": [
+   "It prints 200 only",
+   "It prints the JSON",
+   "<class 'str'> ... (the status code line is an int)",
+   "It raises a TypeError"
+  ],
+  "answer": 2,
+  "explanation": "response.status_code is an int, while response.text is a string. This is just a type check, showing the two have different types.",
+  "module": "HTTP and requests"
+ },
+ {
+  "question": "What is response.status_code for a successful request?",
+  "options": [
+   "200",
+   "100",
+   "500",
+   "404"
+  ],
+  "answer": 0,
+  "explanation": "200 means OK. The trainer also described 404 as not found and 5xx as server errors.",
+  "module": "HTTP and requests"
+ },
+ {
+  "question": "A request to a GitHub URL that does not exist returns which status code?",
+  "options": [
+   "401",
+   "503",
+   "200",
+   "404"
+  ],
+  "answer": 3,
+  "explanation": "404 means not found for this URL.",
+  "module": "HTTP and requests"
+ },
+ {
+  "question": "A status code in the 500s usually means:",
+  "options": [
+   "The token has expired",
+   "A problem on the server: the service may be up but broken",
+   "The URL was spelled wrong",
+   "The request was successful"
+  ],
+  "answer": 1,
+  "explanation": "5xx are server errors. 404 and 401 are problems with the request, not the server.",
+  "module": "HTTP and requests"
+ },
+ {
+  "question": "What does response.json() give you?",
+  "options": [
+   "A new request object",
+   "The body as a raw string",
+   "The body parsed into a Python dictionary (or list)",
+   "The headers only"
+  ],
+  "answer": 2,
+  "explanation": "That is why JSON is so handy in Python: you can look values up in the dictionary straight away.",
+  "module": "HTTP and requests"
+ },
+ {
+  "question": "What happens if response.json() is called on a body that is not valid JSON?",
+  "options": [
+   "It raises a JSON decode error, which you can catch with try/except",
+   "It silently converts the body to a string",
+   "It returns None",
+   "It returns an empty dictionary"
+  ],
+  "answer": 0,
+  "explanation": "The trainer's example caught the decode error and printed a different message.",
+  "module": "HTTP and requests"
+ },
+ {
+  "question": "What does response.raise_for_status() do?",
+  "options": [
+   "Raises an exception only for timeouts",
+   "Retries the request automatically",
+   "Prints the status code and carries on",
+   "Raises an exception if the status code indicates an error such as 404 or 500"
+  ],
+  "answer": 3,
+  "explanation": "It turns a bad HTTP status into an HTTPError so the failure cannot be missed.",
+  "module": "HTTP and requests"
+ },
+ {
+  "question": "What is the purpose of setting headers on a request?",
+  "options": [
+   "To change the URL of the request",
+   "To send extra information such as what you accept, who is making the request and authentication",
+   "To choose the HTTP method",
+   "To set how many retries are allowed"
+  ],
+  "answer": 1,
+  "explanation": "The trainer showed Accept and User-Agent headers, and an Authorization header for the token.",
+  "module": "HTTP and requests"
+ },
+ {
+  "question": "The trainer's code only adds the Authorization header if the token exists. Where does it get the token from?",
+  "options": [
+   "An environment variable (for example GITHUB_TOKEN)",
+   "A string written directly in the script",
+   "A file in the .venv folder",
+   "The SSH key stored on the device"
+  ],
+  "answer": 0,
+  "explanation": "Tokens are secrets, so you do not hard-code them. Read them with os.environ.get / os.getenv.",
+  "module": "HTTP and requests"
+ },
+ {
+  "question": "Why is hard-coding a token in the script a bad idea?",
+  "options": [
+   "It makes the request slower",
+   "GitHub rejects tokens that are in the code",
+   "It can end up in Git history and be exposed",
+   "Python cannot read strings that long"
+  ],
+  "answer": 2,
+  "explanation": "Secrets belong in environment variables. Hard-coded values are in your history forever once committed.",
+  "module": "HTTP and requests"
+ },
+ {
+  "question": "After exporting a token as an environment variable, what extra step does the trainer recommend?",
+  "options": [
+   "Delete the repository",
+   "Restart the computer",
+   "Rename the variable",
+   "Clear it from your history, because the command with the token is stored there"
+  ],
+  "answer": 3,
+  "explanation": "The history command lists the export command including the secret. It can be cleared (history -c), and you can unset the variable.",
+  "module": "HTTP and requests"
+ },
+ {
+  "question": "What happens to the GitHub rate limit when you authenticate with a token?",
+  "options": [
+   "It goes up (from 60 to 5000 requests per hour in the example)",
+   "It is removed completely",
+   "It stays at 60 for everyone",
+   "It goes down to 10"
+  ],
+  "answer": 0,
+  "explanation": "Authentication often gives you a higher limit and more abilities. Paid accounts may get even more.",
+  "module": "HTTP and requests"
+ },
+ {
+  "question": "A personal access token is generated on GitHub. When can you see its value?",
+  "options": [
+   "It is stored in the .ssh folder automatically",
+   "Any time in the developer settings",
+   "Only once, at creation, so copy it somewhere safe immediately",
+   "It is emailed to you every week"
+  ],
+  "answer": 2,
+  "explanation": "The page says copy it now, you will not see it again. If you lose it you must generate a new one.",
+  "module": "HTTP and requests"
+ },
+ {
+  "question": "In the trainer's demo, did calling the rate limit URL itself make the \"remaining\" count go down?",
+  "options": [
+   "Yes, but only when authenticated",
+   "No. Other API calls counted, but checking the rate limit endpoint did not",
+   "No, because rate limits are not tracked per hour",
+   "Yes, every call reduced it by one"
+  ],
+  "answer": 1,
+  "explanation": "The class concluded that other actions on the GitHub API reduced the remaining count, not the rate-limit check itself.",
+  "module": "HTTP and requests"
+ },
+ {
+  "question": "Why might creating a repo on the GitHub website reduce your remaining API calls?",
+  "options": [
+   "Browser cookies count as API calls",
+   "Creating repos is only possible with the API",
+   "The website blocks you for being too active",
+   "The website talks to the GitHub API behind the scenes to perform the action"
+  ],
+  "answer": 3,
+  "explanation": "Websites often call their own API behind the scenes, so those actions count against your limit.",
+  "module": "HTTP and requests"
+ },
+ {
+  "question": "Why must a request to an API have a timeout?",
+  "options": [
+   "Timeouts make responses arrive faster",
+   "The status code is not returned without one",
+   "Otherwise a server that never answers could make your script wait forever",
+   "Python refuses to send requests without one"
+  ],
+  "answer": 2,
+  "explanation": "Pick a sensible limit and catch what happens when it is exceeded.",
+  "module": "HTTP and requests"
+ },
+ {
+  "question": "Which exception does requests raise when the timeout is exceeded?",
+  "options": [
+   "requests.exceptions.Timeout",
+   "requests.exceptions.NotFound",
+   "TimeoutError from the socket module only",
+   "KeyboardInterrupt"
+  ],
+  "answer": 0,
+  "explanation": "It is caught with except requests.exceptions.Timeout, and you can tell the user it gave up.",
+  "module": "HTTP and requests"
+ },
+ {
+  "question": "In the trainer's demo, a local server waits 5 seconds before responding and the request uses timeout=1. What happens?",
+  "options": [
+   "The script crashes with a SyntaxError",
+   "The request raises a timeout and the script reports it gave up after one second",
+   "The status code 408 is returned as a normal response",
+   "The response arrives after 5 seconds"
+  ],
+  "answer": 1,
+  "explanation": "The client gives up first. If the timeout was 6 and the sleep 5, the response would come back fine.",
+  "module": "HTTP and requests"
+ },
+ {
+  "question": "Which situation makes a request raise requests.exceptions.ConnectionError?",
+  "options": [
+   "The host cannot be reached, for example a DNS failure or a refused connection",
+   "The body was not valid JSON",
+   "The server returned 404",
+   "The token has expired"
+  ],
+  "answer": 0,
+  "explanation": "These are the cannot connect cases. Status codes such as 404 mean the server was reached.",
+  "module": "HTTP and requests"
+ },
+ {
+  "question": "A health check gets a 500-range status. Should you retry?",
+  "options": [
+   "Only if the code is 404",
+   "Only after deleting the token",
+   "Possibly yes, because the server may recover",
+   "Never, 5xx will always return the same"
+  ],
+  "answer": 2,
+  "explanation": "The trainer's table: 200 is healthy, 5xx means up but broken (worth a retry), cannot connect depends on whether it might start up, timeouts once or twice.",
+  "module": "HTTP and requests"
+ },
+ {
+  "question": "A request returns 404 or 401. Why is retrying not useful?",
+  "options": [
+   "The server blocks repeated requests for 24 hours",
+   "Retries always cause rate limit errors",
+   "404 and 401 are success codes",
+   "It will return the same status again, because the problem is the request, not temporary"
+  ],
+  "answer": 3,
+  "explanation": "A student's takeaway that the trainer agreed with: retry timeouts once or twice, but do not bother retrying 404 or 401.",
+  "module": "HTTP and requests"
+ },
+ {
+  "question": "What does this print?\n```python\nattempts = 5\nprint(list(range(1, attempts + 1)))\n```",
+  "options": [
+   "[2, 3, 4, 5, 6]",
+   "[1, 2, 3, 4, 5]",
+   "[1, 2, 3, 4, 5, 6]",
+   "[0, 1, 2, 3, 4]"
+  ],
+  "answer": 1,
+  "explanation": "range(1, attempts + 1) with attempts = 5 gives 1 to 5, stopping before 6. That is how the retry loop counts attempts.",
+  "module": "HTTP and requests"
+ },
+ {
+  "question": "In the retry example, why does the function sleep between attempts but not after the last one?",
+  "options": [
+   "Sleep only works for the first two attempts",
+   "Waiting after the final attempt would only delay giving up",
+   "The final attempt is always successful",
+   "Python cannot sleep on the last loop"
+  ],
+  "answer": 1,
+  "explanation": "The trainer's code sleeps for the delay only if attempt is less than the number of attempts.",
+  "module": "HTTP and requests"
+ },
+ {
+  "question": "The retry function printed True and 3. What does that mean?",
+  "options": [
+   "It retried three seconds later",
+   "It failed three times",
+   "The service was healthy, and it succeeded on the third attempt",
+   "The status code was 3"
+  ],
+  "answer": 2,
+  "explanation": "It returns (healthy, attempt_number). Here it succeeded on the third try.",
+  "module": "HTTP and requests"
+ },
+ {
+  "question": "The trainer's classify function returns \"healthy\" for 200. What does it return for a 500-range code?",
+  "options": [
+   "\"missing\"",
+   "\"unexpected\"",
+   "\"healthy\"",
+   "\"broken\""
+  ],
+  "answer": 3,
+  "explanation": "200 is healthy, server errors are broken, and anything else is unexpected.",
+  "module": "HTTP and requests"
+ }
+]

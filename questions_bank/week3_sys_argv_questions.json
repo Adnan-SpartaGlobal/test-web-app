@@ -1,0 +1,122 @@
+[
+ {
+  "question": "What is sys.argv?",
+  "options": [
+   "The number of arguments passed",
+   "A list of the arguments the Python interpreter received, as strings",
+   "A function that exits the script",
+   "A dictionary of environment variables"
+  ],
+  "answer": 1,
+  "explanation": "The trainer: argv is a list of all the arguments that the Python interpreter receives.",
+  "module": "sys and sys.argv"
+ },
+ {
+  "question": "When you run \"python practice.py cat dog mouse\", what is sys.argv[0]?",
+  "options": [
+   "python",
+   "cat",
+   "mouse",
+   "practice.py (the script being run)"
+  ],
+  "answer": 3,
+  "explanation": "Element 0 is always the Python file that needs to run. Your own arguments start at element 1.",
+  "module": "sys and sys.argv"
+ },
+ {
+  "question": "What is sys.argv[1:] when you run \"python practice.py cat dog mouse\"?",
+  "options": [
+   "['cat', 'dog', 'mouse']",
+   "['dog', 'mouse']",
+   "['practice.py', 'cat', 'dog', 'mouse']",
+   "cat"
+  ],
+  "answer": 0,
+  "explanation": "Slicing from index 1 skips the script name and keeps everything after it.",
+  "module": "sys and sys.argv"
+ },
+ {
+  "question": "What is sys.argv[1:] when you run \"python practice.py\" with no extra arguments?",
+  "options": [
+   "An error is raised",
+   "['practice.py']",
+   "[] (an empty list)",
+   "None"
+  ],
+  "answer": 2,
+  "explanation": "The list only holds the file name at index 0, so [1:] is empty. Running from the play button gives the same result.",
+  "module": "sys and sys.argv"
+ },
+ {
+  "question": "What does this print?\n```python\nargv = ['deploy.py', 'v2', '--dry-run']\nprint(argv[1:], len(argv))\n```",
+  "options": [
+   "['--dry-run'] 3",
+   "['v2', '--dry-run'] 3",
+   "['deploy.py', 'v2'] 3",
+   "['v2'] 2"
+  ],
+  "answer": 1,
+  "explanation": "argv[1:] drops the file name, and len counts all three items.",
+  "module": "sys and sys.argv"
+ },
+ {
+  "question": "A script is run as \"python deploy.py v2 --dry-run\". Which line gives a boolean showing whether --dry-run was passed?",
+  "options": [
+   "dry_run = sys.argv == \"--dry-run\"",
+   "dry_run = sys.argv.dry_run",
+   "dry_run = \"--dry-run\" in sys.argv",
+   "dry_run = sys.argv[3]"
+  ],
+  "answer": 2,
+  "explanation": "Membership test on the list. It returns True when the flag is one of the items.",
+  "module": "sys and sys.argv"
+ },
+ {
+  "question": "In the trainer's example, what does len(argv) < 2 mean?",
+  "options": [
+   "Only the script name was given, so the version is missing",
+   "The script ran successfully",
+   "The version was given but not the flag",
+   "Too many arguments were given"
+  ],
+  "answer": 0,
+  "explanation": "With only argv[0] present, print a usage message such as usage: deploy.py VERSION [--dry-run].",
+  "module": "sys and sys.argv"
+ },
+ {
+  "question": "If you run \"python app.py 8080\", what is the type of sys.argv[1]?",
+  "options": [
+   "list",
+   "bytes",
+   "int",
+   "str"
+  ],
+  "answer": 3,
+  "explanation": "Everything in sys.argv is a string. You must convert it yourself (for example int(sys.argv[1])), which argparse can do with type=int.",
+  "module": "sys and sys.argv"
+ },
+ {
+  "question": "Which is the main weakness of reading sys.argv by position?",
+  "options": [
+   "It does not work outside an IDE",
+   "The position of each argument matters, so options in a different order break the code",
+   "It can only read one argument",
+   "It is read-only memory"
+  ],
+  "answer": 1,
+  "explanation": "The trainer's example of options in different places is what led into argparse.",
+  "module": "sys and sys.argv"
+ },
+ {
+  "question": "The first element of sys.argv:",
+  "options": [
+   "Is always the script file, even with no other arguments",
+   "Is only present when you give extra arguments",
+   "Is the Python version",
+   "Is the first argument you type after the filename"
+  ],
+  "answer": 0,
+  "explanation": "Even without extra arguments there is always one element: the file the interpreter runs.",
+  "module": "sys and sys.argv"
+ }
+]

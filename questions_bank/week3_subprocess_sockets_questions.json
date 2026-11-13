@@ -1,0 +1,410 @@
+[
+ {
+  "question": "What does subprocess.run() do?",
+  "options": [
+   "Opens a terminal window for the user to type into",
+   "Runs a program and waits for it to finish",
+   "Starts a program in the background and returns immediately",
+   "Imports another Python file and runs its code"
+  ],
+  "answer": 1,
+  "explanation": "run() launches the program, waits, and gives back a CompletedProcess object with its return code and output.",
+  "module": "Running commands, processes and sockets"
+ },
+ {
+  "question": "In subprocess.run([sys.executable, \"--version\"], ...), what is sys.executable?",
+  "options": [
+   "A list of the command-line arguments",
+   "The exit code of the last command",
+   "The full path to the Python interpreter running the script",
+   "The name of the script being run"
+  ],
+  "answer": 2,
+  "explanation": "It is the interpreter, equivalent to typing python or python3. The next list item, --version, is its argument.",
+  "module": "Running commands, processes and sockets"
+ },
+ {
+  "question": "What does capture_output=True do?",
+  "options": [
+   "Collects standard output and standard error instead of sending them straight to the screen",
+   "Saves the command's output into a log file automatically",
+   "Hides the return code from the result",
+   "Makes the command run silently in the background"
+  ],
+  "answer": 0,
+  "explanation": "The output comes back in result.stdout and result.stderr so your code can use it.",
+  "module": "Running commands, processes and sockets"
+ },
+ {
+  "question": "What does text=True do in subprocess.run?",
+  "options": [
+   "Makes the command's output print in colour",
+   "Converts the return code into a message",
+   "Forces the command to read its input from a text file",
+   "Gives you the output as strings instead of bytes"
+  ],
+  "answer": 3,
+  "explanation": "Without text=True you get bytes and have to decode them yourself.",
+  "module": "Running commands, processes and sockets"
+ },
+ {
+  "question": "A command returns a return code of 0. What does that mean?",
+  "options": [
+   "It was skipped",
+   "It timed out",
+   "It ran successfully",
+   "It produced no output"
+  ],
+  "answer": 2,
+  "explanation": "Zero means success. Any other number means some kind of failure.",
+  "module": "Running commands, processes and sockets"
+ },
+ {
+  "question": "subprocess.run([sys.executable, \"-c\", \"import sys; sys.exit(3)\"]) finishes. What is result.returncode?",
+  "options": [
+   "3",
+   "0",
+   "1",
+   "None"
+  ],
+  "answer": 0,
+  "explanation": "-c tells Python to run the code in the string. sys.exit(3) ends it with return code 3, which is non-zero, so the command failed.",
+  "module": "Running commands, processes and sockets"
+ },
+ {
+  "question": "What does the -c option do in python -c \"print('hi')\"?",
+  "options": [
+   "Compiles the file without running it",
+   "Clears the screen first",
+   "Checks the syntax only",
+   "Runs the code given as a string"
+  ],
+  "answer": 3,
+  "explanation": "The trainer asked students to guess it. It runs the code that follows as a program.",
+  "module": "Running commands, processes and sockets"
+ },
+ {
+  "question": "Which is the BETTER way to run a command whose argument comes from a variable called host?",
+  "options": [
+   "subprocess.run(f\"ping -c 1 {host}\", shell=True)",
+   "subprocess.run([\"ping\", \"-c\", \"1\", host])",
+   "subprocess.run(\"ping -c 1 \" + host, shell=True)",
+   "os.system(f\"ping -c 1 {host}\")"
+  ],
+  "answer": 1,
+  "explanation": "Pass a list of arguments and do not use the shell. Each item is a separate argument, so extra text in host cannot become a second command.",
+  "module": "Running commands, processes and sockets"
+ },
+ {
+  "question": "Why is subprocess.run(f\"ls {path}\", shell=True) dangerous?",
+  "options": [
+   "Whatever text is in path is executed by the shell, so someone could inject extra commands",
+   "It stops the output being captured",
+   "It makes the command run twice",
+   "It only works if the path is on the C: drive"
+  ],
+  "answer": 0,
+  "explanation": "With shell=True the string is interpreted by the shell. A semicolon followed by another command would run it as well.",
+  "module": "Running commands, processes and sockets"
+ },
+ {
+  "question": "The host string is \"web01; rm -rf /tmp/important\". Used in an f-string command with shell=True, what happens?",
+  "options": [
+   "The whole string is treated as one host name and fails safely",
+   "Only ping runs, because everything after the semicolon is a comment",
+   "Python raises a SyntaxError before running anything",
+   "The shell treats the semicolon as the end of the first command and runs the rm command too"
+  ],
+  "answer": 3,
+  "explanation": "That is a command injection, similar in spirit to SQL injection. The semicolon separates commands in Linux.",
+  "module": "Running commands, processes and sockets"
+ },
+ {
+  "question": "The same host string is passed as a list item, [\"ping\", \"-c\", \"1\", host], without the shell. What happens?",
+  "options": [
+   "Python removes the semicolon automatically",
+   "ping runs twice, once for each part",
+   "The whole string is one argument to ping, which just fails to find that host",
+   "The rm command runs anyway"
+  ],
+  "answer": 2,
+  "explanation": "Without a shell, nothing interprets the semicolon. ping receives it as part of a host name and reports it cannot find it.",
+  "module": "Running commands, processes and sockets"
+ },
+ {
+  "question": "What are the two problems with using shell=True with a command like ls?",
+  "options": [
+   "It changes the Python interpreter's version",
+   "The code is not portable (ls does not exist on Windows) and it executes whatever it is given",
+   "It is slower and uses more memory than the list form",
+   "It can only run one command per script"
+  ],
+  "answer": 1,
+  "explanation": "The trainer showed ls failing on Windows (dir worked), and the injection risk.",
+  "module": "Running commands, processes and sockets"
+ },
+ {
+  "question": "What is the key takeaway for safely running external commands from Python?",
+  "options": [
+   "Check the command by printing it once before releasing the script",
+   "Break the command into a list of arguments and do not use the shell",
+   "Always use shell=True so the command runs the same on every system",
+   "Run every command with sudo"
+  ],
+  "answer": 1,
+  "explanation": "Printing the command to check it is a manual step the trainer mentioned, but the better solution is the list form without the shell.",
+  "module": "Running commands, processes and sockets"
+ },
+ {
+  "question": "What does check=True do in subprocess.run?",
+  "options": [
+   "Retries the command until it returns 0",
+   "Verifies the output matches the expected text",
+   "Checks that the program exists before running it",
+   "Raises CalledProcessError when the return code is not 0"
+  ],
+  "answer": 3,
+  "explanation": "It turns a non-zero return code into an exception you can catch.",
+  "module": "Running commands, processes and sockets"
+ },
+ {
+  "question": "Which exception does check=True raise for a failing command?",
+  "options": [
+   "SystemExit",
+   "OSError",
+   "subprocess.CalledProcessError",
+   "subprocess.RunError"
+  ],
+  "answer": 2,
+  "explanation": "Catch subprocess.CalledProcessError in a try/except to handle the failure.",
+  "module": "Running commands, processes and sockets"
+ },
+ {
+  "question": "Which of these is NOT one of the three ways to handle a non-zero return code that the trainer listed?",
+  "options": [
+   "Retry the command forever until it succeeds",
+   "Look at the return code and decide what to do",
+   "Ignore it",
+   "Let it raise (check=True)"
+  ],
+  "answer": 0,
+  "explanation": "The three were ignore it, handle it yourself, or let it raise.",
+  "module": "Running commands, processes and sockets"
+ },
+ {
+  "question": "When would you choose to let the command raise an exception (check=True)?",
+  "options": [
+   "When you want to ignore the failure",
+   "When failure should stop everything",
+   "When the command never fails",
+   "When the output is large"
+  ],
+  "answer": 1,
+  "explanation": "The trainer said raise when failure should stop everything, handle it yourself when you want to choose what happens, and never ignore it on purpose.",
+  "module": "Running commands, processes and sockets"
+ },
+ {
+  "question": "Which option would you 'probably never choose on purpose'?",
+  "options": [
+   "Setting a timeout",
+   "Letting it raise an exception",
+   "Ignoring the return code and carrying on as if everything was fine",
+   "Handling the return code yourself"
+  ],
+  "answer": 2,
+  "explanation": "Silently ignoring a failed command hides problems.",
+  "module": "Running commands, processes and sockets"
+ },
+ {
+  "question": "What does subprocess.run(..., timeout=1) do if the command takes 10 seconds?",
+  "options": [
+   "Waits the full 10 seconds and then continues",
+   "Shortens the sleep to one second",
+   "Returns a return code of 1",
+   "Raises subprocess.TimeoutExpired after about one second"
+  ],
+  "answer": 3,
+  "explanation": "The timeout is the longest you are willing to wait. When it is exceeded you get TimeoutExpired, which you can catch.",
+  "module": "Running commands, processes and sockets"
+ },
+ {
+  "question": "A command sleeps for 3 seconds and the timeout is 4. What happens?",
+  "options": [
+   "It finishes normally, because it completed before the timeout",
+   "TimeoutExpired is raised",
+   "The return code is 4",
+   "It is killed after 3 seconds"
+  ],
+  "answer": 0,
+  "explanation": "The timeout only matters if the command takes longer than it.",
+  "module": "Running commands, processes and sockets"
+ },
+ {
+  "question": "Why is a timeout useful on a health check or external command?",
+  "options": [
+   "It lets the command run several times",
+   "It makes the command run faster",
+   "It converts errors into warnings",
+   "A command that hangs would otherwise block your script forever"
+  ],
+  "answer": 3,
+  "explanation": "Give the program a maximum time, then decide what to do if it takes too long.",
+  "module": "Running commands, processes and sockets"
+ },
+ {
+  "question": "What is the problem with using ping as a health check?",
+  "options": [
+   "Ping cannot reach machines on the same network",
+   "Ping only works with IP addresses, not names",
+   "On some networks ping is restricted, so a healthy machine may not answer",
+   "Ping uses too much bandwidth to be run once"
+  ],
+  "answer": 2,
+  "explanation": "The trainer: you could ping machines all day and they might be perfectly healthy but ping could be blocked.",
+  "module": "Running commands, processes and sockets"
+ },
+ {
+  "question": "What is a better way to check that a service is working?",
+  "options": [
+   "Try to open a connection to its port and see whether it accepts it",
+   "Read the service's name from a config file",
+   "Check that its process exists in the process list",
+   "Ping the machine twice"
+  ],
+  "answer": 0,
+  "explanation": "A service could appear to be running yet be frozen or crashed. Trying to connect checks that it can actually accept connections.",
+  "module": "Running commands, processes and sockets"
+ },
+ {
+  "question": "What does socket.create_connection((host, port), timeout=2) try to do?",
+  "options": [
+   "Send an HTTP GET request to the host",
+   "Open a TCP connection to that host and port, giving up after 2 seconds",
+   "Resolve the host name only",
+   "Read a file from the remote machine"
+  ],
+  "answer": 1,
+  "explanation": "If something is listening and accepting connections, it succeeds. Otherwise it raises an error.",
+  "module": "Running commands, processes and sockets"
+ },
+ {
+  "question": "Why catch OSError around a socket connection check?",
+  "options": [
+   "It covers the different ways a connection can fail (refused, timed out, name not found)",
+   "It closes the socket automatically",
+   "It is the only error socket can raise",
+   "It makes the connection succeed"
+  ],
+  "answer": 0,
+  "explanation": "Several connection failures are subclasses of OSError, so catching it handles them all. You can catch narrower ones to find out how it failed.",
+  "module": "Running commands, processes and sockets"
+ },
+ {
+  "question": "A connection check to localhost port 9 waited about two seconds and returned False. What happened?",
+  "options": [
+   "Python refused to run the check",
+   "The host name could not be found",
+   "It succeeded",
+   "It timed out, because nothing answered within the 2-second timeout"
+  ],
+  "answer": 3,
+  "explanation": "The delay was the timeout. Nothing was accepting connections on that port.",
+  "module": "Running commands, processes and sockets"
+ },
+ {
+  "question": "A connection check to a host name that does not exist fails almost instantly. What is the failure?",
+  "options": [
+   "The port number was invalid",
+   "The name could not be resolved",
+   "The connection was accepted",
+   "The connection timed out"
+  ],
+  "answer": 1,
+  "explanation": "It cannot even find the host, so there is nothing to wait for. That is a different error from a timeout.",
+  "module": "Running commands, processes and sockets"
+ },
+ {
+  "question": "What is localhost?",
+  "options": [
+   "The address of the nearest router",
+   "A name for the first server in a list",
+   "A loopback address that lets a machine talk to itself",
+   "The company's main server"
+  ],
+  "answer": 2,
+  "explanation": "It maps to 127.0.0.1. It is a way of checking the machine you are currently on.",
+  "module": "Running commands, processes and sockets"
+ },
+ {
+  "question": "A process is running on a server. Does that guarantee it can accept connections?",
+  "options": [
+   "Yes, as long as it uses less than 50% CPU",
+   "Yes. A running process always accepts connections",
+   "No. It could be frozen or crashed internally and still appear to be running",
+   "No. Only processes started with sudo can"
+  ],
+  "answer": 2,
+  "explanation": "That is why the trainer prefers testing whether the port accepts connections over just checking the process.",
+  "module": "Running commands, processes and sockets"
+ },
+ {
+  "question": "What does subprocess.run return when the command has finished?",
+  "options": [
+   "Only the return code as an integer",
+   "A CompletedProcess object with fields such as returncode, stdout and stderr",
+   "A list of the arguments that were used",
+   "Only the output as a string"
+  ],
+  "answer": 1,
+  "explanation": "You read result.returncode, result.stdout and result.stderr.",
+  "module": "Running commands, processes and sockets"
+ },
+ {
+  "question": "In the trainer's code, result.stdout.strip() was used. Why strip()?",
+  "options": [
+   "To raise an error on blank lines",
+   "To convert the output to bytes",
+   "To stop the output from printing",
+   "To remove spaces or newlines on either side of the output"
+  ],
+  "answer": 3,
+  "explanation": "Command output usually ends with a newline. strip removes surrounding whitespace.",
+  "module": "Running commands, processes and sockets"
+ },
+ {
+  "question": "What is the first item in the list given to subprocess.run?",
+  "options": [
+   "The program to run",
+   "The return code",
+   "The shell to use",
+   "The timeout"
+  ],
+  "answer": 0,
+  "explanation": "Everything after it in the list is an argument to that program, just like the first item in sys.argv is the file being run.",
+  "module": "Running commands, processes and sockets"
+ },
+ {
+  "question": "Which command is NOT portable between Linux/macOS and Windows?",
+  "options": [
+   "Running sys.executable with --version",
+   "Running git --version",
+   "Running \"ls\" with shell=True",
+   "Calling socket.create_connection"
+  ],
+  "answer": 2,
+  "explanation": "ls does not exist on Windows (dir does). The Python interpreter and git run the same way on both.",
+  "module": "Running commands, processes and sockets"
+ },
+ {
+  "question": "What does the --version argument do when sent to a program?",
+  "options": [
+   "Installs the newest version",
+   "Checks for updates and exits with code 1",
+   "Rolls back to the previous version",
+   "Asks the program to print its version"
+  ],
+  "answer": 3,
+  "explanation": "It is the same as typing git --version in a terminal. The trainer used it with Python and Git.",
+  "module": "Running commands, processes and sockets"
+ }
+]

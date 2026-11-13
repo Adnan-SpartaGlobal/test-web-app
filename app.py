@@ -83,6 +83,43 @@ class VttConverter:
         return "\n\n".join(speeches)
 
 
+# ---------- Code in questions and options ----------
+
+# ```python ... ```  (the language name is optional, and only counts if it is
+# followed by a newline, so ```print("x")``` on one line still works)
+FENCE = re.compile(r"```(?:[\w+-]*\n)?(.*?)```", re.DOTALL)
+# `code` on a single line
+INLINE = re.compile(r"`([^`\n]+)`")
+
+
+def render_text(text: str, block: bool = True) -> list:
+    """Turn text with ``` fences and `backticks` into Dash children.
+
+    Plain text stays plain. Only backticks are treated as special, so names
+    like __name__ or *args in normal text are shown exactly as written.
+    block=True  -> fenced code becomes a <pre> block (use for questions)
+    block=False -> fenced code stays inside the line's own box (use inside
+                   option buttons, where a <pre> would not be valid HTML)
+    """
+    children = []
+    # re.split with one capture group alternates: text, code, text, code, ...
+    for i, part in enumerate(FENCE.split(text)):
+        if i % 2:                                       # a fenced code block
+            code = part.strip("\n")
+            if block:
+                children.append(html.Pre(html.Code(code), className="codeblock"))
+            else:
+                children.append(html.Code(code, className="blk"))
+            continue
+        part = part.strip("\n")                         # no blank gap around blocks
+        for j, piece in enumerate(INLINE.split(part)):
+            if j % 2:                                   # `inline code`
+                children.append(html.Code(piece, className="inline"))
+            elif piece:
+                children.append(piece)
+    return children
+
+
 # ---------- Dash app ----------
 
 class QuizApp:
@@ -99,7 +136,8 @@ class QuizApp:
         total = len(self.quiz.questions)
         buttons = [
             html.Button(
-                [html.Span(className="dot"), html.Span(f"{LETTERS[i]}. {text}")],
+                [html.Span(className="dot"),
+                 html.Span([f"{LETTERS[i]}. "] + render_text(text, block=False), className="optt")],
                 id={"type": "opt", "index": i},
                 className="opt sel" if answers[index] == i else "opt",
             )
@@ -108,7 +146,7 @@ class QuizApp:
         return (
             f"Question {index + 1} of {total}",
             {"width": f"{(index + 1) / total * 100}%"},
-            q.text,
+            render_text(q.text),
             buttons,
             index == 0,
             "Finish and see answers" if index == total - 1 else "Next",
@@ -128,7 +166,7 @@ class QuizApp:
             html.Div([
                 html.Div(id="progress-label", className="meta"),
                 html.Div(html.Div(id="progress-bar"), className="bar"),
-                html.H1(id="question-text"),
+                html.Div(id="question-text", className="q"),
                 html.Div(id="options"),
                 html.Div([
                     html.Button("Previous", id="prev-btn", className="btn"),
@@ -231,11 +269,14 @@ class QuizApp:
                 else:
                     css, tag = "opt", ""
                 rows.append(html.Div([html.Span(className="dot"),
-                                      html.Span(f"{LETTERS[i]}. {text}"),
+                                      html.Span([f"{LETTERS[i]}. "] + render_text(text, block=False),
+                                                className="optt"),
                                       html.Span(tag, className="tag")], className=css))
             if picked is None:
                 rows.append(html.Div("You did not answer this one.", className="meta"))
-            children.append(html.Section([html.H2(f"{n}. {q.text}")] + rows, className="rq"))
+            children.append(html.Section(
+                [html.Div([f"{n}. "] + render_text(q.text), className="rq-title")] + rows,
+                className="rq"))
         children.append(html.A("Try again", href="/", className="btn primary"))
         return children
 
@@ -247,12 +288,13 @@ INDEX_HTML = """<!DOCTYPE html>
 <html lang="en"><head>{%metas%}<title>MCQ practice</title>{%favicon%}{%css%}
 <style>
 :root{--bg:#1b1b1a;--card:#222221;--line:#3a3a38;--text:#f1efe9;--dim:#9a9890;
---good:#4cae7a;--bad:#d9605a;--ok:#d6a84a;--pick:#8fb4ff}
+--good:#4cae7a;--bad:#d9605a;--ok:#d6a84a;--pick:#8fb4ff;--code:#151514;
+--mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
 *{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--text);
 font:18px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif}
 main{max-width:760px;margin:0 auto;padding:32px 20px 80px}
-h1{font-size:1.7rem;line-height:1.3;margin:8px 0 24px;font-weight:600}
+.q{font-size:1.7rem;line-height:1.3;margin:8px 0 24px;font-weight:600;white-space:pre-wrap}
 .meta{color:var(--dim);font-size:.9rem}
 .topbar{display:flex;justify-content:flex-end;align-items:center;gap:14px;margin-bottom:12px}
 .bar{height:4px;background:var(--line);border-radius:2px;margin:10px 0 28px}
@@ -260,6 +302,14 @@ h1{font-size:1.7rem;line-height:1.3;margin:8px 0 24px;font-weight:600}
 .opt{display:flex;align-items:center;gap:16px;width:100%;margin:0 0 12px;padding:18px 20px;
 text-align:left;font:inherit;color:inherit;background:var(--card);
 border:1px solid var(--line);border-radius:14px}
+.optt{flex:1;min-width:0;white-space:pre-wrap;overflow-x:auto}
+pre.codeblock,code.blk{display:block;margin:14px 0;padding:14px 16px;background:var(--code);
+border:1px solid var(--line);border-radius:10px;overflow-x:auto;white-space:pre;
+font:400 .85rem/1.5 var(--mono);color:var(--text);text-align:left}
+code.blk{margin:8px 0 0}
+pre.codeblock code{font:inherit}
+code.inline{padding:1px 6px;background:var(--code);border:1px solid var(--line);
+border-radius:5px;font:400 .85em var(--mono)}
 button.opt{cursor:pointer}
 button.opt:hover{border-color:#66665f}
 button.opt.sel{border-color:var(--pick)}
@@ -278,10 +328,10 @@ border:1px solid var(--line);border-radius:10px;padding:10px 22px;cursor:pointer
 .score{font-size:3rem;font-weight:700;margin:0}
 .verdict{font-size:1.2rem;margin:4px 0 36px}
 .verdict.fail{color:var(--bad)}.verdict.ok{color:var(--ok)}.verdict.good{color:var(--good)}
-.rq{margin:0 0 44px}.rq h2{font-size:1.15rem;font-weight:600;margin:0 0 14px}
+.rq{margin:0 0 44px}.rq-title{font-size:1.15rem;font-weight:600;margin:0 0 14px;white-space:pre-wrap}
 </style></head><body>{%app_entry%}<footer>{%config%}{%scripts%}{%renderer%}</footer></body></html>"""
 
 
 if __name__ == "__main__":
-    path = sys.argv[1] if len(sys.argv) > 1 else "questions_bank/placeholder_questions.json"
+    path = sys.argv[1] if len(sys.argv) > 1 else "questions_bank/week3_subprocess_sockets_questions.json"
     QuizApp(Quiz.from_json(path)).run()

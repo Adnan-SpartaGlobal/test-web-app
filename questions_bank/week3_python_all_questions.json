@@ -1,0 +1,1682 @@
+[
+ {
+  "question": "What does subprocess.run() do?",
+  "options": [
+   "Opens a terminal window for the user to type into",
+   "Runs a program and waits for it to finish",
+   "Starts a program in the background and returns immediately",
+   "Imports another Python file and runs its code"
+  ],
+  "answer": 1,
+  "explanation": "run() launches the program, waits, and gives back a CompletedProcess object with its return code and output.",
+  "module": "Running commands, processes and sockets"
+ },
+ {
+  "question": "In subprocess.run([sys.executable, \"--version\"], ...), what is sys.executable?",
+  "options": [
+   "A list of the command-line arguments",
+   "The exit code of the last command",
+   "The full path to the Python interpreter running the script",
+   "The name of the script being run"
+  ],
+  "answer": 2,
+  "explanation": "It is the interpreter, equivalent to typing python or python3. The next list item, --version, is its argument.",
+  "module": "Running commands, processes and sockets"
+ },
+ {
+  "question": "What does capture_output=True do?",
+  "options": [
+   "Collects standard output and standard error instead of sending them straight to the screen",
+   "Saves the command's output into a log file automatically",
+   "Hides the return code from the result",
+   "Makes the command run silently in the background"
+  ],
+  "answer": 0,
+  "explanation": "The output comes back in result.stdout and result.stderr so your code can use it.",
+  "module": "Running commands, processes and sockets"
+ },
+ {
+  "question": "What does text=True do in subprocess.run?",
+  "options": [
+   "Makes the command's output print in colour",
+   "Converts the return code into a message",
+   "Forces the command to read its input from a text file",
+   "Gives you the output as strings instead of bytes"
+  ],
+  "answer": 3,
+  "explanation": "Without text=True you get bytes and have to decode them yourself.",
+  "module": "Running commands, processes and sockets"
+ },
+ {
+  "question": "A command returns a return code of 0. What does that mean?",
+  "options": [
+   "It was skipped",
+   "It timed out",
+   "It ran successfully",
+   "It produced no output"
+  ],
+  "answer": 2,
+  "explanation": "Zero means success. Any other number means some kind of failure.",
+  "module": "Running commands, processes and sockets"
+ },
+ {
+  "question": "subprocess.run([sys.executable, \"-c\", \"import sys; sys.exit(3)\"]) finishes. What is result.returncode?",
+  "options": [
+   "3",
+   "0",
+   "1",
+   "None"
+  ],
+  "answer": 0,
+  "explanation": "-c tells Python to run the code in the string. sys.exit(3) ends it with return code 3, which is non-zero, so the command failed.",
+  "module": "Running commands, processes and sockets"
+ },
+ {
+  "question": "What does the -c option do in python -c \"print('hi')\"?",
+  "options": [
+   "Compiles the file without running it",
+   "Clears the screen first",
+   "Checks the syntax only",
+   "Runs the code given as a string"
+  ],
+  "answer": 3,
+  "explanation": "The trainer asked students to guess it. It runs the code that follows as a program.",
+  "module": "Running commands, processes and sockets"
+ },
+ {
+  "question": "Which is the BETTER way to run a command whose argument comes from a variable called host?",
+  "options": [
+   "subprocess.run(f\"ping -c 1 {host}\", shell=True)",
+   "subprocess.run([\"ping\", \"-c\", \"1\", host])",
+   "subprocess.run(\"ping -c 1 \" + host, shell=True)",
+   "os.system(f\"ping -c 1 {host}\")"
+  ],
+  "answer": 1,
+  "explanation": "Pass a list of arguments and do not use the shell. Each item is a separate argument, so extra text in host cannot become a second command.",
+  "module": "Running commands, processes and sockets"
+ },
+ {
+  "question": "Why is subprocess.run(f\"ls {path}\", shell=True) dangerous?",
+  "options": [
+   "Whatever text is in path is executed by the shell, so someone could inject extra commands",
+   "It stops the output being captured",
+   "It makes the command run twice",
+   "It only works if the path is on the C: drive"
+  ],
+  "answer": 0,
+  "explanation": "With shell=True the string is interpreted by the shell. A semicolon followed by another command would run it as well.",
+  "module": "Running commands, processes and sockets"
+ },
+ {
+  "question": "The host string is \"web01; rm -rf /tmp/important\". Used in an f-string command with shell=True, what happens?",
+  "options": [
+   "The whole string is treated as one host name and fails safely",
+   "Only ping runs, because everything after the semicolon is a comment",
+   "Python raises a SyntaxError before running anything",
+   "The shell treats the semicolon as the end of the first command and runs the rm command too"
+  ],
+  "answer": 3,
+  "explanation": "That is a command injection, similar in spirit to SQL injection. The semicolon separates commands in Linux.",
+  "module": "Running commands, processes and sockets"
+ },
+ {
+  "question": "The same host string is passed as a list item, [\"ping\", \"-c\", \"1\", host], without the shell. What happens?",
+  "options": [
+   "Python removes the semicolon automatically",
+   "ping runs twice, once for each part",
+   "The whole string is one argument to ping, which just fails to find that host",
+   "The rm command runs anyway"
+  ],
+  "answer": 2,
+  "explanation": "Without a shell, nothing interprets the semicolon. ping receives it as part of a host name and reports it cannot find it.",
+  "module": "Running commands, processes and sockets"
+ },
+ {
+  "question": "What are the two problems with using shell=True with a command like ls?",
+  "options": [
+   "It changes the Python interpreter's version",
+   "The code is not portable (ls does not exist on Windows) and it executes whatever it is given",
+   "It is slower and uses more memory than the list form",
+   "It can only run one command per script"
+  ],
+  "answer": 1,
+  "explanation": "The trainer showed ls failing on Windows (dir worked), and the injection risk.",
+  "module": "Running commands, processes and sockets"
+ },
+ {
+  "question": "What is the key takeaway for safely running external commands from Python?",
+  "options": [
+   "Check the command by printing it once before releasing the script",
+   "Break the command into a list of arguments and do not use the shell",
+   "Always use shell=True so the command runs the same on every system",
+   "Run every command with sudo"
+  ],
+  "answer": 1,
+  "explanation": "Printing the command to check it is a manual step the trainer mentioned, but the better solution is the list form without the shell.",
+  "module": "Running commands, processes and sockets"
+ },
+ {
+  "question": "What does check=True do in subprocess.run?",
+  "options": [
+   "Retries the command until it returns 0",
+   "Verifies the output matches the expected text",
+   "Checks that the program exists before running it",
+   "Raises CalledProcessError when the return code is not 0"
+  ],
+  "answer": 3,
+  "explanation": "It turns a non-zero return code into an exception you can catch.",
+  "module": "Running commands, processes and sockets"
+ },
+ {
+  "question": "Which exception does check=True raise for a failing command?",
+  "options": [
+   "SystemExit",
+   "OSError",
+   "subprocess.CalledProcessError",
+   "subprocess.RunError"
+  ],
+  "answer": 2,
+  "explanation": "Catch subprocess.CalledProcessError in a try/except to handle the failure.",
+  "module": "Running commands, processes and sockets"
+ },
+ {
+  "question": "Which of these is NOT one of the three ways to handle a non-zero return code that the trainer listed?",
+  "options": [
+   "Retry the command forever until it succeeds",
+   "Look at the return code and decide what to do",
+   "Ignore it",
+   "Let it raise (check=True)"
+  ],
+  "answer": 0,
+  "explanation": "The three were ignore it, handle it yourself, or let it raise.",
+  "module": "Running commands, processes and sockets"
+ },
+ {
+  "question": "When would you choose to let the command raise an exception (check=True)?",
+  "options": [
+   "When you want to ignore the failure",
+   "When failure should stop everything",
+   "When the command never fails",
+   "When the output is large"
+  ],
+  "answer": 1,
+  "explanation": "The trainer said raise when failure should stop everything, handle it yourself when you want to choose what happens, and never ignore it on purpose.",
+  "module": "Running commands, processes and sockets"
+ },
+ {
+  "question": "Which option would you 'probably never choose on purpose'?",
+  "options": [
+   "Setting a timeout",
+   "Letting it raise an exception",
+   "Ignoring the return code and carrying on as if everything was fine",
+   "Handling the return code yourself"
+  ],
+  "answer": 2,
+  "explanation": "Silently ignoring a failed command hides problems.",
+  "module": "Running commands, processes and sockets"
+ },
+ {
+  "question": "What does subprocess.run(..., timeout=1) do if the command takes 10 seconds?",
+  "options": [
+   "Waits the full 10 seconds and then continues",
+   "Shortens the sleep to one second",
+   "Returns a return code of 1",
+   "Raises subprocess.TimeoutExpired after about one second"
+  ],
+  "answer": 3,
+  "explanation": "The timeout is the longest you are willing to wait. When it is exceeded you get TimeoutExpired, which you can catch.",
+  "module": "Running commands, processes and sockets"
+ },
+ {
+  "question": "A command sleeps for 3 seconds and the timeout is 4. What happens?",
+  "options": [
+   "It finishes normally, because it completed before the timeout",
+   "TimeoutExpired is raised",
+   "The return code is 4",
+   "It is killed after 3 seconds"
+  ],
+  "answer": 0,
+  "explanation": "The timeout only matters if the command takes longer than it.",
+  "module": "Running commands, processes and sockets"
+ },
+ {
+  "question": "Why is a timeout useful on a health check or external command?",
+  "options": [
+   "It lets the command run several times",
+   "It makes the command run faster",
+   "It converts errors into warnings",
+   "A command that hangs would otherwise block your script forever"
+  ],
+  "answer": 3,
+  "explanation": "Give the program a maximum time, then decide what to do if it takes too long.",
+  "module": "Running commands, processes and sockets"
+ },
+ {
+  "question": "What is the problem with using ping as a health check?",
+  "options": [
+   "Ping cannot reach machines on the same network",
+   "Ping only works with IP addresses, not names",
+   "On some networks ping is restricted, so a healthy machine may not answer",
+   "Ping uses too much bandwidth to be run once"
+  ],
+  "answer": 2,
+  "explanation": "The trainer: you could ping machines all day and they might be perfectly healthy but ping could be blocked.",
+  "module": "Running commands, processes and sockets"
+ },
+ {
+  "question": "What is a better way to check that a service is working?",
+  "options": [
+   "Try to open a connection to its port and see whether it accepts it",
+   "Read the service's name from a config file",
+   "Check that its process exists in the process list",
+   "Ping the machine twice"
+  ],
+  "answer": 0,
+  "explanation": "A service could appear to be running yet be frozen or crashed. Trying to connect checks that it can actually accept connections.",
+  "module": "Running commands, processes and sockets"
+ },
+ {
+  "question": "What does socket.create_connection((host, port), timeout=2) try to do?",
+  "options": [
+   "Send an HTTP GET request to the host",
+   "Open a TCP connection to that host and port, giving up after 2 seconds",
+   "Resolve the host name only",
+   "Read a file from the remote machine"
+  ],
+  "answer": 1,
+  "explanation": "If something is listening and accepting connections, it succeeds. Otherwise it raises an error.",
+  "module": "Running commands, processes and sockets"
+ },
+ {
+  "question": "Why catch OSError around a socket connection check?",
+  "options": [
+   "It covers the different ways a connection can fail (refused, timed out, name not found)",
+   "It closes the socket automatically",
+   "It is the only error socket can raise",
+   "It makes the connection succeed"
+  ],
+  "answer": 0,
+  "explanation": "Several connection failures are subclasses of OSError, so catching it handles them all. You can catch narrower ones to find out how it failed.",
+  "module": "Running commands, processes and sockets"
+ },
+ {
+  "question": "A connection check to localhost port 9 waited about two seconds and returned False. What happened?",
+  "options": [
+   "Python refused to run the check",
+   "The host name could not be found",
+   "It succeeded",
+   "It timed out, because nothing answered within the 2-second timeout"
+  ],
+  "answer": 3,
+  "explanation": "The delay was the timeout. Nothing was accepting connections on that port.",
+  "module": "Running commands, processes and sockets"
+ },
+ {
+  "question": "A connection check to a host name that does not exist fails almost instantly. What is the failure?",
+  "options": [
+   "The port number was invalid",
+   "The name could not be resolved",
+   "The connection was accepted",
+   "The connection timed out"
+  ],
+  "answer": 1,
+  "explanation": "It cannot even find the host, so there is nothing to wait for. That is a different error from a timeout.",
+  "module": "Running commands, processes and sockets"
+ },
+ {
+  "question": "What is localhost?",
+  "options": [
+   "The address of the nearest router",
+   "A name for the first server in a list",
+   "A loopback address that lets a machine talk to itself",
+   "The company's main server"
+  ],
+  "answer": 2,
+  "explanation": "It maps to 127.0.0.1. It is a way of checking the machine you are currently on.",
+  "module": "Running commands, processes and sockets"
+ },
+ {
+  "question": "A process is running on a server. Does that guarantee it can accept connections?",
+  "options": [
+   "Yes, as long as it uses less than 50% CPU",
+   "Yes. A running process always accepts connections",
+   "No. It could be frozen or crashed internally and still appear to be running",
+   "No. Only processes started with sudo can"
+  ],
+  "answer": 2,
+  "explanation": "That is why the trainer prefers testing whether the port accepts connections over just checking the process.",
+  "module": "Running commands, processes and sockets"
+ },
+ {
+  "question": "What does subprocess.run return when the command has finished?",
+  "options": [
+   "Only the return code as an integer",
+   "A CompletedProcess object with fields such as returncode, stdout and stderr",
+   "A list of the arguments that were used",
+   "Only the output as a string"
+  ],
+  "answer": 1,
+  "explanation": "You read result.returncode, result.stdout and result.stderr.",
+  "module": "Running commands, processes and sockets"
+ },
+ {
+  "question": "In the trainer's code, result.stdout.strip() was used. Why strip()?",
+  "options": [
+   "To raise an error on blank lines",
+   "To convert the output to bytes",
+   "To stop the output from printing",
+   "To remove spaces or newlines on either side of the output"
+  ],
+  "answer": 3,
+  "explanation": "Command output usually ends with a newline. strip removes surrounding whitespace.",
+  "module": "Running commands, processes and sockets"
+ },
+ {
+  "question": "What is the first item in the list given to subprocess.run?",
+  "options": [
+   "The program to run",
+   "The return code",
+   "The shell to use",
+   "The timeout"
+  ],
+  "answer": 0,
+  "explanation": "Everything after it in the list is an argument to that program, just like the first item in sys.argv is the file being run.",
+  "module": "Running commands, processes and sockets"
+ },
+ {
+  "question": "Which command is NOT portable between Linux/macOS and Windows?",
+  "options": [
+   "Running sys.executable with --version",
+   "Running git --version",
+   "Running \"ls\" with shell=True",
+   "Calling socket.create_connection"
+  ],
+  "answer": 2,
+  "explanation": "ls does not exist on Windows (dir does). The Python interpreter and git run the same way on both.",
+  "module": "Running commands, processes and sockets"
+ },
+ {
+  "question": "What does the --version argument do when sent to a program?",
+  "options": [
+   "Installs the newest version",
+   "Checks for updates and exits with code 1",
+   "Rolls back to the previous version",
+   "Asks the program to print its version"
+  ],
+  "answer": 3,
+  "explanation": "It is the same as typing git --version in a terminal. The trainer used it with Python and Git.",
+  "module": "Running commands, processes and sockets"
+ },
+ {
+  "question": "What is argparse for?",
+  "options": [
+   "Defining which command-line arguments a script accepts and turning them into named values",
+   "Writing log files with timestamps",
+   "Reading environment variables from the shell",
+   "Running other programs from inside Python"
+  ],
+  "answer": 0,
+  "explanation": "ArgumentParser controls what can and cannot be passed in the terminal, and gives you values like args.version instead of positions in a list.",
+  "module": "argparse"
+ },
+ {
+  "question": "Why does argparse exist when sys.argv already gives you the arguments?",
+  "options": [
+   "argparse is faster because it avoids the interpreter",
+   "sys.argv cannot read more than one argument",
+   "With sys.argv you must handle order, defaults, help text and validation yourself, which gets complicated",
+   "sys.argv only works inside the Python IDE"
+  ],
+  "answer": 2,
+  "explanation": "The trainer's point: options can appear in any place, you need defaults, a --help, port numbers and so on. argparse handles all of that.",
+  "module": "argparse"
+ },
+ {
+  "question": "In parser.add_argument(\"version\"), why is version mandatory?",
+  "options": [
+   "Because it is the first call to add_argument",
+   "It has no -- in front, so it is a positional argument",
+   "Because its name is lowercase",
+   "Because it has no default value written in the code"
+  ],
+  "answer": 1,
+  "explanation": "No leading dashes means positional, and positional arguments are required. A -- prefix makes an argument optional.",
+  "module": "argparse"
+ },
+ {
+  "question": "In parser.add_argument(\"--config\", default=\"deploy.yaml\"), what makes --config optional?",
+  "options": [
+   "The fact it comes second",
+   "The default value",
+   "The help text",
+   "The leading -- in its name"
+  ],
+  "answer": 3,
+  "explanation": "The double hyphen marks it optional. The default is what you get when it is left out.",
+  "module": "argparse"
+ },
+ {
+  "question": "A script defines positional \"version\" and optional \"--config\" (default deploy.yaml). What is args.config after parse_args([\"v2\"])?",
+  "options": [
+   "v2",
+   "An error is raised",
+   "None",
+   "deploy.yaml"
+  ],
+  "answer": 3,
+  "explanation": "Config was never supplied, so the default is used.",
+  "module": "argparse"
+ },
+ {
+  "question": "Same parser. What is args.config after parse_args([\"v2\", \"--config\", \"staging.yaml\"])?",
+  "options": [
+   "staging.yaml",
+   "deploy.yaml",
+   "--config",
+   "v2"
+  ],
+  "answer": 0,
+  "explanation": "A value supplied on the command line overrides the default.",
+  "module": "argparse"
+ },
+ {
+  "question": "What does required=True do on an option such as --env?",
+  "options": [
+   "Gives the option a default of True",
+   "Makes the option mandatory, so leaving it out is an error",
+   "Makes the option appear first in the help",
+   "Allows the option to be repeated"
+  ],
+  "answer": 1,
+  "explanation": "Without --env, parse_args prints an error and exits.",
+  "module": "argparse"
+ },
+ {
+  "question": "What happens when parse_args() is called without a required argument?",
+  "options": [
+   "It returns None for the missing value and carries on",
+   "It asks the user to type the value",
+   "It prints a usage error and exits with code 2",
+   "It uses the last value from the previous run"
+  ],
+  "answer": 2,
+  "explanation": "argparse calls SystemExit with code 2 for invalid usage.",
+  "module": "argparse"
+ },
+ {
+  "question": "What exit code does argparse use when the arguments are invalid, for example --port not-a-number?",
+  "options": [
+   "0",
+   "255",
+   "2",
+   "1"
+  ],
+  "answer": 2,
+  "explanation": "The trainer's example printed \"argparse exited with code 2\" after catching SystemExit.",
+  "module": "argparse"
+ },
+ {
+  "question": "What does type=int do in add_argument(\"--port\", type=int, default=8801)?",
+  "options": [
+   "Stops the port being used twice",
+   "Converts the supplied value to an integer, and rejects values that are not numbers",
+   "Forces the default to be a string",
+   "Only affects the help message"
+  ],
+  "answer": 1,
+  "explanation": "Command-line values are strings. type=int converts them and errors on something like \"abc\".",
+  "module": "argparse"
+ },
+ {
+  "question": "What does this print?\n```python\nimport argparse\np = argparse.ArgumentParser()\np.add_argument('--port', type=int, default=8801)\nargs = p.parse_args(['--port', '9000'])\nprint(args.port, type(args.port).__name__)\n```",
+  "options": [
+   "9000 int",
+   "9000 9000",
+   "8801 int",
+   "9000 str"
+  ],
+  "answer": 0,
+  "explanation": "The supplied value 9000 is converted by type=int. type(...).__name__ is the type's name.",
+  "module": "argparse"
+ },
+ {
+  "question": "What is args.port if the user does not pass --port and the default is 8801 with type=int?",
+  "options": [
+   "None",
+   "0",
+   "An error is raised",
+   "8801"
+  ],
+  "answer": 3,
+  "explanation": "The default is used when the option is not given.",
+  "module": "argparse"
+ },
+ {
+  "question": "What does choices=[\"text\", \"json\", \"csv\"] do?",
+  "options": [
+   "It makes the option accept a list of values at once",
+   "Only those three values are accepted for that option",
+   "It prints the choices as a menu",
+   "It sets the default to text"
+  ],
+  "answer": 1,
+  "explanation": "Anything else is rejected with an error and exit code 2.",
+  "module": "argparse"
+ },
+ {
+  "question": "With --format having choices text/json/csv and default text, what is the result of parse_args([\"--format\", \"json\"]).format?",
+  "options": [
+   "csv",
+   "text",
+   "An error",
+   "json"
+  ],
+  "answer": 3,
+  "explanation": "json is one of the allowed choices, so it is accepted.",
+  "module": "argparse"
+ },
+ {
+  "question": "What does action=\"store_true\" do for --dry-run?",
+  "options": [
+   "Makes it a flag: True if it is given, False if it is not",
+   "Makes it store the next word as text",
+   "Makes it a required argument",
+   "Saves the argument to a file"
+  ],
+  "answer": 0,
+  "explanation": "A flag takes no value. Its presence turns it on.",
+  "module": "argparse"
+ },
+ {
+  "question": "What do these two prints show?\n```python\nimport argparse\np = argparse.ArgumentParser()\np.add_argument('--dry-run', action='store_true')\nprint(p.parse_args([]).dry_run)\nprint(p.parse_args(['--dry-run']).dry_run)\n```",
+  "options": [
+   "False, then False",
+   "True, then False",
+   "False, then True",
+   "None, then True"
+  ],
+  "answer": 2,
+  "explanation": "Without the flag the value is False. With --dry-run it is True.",
+  "module": "argparse"
+ },
+ {
+  "question": "How do you read the value of an option declared as --dry-run?",
+  "options": [
+   "args[\"--dry-run\"]",
+   "args.dryrun()",
+   "args.dry_run, with an underscore",
+   "args.dry-run"
+  ],
+  "answer": 2,
+  "explanation": "argparse turns hyphens in the option name into underscores for the attribute name.",
+  "module": "argparse"
+ },
+ {
+  "question": "What does a dry run mean in the trainer's explanation?",
+  "options": [
+   "Deleting the output of the last run",
+   "Running the script with no internet connection",
+   "Running it twice to compare the results",
+   "Showing what the script would do, without actually doing it"
+  ],
+  "answer": 3,
+  "explanation": "A dry run checks that something would work, a bit like simulating it without changing anything.",
+  "module": "argparse"
+ },
+ {
+  "question": "What does parser.parse_args() with NO list argument read from?",
+  "options": [
+   "The environment variables",
+   "The real command line (sys.argv)",
+   "The last test that was run",
+   "A file called args.txt"
+  ],
+  "answer": 1,
+  "explanation": "Passing a list, as the practice code did, just simulates the command line.",
+  "module": "argparse"
+ },
+ {
+  "question": "In the practice code, parse_args([\"--port\", \"9000\"]) was used. Why pass a list?",
+  "options": [
+   "To simulate the arguments a user would type, instead of reading the real command line",
+   "To pass the arguments to a different script",
+   "To make the arguments immutable",
+   "Because parse_args requires a list in every case"
+  ],
+  "answer": 0,
+  "explanation": "Normally you call parse_args() with nothing and it uses the real command line.",
+  "module": "argparse"
+ },
+ {
+  "question": "The order of optional arguments on the command line:",
+  "options": [
+   "Must always be alphabetical",
+   "Must put flags last",
+   "Must match the order in which add_argument was called",
+   "Does not matter, argparse works out which is which"
+  ],
+  "answer": 3,
+  "explanation": "That is one of the problems with sys.argv that argparse solves.",
+  "module": "argparse"
+ },
+ {
+  "question": "What is the effect of description=\"Deploy a release of flask-demo.\" in ArgumentParser?",
+  "options": [
+   "It appears in the --help output",
+   "It becomes the program's name",
+   "It is written into the log file",
+   "It is the default for the first argument"
+  ],
+  "answer": 0,
+  "explanation": "The description is shown beneath the usage line when someone runs the script with --help.",
+  "module": "argparse"
+ },
+ {
+  "question": "What does help=\"the release to deploy, e.g. v2\" do?",
+  "options": [
+   "Prints automatically when the script starts",
+   "Provides the text shown next to that argument in --help",
+   "Validates the value against the text",
+   "Sets the default value of the argument"
+  ],
+  "answer": 1,
+  "explanation": "help is documentation for that argument, displayed by -h/--help.",
+  "module": "argparse"
+ },
+ {
+  "question": "Which options does argparse add automatically?",
+  "options": [
+   "-q and --quiet",
+   "None. You have to define help yourself",
+   "-h and --help",
+   "-v and --version"
+  ],
+  "answer": 2,
+  "explanation": "Running python practice.py --help prints the usage, positional arguments and options.",
+  "module": "argparse"
+ },
+ {
+  "question": "What does parser.print_help() do?",
+  "options": [
+   "Lists only the required arguments",
+   "Prints the same help text that --help shows",
+   "Writes the help to a file",
+   "Exits the script with code 0"
+  ],
+  "answer": 1,
+  "explanation": "You can call it yourself at any point to show the usage.",
+  "module": "argparse"
+ },
+ {
+  "question": "In the usage line \"usage: practice.py [-h] version\", what do the square brackets mean?",
+  "options": [
+   "The argument is a list",
+   "The argument is required",
+   "The argument is a number",
+   "The argument is optional"
+  ],
+  "answer": 3,
+  "explanation": "[-h] is optional, while version has no brackets because it is required.",
+  "module": "argparse"
+ },
+ {
+  "question": "A positional argument is named \"version\". Does the name have to be \"version\"?",
+  "options": [
+   "No. It is just the name you choose, and you read it later as args.<name>",
+   "Yes. argparse only recognises names it knows",
+   "Yes. It has to match the script's file name",
+   "No, but it must be at least 7 letters"
+  ],
+  "answer": 0,
+  "explanation": "The tutorial said version but you can call it whatever you want.",
+  "module": "argparse"
+ },
+ {
+  "question": "What does this raise?\n```python\nimport argparse\np = argparse.ArgumentParser()\np.add_argument('--format', choices=['text', 'json'])\ntry:\n    p.parse_args(['--format', 'cat'])\nexcept BaseException as e:\n    print(type(e).__name__)\n```",
+  "options": [
+   "ValueError",
+   "Nothing. It returns None",
+   "SystemExit, because \"cat\" is not one of the allowed choices",
+   "KeyError"
+  ],
+  "answer": 2,
+  "explanation": "argparse reports invalid choices by printing an error and exiting with code 2.",
+  "module": "argparse"
+ },
+ {
+  "question": "What is sys.argv?",
+  "options": [
+   "The number of arguments passed",
+   "A list of the arguments the Python interpreter received, as strings",
+   "A function that exits the script",
+   "A dictionary of environment variables"
+  ],
+  "answer": 1,
+  "explanation": "The trainer: argv is a list of all the arguments that the Python interpreter receives.",
+  "module": "sys and sys.argv"
+ },
+ {
+  "question": "When you run \"python practice.py cat dog mouse\", what is sys.argv[0]?",
+  "options": [
+   "python",
+   "cat",
+   "mouse",
+   "practice.py (the script being run)"
+  ],
+  "answer": 3,
+  "explanation": "Element 0 is always the Python file that needs to run. Your own arguments start at element 1.",
+  "module": "sys and sys.argv"
+ },
+ {
+  "question": "What is sys.argv[1:] when you run \"python practice.py cat dog mouse\"?",
+  "options": [
+   "['cat', 'dog', 'mouse']",
+   "['dog', 'mouse']",
+   "['practice.py', 'cat', 'dog', 'mouse']",
+   "cat"
+  ],
+  "answer": 0,
+  "explanation": "Slicing from index 1 skips the script name and keeps everything after it.",
+  "module": "sys and sys.argv"
+ },
+ {
+  "question": "What is sys.argv[1:] when you run \"python practice.py\" with no extra arguments?",
+  "options": [
+   "An error is raised",
+   "['practice.py']",
+   "[] (an empty list)",
+   "None"
+  ],
+  "answer": 2,
+  "explanation": "The list only holds the file name at index 0, so [1:] is empty. Running from the play button gives the same result.",
+  "module": "sys and sys.argv"
+ },
+ {
+  "question": "What does this print?\n```python\nargv = ['deploy.py', 'v2', '--dry-run']\nprint(argv[1:], len(argv))\n```",
+  "options": [
+   "['--dry-run'] 3",
+   "['v2', '--dry-run'] 3",
+   "['deploy.py', 'v2'] 3",
+   "['v2'] 2"
+  ],
+  "answer": 1,
+  "explanation": "argv[1:] drops the file name, and len counts all three items.",
+  "module": "sys and sys.argv"
+ },
+ {
+  "question": "A script is run as \"python deploy.py v2 --dry-run\". Which line gives a boolean showing whether --dry-run was passed?",
+  "options": [
+   "dry_run = sys.argv == \"--dry-run\"",
+   "dry_run = sys.argv.dry_run",
+   "dry_run = \"--dry-run\" in sys.argv",
+   "dry_run = sys.argv[3]"
+  ],
+  "answer": 2,
+  "explanation": "Membership test on the list. It returns True when the flag is one of the items.",
+  "module": "sys and sys.argv"
+ },
+ {
+  "question": "In the trainer's example, what does len(argv) < 2 mean?",
+  "options": [
+   "Only the script name was given, so the version is missing",
+   "The script ran successfully",
+   "The version was given but not the flag",
+   "Too many arguments were given"
+  ],
+  "answer": 0,
+  "explanation": "With only argv[0] present, print a usage message such as usage: deploy.py VERSION [--dry-run].",
+  "module": "sys and sys.argv"
+ },
+ {
+  "question": "If you run \"python app.py 8080\", what is the type of sys.argv[1]?",
+  "options": [
+   "list",
+   "bytes",
+   "int",
+   "str"
+  ],
+  "answer": 3,
+  "explanation": "Everything in sys.argv is a string. You must convert it yourself (for example int(sys.argv[1])), which argparse can do with type=int.",
+  "module": "sys and sys.argv"
+ },
+ {
+  "question": "Which is the main weakness of reading sys.argv by position?",
+  "options": [
+   "It does not work outside an IDE",
+   "The position of each argument matters, so options in a different order break the code",
+   "It can only read one argument",
+   "It is read-only memory"
+  ],
+  "answer": 1,
+  "explanation": "The trainer's example of options in different places is what led into argparse.",
+  "module": "sys and sys.argv"
+ },
+ {
+  "question": "The first element of sys.argv:",
+  "options": [
+   "Is always the script file, even with no other arguments",
+   "Is only present when you give extra arguments",
+   "Is the Python version",
+   "Is the first argument you type after the filename"
+  ],
+  "answer": 0,
+  "explanation": "Even without extra arguments there is always one element: the file the interpreter runs.",
+  "module": "sys and sys.argv"
+ },
+ {
+  "question": "In the trainer's explanation, what is an API in simple terms?",
+  "options": [
+   "A tool that converts JSON into a Python dictionary",
+   "A Python library for building websites",
+   "A set of rules that lets software components talk to each other without knowing how the other works inside",
+   "A database that stores every request a server has handled"
+  ],
+  "answer": 2,
+  "explanation": "Both students' answers pointed at the same idea: communicating through agreed rules without needing to understand each other's internals.",
+  "module": "HTTP and requests"
+ },
+ {
+  "question": "Which four things does every HTTP request to a REST API include going OUT (the last is not always present)?",
+  "options": [
+   "A method, a URL, headers and sometimes a body",
+   "A method, a status code, a token and a timeout",
+   "A URL, a port, a log level and a body",
+   "A status code, a URL, headers and a body"
+  ],
+  "answer": 0,
+  "explanation": "What comes BACK is the status code (plus headers and usually a body).",
+  "module": "HTTP and requests"
+ },
+ {
+  "question": "What comes back to you from an HTTP request that tells you whether it worked?",
+  "options": [
+   "A header called Success",
+   "A status code",
+   "A timeout",
+   "A method"
+  ],
+  "answer": 1,
+  "explanation": "The status code gives an idea of what is going on, such as 200 for success or 404 for not found.",
+  "module": "HTTP and requests"
+ },
+ {
+  "question": "Which HTTP method means \"give me this\" (read data)?",
+  "options": [
+   "POST",
+   "PUT",
+   "DELETE",
+   "GET"
+  ],
+  "answer": 3,
+  "explanation": "GET reads. POST usually creates a new record, PUT replaces something, DELETE removes it.",
+  "module": "HTTP and requests"
+ },
+ {
+  "question": "Which method is generally used to create a NEW record?",
+  "options": [
+   "GET",
+   "POST",
+   "DELETE",
+   "PUT"
+  ],
+  "answer": 1,
+  "explanation": "Post is something new: it might create a new record somewhere.",
+  "module": "HTTP and requests"
+ },
+ {
+  "question": "Which method is normally used to REPLACE something that already exists?",
+  "options": [
+   "DELETE",
+   "POST",
+   "PUT",
+   "GET"
+  ],
+  "answer": 2,
+  "explanation": "PUT replaces. DELETE removes.",
+  "module": "HTTP and requests"
+ },
+ {
+  "question": "Why is JSON the most common format for exchanging data between systems?",
+  "options": [
+   "It is the only format Python can read",
+   "It is encrypted by default",
+   "It cannot contain nested data",
+   "It is lightweight, can be compressed to one line and does not depend on indentation like YAML"
+  ],
+  "answer": 3,
+  "explanation": "The trainer: you do not have to worry about spacing, which is why YAML is not usually used for this. XML is another format used for data transfer.",
+  "module": "HTTP and requests"
+ },
+ {
+  "question": "What does REST API usually use to communicate?",
+  "options": [
+   "HTTP or HTTPS methods",
+   "Raw sockets only",
+   "SSH keys",
+   "YAML files"
+  ],
+  "answer": 0,
+  "explanation": "REST APIs use HTTP/HTTPS methods such as GET and POST on URLs (endpoints).",
+  "module": "HTTP and requests"
+ },
+ {
+  "question": "The package called requests is used for what?",
+  "options": [
+   "Running shell commands",
+   "Checking Python syntax",
+   "Parsing command-line arguments",
+   "Making HTTP and API requests"
+  ],
+  "answer": 3,
+  "explanation": "It is not part of the standard library, so you need to install it with pip.",
+  "module": "HTTP and requests"
+ },
+ {
+  "question": "In PyCharm, import requests is underlined in red. What does that usually mean?",
+  "options": [
+   "The code has a syntax error",
+   "The package is not installed in the current environment",
+   "Python does not allow that import",
+   "The file must be renamed"
+  ],
+  "answer": 1,
+  "explanation": "Hover over it and choose Install package, or use pip.",
+  "module": "HTTP and requests"
+ },
+ {
+  "question": "What does this print?\n```python\nstatus_code = 200\ntext = '{\"limit\": 60}'\nprint(type(status_code).__name__, type(text).__name__)\n```",
+  "options": [
+   "It prints 200 only",
+   "It prints the JSON",
+   "<class 'str'> ... (the status code line is an int)",
+   "It raises a TypeError"
+  ],
+  "answer": 2,
+  "explanation": "response.status_code is an int, while response.text is a string. This is just a type check, showing the two have different types.",
+  "module": "HTTP and requests"
+ },
+ {
+  "question": "What is response.status_code for a successful request?",
+  "options": [
+   "200",
+   "100",
+   "500",
+   "404"
+  ],
+  "answer": 0,
+  "explanation": "200 means OK. The trainer also described 404 as not found and 5xx as server errors.",
+  "module": "HTTP and requests"
+ },
+ {
+  "question": "A request to a GitHub URL that does not exist returns which status code?",
+  "options": [
+   "401",
+   "503",
+   "200",
+   "404"
+  ],
+  "answer": 3,
+  "explanation": "404 means not found for this URL.",
+  "module": "HTTP and requests"
+ },
+ {
+  "question": "A status code in the 500s usually means:",
+  "options": [
+   "The token has expired",
+   "A problem on the server: the service may be up but broken",
+   "The URL was spelled wrong",
+   "The request was successful"
+  ],
+  "answer": 1,
+  "explanation": "5xx are server errors. 404 and 401 are problems with the request, not the server.",
+  "module": "HTTP and requests"
+ },
+ {
+  "question": "What does response.json() give you?",
+  "options": [
+   "A new request object",
+   "The body as a raw string",
+   "The body parsed into a Python dictionary (or list)",
+   "The headers only"
+  ],
+  "answer": 2,
+  "explanation": "That is why JSON is so handy in Python: you can look values up in the dictionary straight away.",
+  "module": "HTTP and requests"
+ },
+ {
+  "question": "What happens if response.json() is called on a body that is not valid JSON?",
+  "options": [
+   "It raises a JSON decode error, which you can catch with try/except",
+   "It silently converts the body to a string",
+   "It returns None",
+   "It returns an empty dictionary"
+  ],
+  "answer": 0,
+  "explanation": "The trainer's example caught the decode error and printed a different message.",
+  "module": "HTTP and requests"
+ },
+ {
+  "question": "What does response.raise_for_status() do?",
+  "options": [
+   "Raises an exception only for timeouts",
+   "Retries the request automatically",
+   "Prints the status code and carries on",
+   "Raises an exception if the status code indicates an error such as 404 or 500"
+  ],
+  "answer": 3,
+  "explanation": "It turns a bad HTTP status into an HTTPError so the failure cannot be missed.",
+  "module": "HTTP and requests"
+ },
+ {
+  "question": "What is the purpose of setting headers on a request?",
+  "options": [
+   "To change the URL of the request",
+   "To send extra information such as what you accept, who is making the request and authentication",
+   "To choose the HTTP method",
+   "To set how many retries are allowed"
+  ],
+  "answer": 1,
+  "explanation": "The trainer showed Accept and User-Agent headers, and an Authorization header for the token.",
+  "module": "HTTP and requests"
+ },
+ {
+  "question": "The trainer's code only adds the Authorization header if the token exists. Where does it get the token from?",
+  "options": [
+   "An environment variable (for example GITHUB_TOKEN)",
+   "A string written directly in the script",
+   "A file in the .venv folder",
+   "The SSH key stored on the device"
+  ],
+  "answer": 0,
+  "explanation": "Tokens are secrets, so you do not hard-code them. Read them with os.environ.get / os.getenv.",
+  "module": "HTTP and requests"
+ },
+ {
+  "question": "Why is hard-coding a token in the script a bad idea?",
+  "options": [
+   "It makes the request slower",
+   "GitHub rejects tokens that are in the code",
+   "It can end up in Git history and be exposed",
+   "Python cannot read strings that long"
+  ],
+  "answer": 2,
+  "explanation": "Secrets belong in environment variables. Hard-coded values are in your history forever once committed.",
+  "module": "HTTP and requests"
+ },
+ {
+  "question": "After exporting a token as an environment variable, what extra step does the trainer recommend?",
+  "options": [
+   "Delete the repository",
+   "Restart the computer",
+   "Rename the variable",
+   "Clear it from your history, because the command with the token is stored there"
+  ],
+  "answer": 3,
+  "explanation": "The history command lists the export command including the secret. It can be cleared (history -c), and you can unset the variable.",
+  "module": "HTTP and requests"
+ },
+ {
+  "question": "What happens to the GitHub rate limit when you authenticate with a token?",
+  "options": [
+   "It goes up (from 60 to 5000 requests per hour in the example)",
+   "It is removed completely",
+   "It stays at 60 for everyone",
+   "It goes down to 10"
+  ],
+  "answer": 0,
+  "explanation": "Authentication often gives you a higher limit and more abilities. Paid accounts may get even more.",
+  "module": "HTTP and requests"
+ },
+ {
+  "question": "A personal access token is generated on GitHub. When can you see its value?",
+  "options": [
+   "It is stored in the .ssh folder automatically",
+   "Any time in the developer settings",
+   "Only once, at creation, so copy it somewhere safe immediately",
+   "It is emailed to you every week"
+  ],
+  "answer": 2,
+  "explanation": "The page says copy it now, you will not see it again. If you lose it you must generate a new one.",
+  "module": "HTTP and requests"
+ },
+ {
+  "question": "In the trainer's demo, did calling the rate limit URL itself make the \"remaining\" count go down?",
+  "options": [
+   "Yes, but only when authenticated",
+   "No. Other API calls counted, but checking the rate limit endpoint did not",
+   "No, because rate limits are not tracked per hour",
+   "Yes, every call reduced it by one"
+  ],
+  "answer": 1,
+  "explanation": "The class concluded that other actions on the GitHub API reduced the remaining count, not the rate-limit check itself.",
+  "module": "HTTP and requests"
+ },
+ {
+  "question": "Why might creating a repo on the GitHub website reduce your remaining API calls?",
+  "options": [
+   "Browser cookies count as API calls",
+   "Creating repos is only possible with the API",
+   "The website blocks you for being too active",
+   "The website talks to the GitHub API behind the scenes to perform the action"
+  ],
+  "answer": 3,
+  "explanation": "Websites often call their own API behind the scenes, so those actions count against your limit.",
+  "module": "HTTP and requests"
+ },
+ {
+  "question": "Why must a request to an API have a timeout?",
+  "options": [
+   "Timeouts make responses arrive faster",
+   "The status code is not returned without one",
+   "Otherwise a server that never answers could make your script wait forever",
+   "Python refuses to send requests without one"
+  ],
+  "answer": 2,
+  "explanation": "Pick a sensible limit and catch what happens when it is exceeded.",
+  "module": "HTTP and requests"
+ },
+ {
+  "question": "Which exception does requests raise when the timeout is exceeded?",
+  "options": [
+   "requests.exceptions.Timeout",
+   "requests.exceptions.NotFound",
+   "TimeoutError from the socket module only",
+   "KeyboardInterrupt"
+  ],
+  "answer": 0,
+  "explanation": "It is caught with except requests.exceptions.Timeout, and you can tell the user it gave up.",
+  "module": "HTTP and requests"
+ },
+ {
+  "question": "In the trainer's demo, a local server waits 5 seconds before responding and the request uses timeout=1. What happens?",
+  "options": [
+   "The script crashes with a SyntaxError",
+   "The request raises a timeout and the script reports it gave up after one second",
+   "The status code 408 is returned as a normal response",
+   "The response arrives after 5 seconds"
+  ],
+  "answer": 1,
+  "explanation": "The client gives up first. If the timeout was 6 and the sleep 5, the response would come back fine.",
+  "module": "HTTP and requests"
+ },
+ {
+  "question": "Which situation makes a request raise requests.exceptions.ConnectionError?",
+  "options": [
+   "The host cannot be reached, for example a DNS failure or a refused connection",
+   "The body was not valid JSON",
+   "The server returned 404",
+   "The token has expired"
+  ],
+  "answer": 0,
+  "explanation": "These are the cannot connect cases. Status codes such as 404 mean the server was reached.",
+  "module": "HTTP and requests"
+ },
+ {
+  "question": "A health check gets a 500-range status. Should you retry?",
+  "options": [
+   "Only if the code is 404",
+   "Only after deleting the token",
+   "Possibly yes, because the server may recover",
+   "Never, 5xx will always return the same"
+  ],
+  "answer": 2,
+  "explanation": "The trainer's table: 200 is healthy, 5xx means up but broken (worth a retry), cannot connect depends on whether it might start up, timeouts once or twice.",
+  "module": "HTTP and requests"
+ },
+ {
+  "question": "A request returns 404 or 401. Why is retrying not useful?",
+  "options": [
+   "The server blocks repeated requests for 24 hours",
+   "Retries always cause rate limit errors",
+   "404 and 401 are success codes",
+   "It will return the same status again, because the problem is the request, not temporary"
+  ],
+  "answer": 3,
+  "explanation": "A student's takeaway that the trainer agreed with: retry timeouts once or twice, but do not bother retrying 404 or 401.",
+  "module": "HTTP and requests"
+ },
+ {
+  "question": "What does this print?\n```python\nattempts = 5\nprint(list(range(1, attempts + 1)))\n```",
+  "options": [
+   "[2, 3, 4, 5, 6]",
+   "[1, 2, 3, 4, 5]",
+   "[1, 2, 3, 4, 5, 6]",
+   "[0, 1, 2, 3, 4]"
+  ],
+  "answer": 1,
+  "explanation": "range(1, attempts + 1) with attempts = 5 gives 1 to 5, stopping before 6. That is how the retry loop counts attempts.",
+  "module": "HTTP and requests"
+ },
+ {
+  "question": "In the retry example, why does the function sleep between attempts but not after the last one?",
+  "options": [
+   "Sleep only works for the first two attempts",
+   "Waiting after the final attempt would only delay giving up",
+   "The final attempt is always successful",
+   "Python cannot sleep on the last loop"
+  ],
+  "answer": 1,
+  "explanation": "The trainer's code sleeps for the delay only if attempt is less than the number of attempts.",
+  "module": "HTTP and requests"
+ },
+ {
+  "question": "The retry function printed True and 3. What does that mean?",
+  "options": [
+   "It retried three seconds later",
+   "It failed three times",
+   "The service was healthy, and it succeeded on the third attempt",
+   "The status code was 3"
+  ],
+  "answer": 2,
+  "explanation": "It returns (healthy, attempt_number). Here it succeeded on the third try.",
+  "module": "HTTP and requests"
+ },
+ {
+  "question": "The trainer's classify function returns \"healthy\" for 200. What does it return for a 500-range code?",
+  "options": [
+   "\"missing\"",
+   "\"unexpected\"",
+   "\"healthy\"",
+   "\"broken\""
+  ],
+  "answer": 3,
+  "explanation": "200 is healthy, server errors are broken, and anything else is unexpected.",
+  "module": "HTTP and requests"
+ },
+ {
+  "question": "A script prints \"health check failed\" with print(). Which problem does the trainer say logging solves that print() does not?",
+  "options": [
+   "print() only works inside functions, so top-level scripts need the logging module instead",
+   "print() cannot display text that contains numbers, so values have to be converted first",
+   "print() gives no timestamp, importance level or source, and cannot easily send detail to a file while only a summary goes to the screen",
+   "print() always writes to a file, which makes the terminal output impossible to read"
+  ],
+  "answer": 2,
+  "explanation": "Print just prints what you tell it. Logging adds a timestamp, a level and a source, and lets you change the amount of detail easily, for example full detail in a file and less on screen.",
+  "module": "Logging"
+ },
+ {
+  "question": "What is the order of the standard logging levels from least to most severe?",
+  "options": [
+   "CRITICAL, ERROR, WARNING, INFO, DEBUG",
+   "DEBUG, WARNING, INFO, ERROR, CRITICAL",
+   "INFO, DEBUG, WARNING, CRITICAL, ERROR",
+   "DEBUG, INFO, WARNING, ERROR, CRITICAL"
+  ],
+  "answer": 3,
+  "explanation": "Five levels, from DEBUG (least important) up to CRITICAL (most important). Order is a classic sequence trap.",
+  "module": "Logging"
+ },
+ {
+  "question": "After logging.basicConfig(level=logging.INFO), which message is discarded?",
+  "options": [
+   "log.debug(\"loop value: 3\")",
+   "log.error(\"could not connect\")",
+   "log.warning(\"disk is 85% full\")",
+   "log.info(\"starting deploy\")"
+  ],
+  "answer": 0,
+  "explanation": "The level is a threshold. Anything below INFO (that is, DEBUG) is discarded. INFO, WARNING, ERROR and CRITICAL still get logged.",
+  "module": "Logging"
+ },
+ {
+  "question": "The trainer changed the level from INFO to DEBUG and re-ran the script. What changed in the output?",
+  "options": [
+   "Nothing changes, because the level only affects log files",
+   "The debug line now appears as well, because DEBUG and above are logged",
+   "The script raises an error, because DEBUG is not a valid level for basicConfig",
+   "Only the debug line appears, because DEBUG selects just that level"
+  ],
+  "answer": 1,
+  "explanation": "The level means 'this level and above'. Lowering the threshold to DEBUG lets everything through.",
+  "module": "Logging"
+ },
+ {
+  "question": "Which statement about the level threshold is correct?",
+  "options": [
+   "Setting WARNING keeps only the WARNING messages and discards all others",
+   "Setting WARNING has no effect unless a file handler is also attached",
+   "Setting WARNING discards ERROR and CRITICAL because they are above it",
+   "Setting WARNING discards DEBUG and INFO but keeps WARNING, ERROR and CRITICAL"
+  ],
+  "answer": 3,
+  "explanation": "The threshold works upward: it drops the less important levels and keeps that level and everything more important.",
+  "module": "Logging"
+ },
+ {
+  "question": "Why does logging discard the LEAST important levels by default and not the most important ones?",
+  "options": [
+   "Python can only store the first three levels in memory at a time",
+   "You rarely want to throw away the most important messages, while debug detail is mainly useful to developers and testers",
+   "Lower levels use more disk space, so they are removed first to save storage",
+   "The most important levels are written to a file automatically and so no longer need to be shown"
+  ],
+  "answer": 1,
+  "explanation": "DEBUG messages (for example a variable's value inside a loop) help while coding or testing, but are not needed once the code is deployed.",
+  "module": "Logging"
+ },
+ {
+  "question": "In the trainer's rule of thumb, which levels usually mean you may need to ACT on the message?",
+  "options": [
+   "All five levels equally, because every message needs a response",
+   "Only DEBUG, because it contains the most detail",
+   "ERROR and CRITICAL (and WARNING needs reading to decide)",
+   "INFO and WARNING, because they are the most common"
+  ],
+  "answer": 2,
+  "explanation": "DEBUG and INFO usually let things carry on. WARNING is the dividing line: read it and decide whether to act. ERROR and CRITICAL are the ones you most likely need to act on.",
+  "module": "Logging"
+ },
+ {
+  "question": "The trainer sets a console handler to INFO and a file handler to DEBUG. Why?",
+  "options": [
+   "The file keeps extra detail for investigating later, while the console stays uncluttered",
+   "The console cannot display DEBUG messages, so they have to go to a file",
+   "DEBUG messages are written twice if both handlers use the same level",
+   "The file handler only accepts messages from the root logger, while the console accepts the rest"
+  ],
+  "answer": 0,
+  "explanation": "Different destinations can have different levels. Less noise on screen, full detail saved in the log file.",
+  "module": "Logging"
+ },
+ {
+  "question": "basicConfig is set to level=INFO, but the file handler is set to DEBUG. Do debug messages reach the file?",
+  "options": [
+   "Yes. A handler's own level always overrides the logger's level",
+   "No. File handlers cannot receive debug messages at all",
+   "Yes, but only if the file already exists",
+   "No. They are filtered out at the logger's level before any handler sees them"
+  ],
+  "answer": 3,
+  "explanation": "A message must pass the logger's level first. If the logger discards DEBUG, the handler never gets it, so the file never contains it.",
+  "module": "Logging"
+ },
+ {
+  "question": "What does logging.getLogger(\"deploy\") give you?",
+  "options": [
+   "A logger named \"deploy\", whose name can appear in the output and be kept separate from other loggers",
+   "A handler that sends every message to the deployment server",
+   "A file called deploy.log created in the current folder",
+   "A built-in preset logger that only exists for deployments"
+  ],
+  "answer": 0,
+  "explanation": "The name is up to you. It shows in the output (via %(name)s) and lets different parts of a program log separately.",
+  "module": "Logging"
+ },
+ {
+  "question": "A student asked whether they could name a logger \"banana\". What is the answer?",
+  "options": [
+   "No. Only names from a preset list can be used",
+   "Yes, but banana silently turns the logger off",
+   "Yes, it works, but the output would show banana and be confusing, so use a meaningful name",
+   "No. Logger names must match the name of the Python file"
+  ],
+  "answer": 2,
+  "explanation": "Any name works, but the name appears in the log lines, so it should say what is being logged.",
+  "module": "Logging"
+ },
+ {
+  "question": "In the log line \"WARNING deploy attempt 1 failed\", what is \"deploy\"?",
+  "options": [
+   "The hostname of the server",
+   "The name of the logger that produced the message",
+   "The name of the Python file",
+   "The level of the message"
+  ],
+  "answer": 1,
+  "explanation": "With a format containing %(name)s, the logger's name is printed after the level.",
+  "module": "Logging"
+ },
+ {
+  "question": "Which format string adds a timestamp, the level and the message?",
+  "options": [
+   "\"{asctime} {levelname} {message}\"",
+   "\"%(time)s %(level)s %(text)s\"",
+   "\"%(asctime)s %(levelname)s %(message)s\"",
+   "\"%(timestamp)d %(severity)d %(msg)d\""
+  ],
+  "answer": 2,
+  "explanation": "Those are the real attribute names: asctime, levelname and message (name, funcName and lineno are also available).",
+  "module": "Logging"
+ },
+ {
+  "question": "Which format placeholder shows the line number of the logging call?",
+  "options": [
+   "%(lineno)d",
+   "%(linenum)d",
+   "%(number)s",
+   "%(line)s"
+  ],
+  "answer": 0,
+  "explanation": "The trainer's table includes the logger name (%(name)s), the function (%(funcName)s) and the line number (%(lineno)d).",
+  "module": "Logging"
+ },
+ {
+  "question": "In datefmt, which code gives MINUTES?",
+  "options": [
+   "%m",
+   "%i",
+   "%n",
+   "%M"
+  ],
+  "answer": 3,
+  "explanation": "%M is minutes and %m is the month. Capital versus lowercase is a favourite trap (also %S seconds, %H hours).",
+  "module": "Logging"
+ },
+ {
+  "question": "A student guessed the day of the month would be %d, and tried it. What happened?",
+  "options": [
+   "It gave the day of the week",
+   "It worked: %d gives the day of the month",
+   "It failed, because the day needs two letters, %dd",
+   "It gave the number of days in the month"
+  ],
+  "answer": 1,
+  "explanation": "The date and time codes use one character each: %d is the day, %m the month, %Y the four-digit year.",
+  "module": "Logging"
+ },
+ {
+  "question": "What does a timestamp in each line let you work out?",
+  "options": [
+   "Which file contains the code that logged it",
+   "When it happened, in what order, and how long something has been going on",
+   "Which user ran the script",
+   "Only whether the message was an error or not"
+  ],
+  "answer": 1,
+  "explanation": "Without timestamps you cannot tell whether a failure came before or after a restart, or how long a problem has lasted.",
+  "module": "Logging"
+ },
+ {
+  "question": "Which call logs a message AND the full traceback of the exception being handled?",
+  "options": [
+   "log.error(\"could not read the port from config\")",
+   "log.warning(\"could not read the port from config\")",
+   "log.exception(\"could not read the port from config\")",
+   "log.info(\"could not read the port from config\")"
+  ],
+  "answer": 2,
+  "explanation": "log.exception prints your message plus the traceback. log.error gives only the one line.",
+  "module": "Logging"
+ },
+ {
+  "question": "When is log.error() a better choice than log.exception()?",
+  "options": [
+   "When the message is a DEBUG-level detail",
+   "When the program has crashed and cannot continue",
+   "When you are not inside an except block",
+   "When you know exactly what went wrong and do not need the traceback"
+  ],
+  "answer": 3,
+  "explanation": "log.error gives one clean line. Use log.exception when the traceback is worth keeping.",
+  "module": "Logging"
+ },
+ {
+  "question": "Which level does log.exception() record the message at?",
+  "options": [
+   "ERROR",
+   "DEBUG",
+   "WARNING",
+   "CRITICAL"
+  ],
+  "answer": 0,
+  "explanation": "log.exception is an ERROR-level log with the exception information attached. It is meant to be called from an except block.",
+  "module": "Logging"
+ },
+ {
+  "question": "In the example deploy log, the last INFO line says the service is healthy again after a rollback. Why does it matter?",
+  "options": [
+   "It is only there to show the timestamp format",
+   "It proves the DEBUG lines were removed",
+   "It is unimportant, because INFO lines can always be ignored",
+   "It records the outcome, which is important to know even though no action is needed"
+  ],
+  "answer": 3,
+  "explanation": "The trainer stressed that INFO can be very important, especially for recording what finally happened.",
+  "module": "Logging"
+ },
+ {
+  "question": "A health check warning reads \"attempt 1 failed\". How would including the status code improve it?",
+  "options": [
+   "It stops the attempt from being retried",
+   "It tells you WHY the attempt failed, for example a server error",
+   "It makes the log file smaller",
+   "It changes the level of the message"
+  ],
+  "answer": 1,
+  "explanation": "A useful log message names the details (status code, version, attempt number), not just that something failed.",
+  "module": "Logging"
+ },
+ {
+  "question": "According to the trainer, how can you tell whether a log is useful?",
+  "options": [
+   "It is written without timestamps to save space",
+   "It contains as many DEBUG lines as possible",
+   "It tells a story of what happened, even if you only scan the warnings and errors",
+   "It prints every variable in the program"
+  ],
+  "answer": 2,
+  "explanation": "The levels should help the storytelling: attempts failed, the health check failed after five attempts, then the rollback and recovery.",
+  "module": "Logging"
+ },
+ {
+  "question": "Why can logging be turned up or down more easily than print() statements?",
+  "options": [
+   "Changing the configured level changes how much detail is logged, with no edits to each call",
+   "Each print() must be rewritten as logging.info before it can be hidden",
+   "print() has levels but they cannot be changed",
+   "Logging can only be disabled by deleting the module"
+  ],
+  "answer": 0,
+  "explanation": "Raising or lowering the level in one place controls the noise. With print() you must edit or comment out lines.",
+  "module": "Logging"
+ },
+ {
+  "question": "Which statement about the logging module is true?",
+  "options": [
+   "It must be installed with pip first",
+   "It is a third-party package from the Python Package Index",
+   "It only works on Linux",
+   "It is part of the standard library, so there is nothing to install"
+  ],
+  "answer": 3,
+  "explanation": "Just import logging. The trainer pointed out it is already there, so you do not have to write your own logging code.",
+  "module": "Logging"
+ },
+ {
+  "question": "What is basicConfig used for?",
+  "options": [
+   "Setting up the logging system once: level, format, date format and handlers",
+   "Creating an exception to log",
+   "Deleting the old log file",
+   "Writing a single message to the log"
+  ],
+  "answer": 0,
+  "explanation": "It configures the root logger. You call it once near the start of the script.",
+  "module": "Logging"
+ },
+ {
+  "question": "Which two kinds of handler let one logger write to the screen and to a file?",
+  "options": [
+   "A PrintHandler and a SaveHandler",
+   "A ConsoleLevel and a DiskLevel",
+   "A StreamHandler (console) and a FileHandler",
+   "Only a FileHandler, which also prints to the screen"
+  ],
+  "answer": 2,
+  "explanation": "Each handler is a destination with its own level. The same logger can send records to both at once.",
+  "module": "Logging"
+ },
+ {
+  "question": "What does the encoding argument of a FileHandler (for example \"utf-8\") set?",
+  "options": [
+   "The language of the log messages",
+   "The character set used when writing the log file",
+   "The level of messages saved",
+   "The compression format of the file"
+  ],
+  "answer": 1,
+  "explanation": "It is the same idea as encoding when opening a file: how characters are turned into bytes.",
+  "module": "Logging"
+ },
+ {
+  "question": "What does handler.setLevel(logging.INFO) do on a console handler?",
+  "options": [
+   "It sets the level for every handler",
+   "It turns off the handler for INFO",
+   "It converts all messages to INFO",
+   "That handler outputs only INFO and above"
+  ],
+  "answer": 3,
+  "explanation": "Each handler can have its own threshold on top of the logger's level.",
+  "module": "Logging"
+ },
+ {
+  "question": "Why would you log to a file as well as to the screen?",
+  "options": [
+   "The record survives after the terminal closes, so you can investigate later",
+   "Files can show colours that terminals cannot",
+   "Python refuses to log only to the screen",
+   "The screen cannot show timestamps"
+  ],
+  "answer": 0,
+  "explanation": "A log file persists. Combined with timestamps it lets you reconstruct what happened.",
+  "module": "Logging"
+ },
+ {
+  "question": "Which levels does a trainer-style log read as: DEBUG, INFO, WARNING?",
+  "options": [
+   "All three require immediate action",
+   "Things can usually carry on without action, though warnings should be read",
+   "They are only used in unit tests",
+   "They are only produced by crashes"
+  ],
+  "answer": 1,
+  "explanation": "Debug and info are informational. A warning is worth reading to decide if action is needed.",
+  "module": "Logging"
+ },
+ {
+  "question": "A script has logging.basicConfig(level=logging.WARNING). It calls log.info(\"x\") then log.error(\"y\"). Which appears?",
+  "options": [
+   "Neither message",
+   "Both messages",
+   "Only the error message",
+   "Only the info message"
+  ],
+  "answer": 2,
+  "explanation": "INFO is below the WARNING threshold and is discarded. ERROR is above it and is shown.",
+  "module": "Logging"
+ },
+ {
+  "question": "What does this print?\n```python\nimport logging, sys\nlogging.basicConfig(level=logging.INFO, format='%(levelname)s:%(name)s:%(message)s', stream=sys.stdout)\nlog = logging.getLogger('deploy')\nlog.debug('a')\nlog.info('b')\nlog.warning('c')\n```",
+  "options": [
+   "INFO:deploy:b then WARNING:deploy:c",
+   "WARNING:deploy:c only",
+   "INFO:deploy:b only",
+   "DEBUG:deploy:a then INFO:deploy:b then WARNING:deploy:c"
+  ],
+  "answer": 0,
+  "explanation": "Level INFO drops the debug line. The format puts level, logger name and message in that order.",
+  "module": "Logging"
+ }
+]
