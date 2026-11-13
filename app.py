@@ -19,14 +19,35 @@ LETTERS = "ABCD"
 @dataclass
 class Question:
     text: str
-    options: list
-    answer: int  # 0 = A, 1 = B, 2 = C, 3 = D
+    options: list[str]
+    answer: int | tuple[int, ...]  # 0 = A, 1 = B, 2 = C, 3 = D
 
     def __post_init__(self):
+        if not isinstance(self.text, str) or not self.text.strip():
+            raise ValueError("Question text must be a non-empty string.")
+        if not isinstance(self.options, list) or any(
+            not isinstance(option, str) for option in self.options
+        ):
+            raise ValueError("Options must be a list of strings.")
         if len(self.options) != 4:
             raise ValueError(f"Needs exactly 4 options: {self.text!r}")
-        if self.answer not in (0, 1, 2, 3):
+        if self.is_multi:
+            if (
+                not self.answer
+                or any(type(answer) is not int or answer not in range(4) for answer in self.answer)
+                or len(set(self.answer)) != len(self.answer)
+            ):
+                raise ValueError("Answers must be unique option numbers from 0 to 3.")
+        elif type(self.answer) is not int or self.answer not in range(4):
             raise ValueError(f"Answer must be 0, 1, 2 or 3: {self.text!r}")
+
+    @property
+    def is_multi(self) -> bool:
+        return isinstance(self.answer, tuple)
+
+    @property
+    def correct_answers(self) -> tuple[int, ...]:
+        return self.answer if self.is_multi else (self.answer,)
 
 
 
@@ -39,15 +60,64 @@ class Quiz:
     @classmethod
     def from_json(cls, path: str) -> "Quiz":
         data = json.loads(Path(path).read_text(encoding="utf-8"))
-        return cls([Question(d["question"], d["options"], d["answer"]) for d in data])
+        if not isinstance(data, list):
+            raise ValueError("The JSON file must contain a list of questions.")
+        questions = []
+        for index, item in enumerate(data, start=1):
+            try:
+                if not isinstance(item, dict):
+                    raise ValueError("Each question must be a JSON object.")
+                has_single_answer = "answer" in item
+                has_multi_answers = "answers" in item
+                if has_single_answer == has_multi_answers:
+                    raise ValueError("Provide exactly one of 'answer' or 'answers'.")
+                if has_multi_answers:
+                    answers = item["answers"]
+                    if not isinstance(answers, list) or not answers:
+                        raise ValueError("'answers' must be a non-empty list.")
+                    if any(type(answer) is not int or answer not in range(4) for answer in answers):
+                        raise ValueError("'answers' must contain option numbers from 0 to 3.")
+                    if len(set(answers)) != len(answers):
+                        raise ValueError("'answers' must contain unique option numbers.")
+                    answer = tuple(sorted(answers))
+                else:
+                    answer = item["answer"]
+                questions.append(Question(item["question"], item["options"], answer))
+            except (KeyError, TypeError, ValueError) as error:
+                raise ValueError(f"Invalid question {index}: {error}") from error
+        return cls(questions)
 
     def grade(self, answers: list) -> dict:
-        """answers[i] is the digit picked for question i, or None."""
-        score = sum(a == q.answer for a, q in zip(answers, self.questions))
+        """answers[i] is the picked digit/list of digits, or None."""
+        score = 0
+        for picked, question in zip(answers, self.questions):
+            if question.is_multi:
+                if (
+                    isinstance(picked, (list, tuple, set))
+                    and len(picked) == len(question.correct_answers)
+                    and set(picked) == set(question.correct_answers)
+                ):
+                    score += 1
+            elif picked == question.answer:
+                score += 1
         total = len(self.questions)
         percent = round(score / total * 100, 1)
         return {"score": score, "total": total, "percent": percent,
                 "verdict": self.verdict(percent)}
+
+    def select_option(self, answers: list, question_index: int, option_index: int) -> list:
+        updated = list(answers)
+        question = self.questions[question_index]
+        if question.is_multi:
+            picked = set(updated[question_index] or [])
+            if option_index in picked:
+                picked.remove(option_index)
+            else:
+                picked.add(option_index)
+            updated[question_index] = sorted(picked)
+        else:
+            updated[question_index] = option_index
+        return updated
 
     @staticmethod
     def verdict(percent: float) -> tuple:
@@ -134,12 +204,15 @@ class QuizApp:
         """Everything that changes when we show a question."""
         q = self.quiz.questions[index]
         total = len(self.quiz.questions)
+        picked = answers[index]
+        selected = set(picked or []) if q.is_multi else {picked}
         buttons = [
             html.Button(
                 [html.Span(className="dot"),
                  html.Span([f"{LETTERS[i]}. "] + render_text(text, block=False), className="optt")],
                 id={"type": "opt", "index": i},
-                className="opt sel" if answers[index] == i else "opt",
+                className=f"opt{' multi' if q.is_multi else ''}{' sel' if i in selected else ''}",
+                **{"aria-pressed": i in selected},
             )
             for i, text in enumerate(q.options)
         ]
@@ -147,6 +220,7 @@ class QuizApp:
             f"Question {index + 1} of {total}",
             {"width": f"{(index + 1) / total * 100}%"},
             render_text(q.text),
+            "Select all that apply" if q.is_multi else "",
             buttons,
             index == 0,
             "Finish and see answers" if index == total - 1 else "Next",
@@ -167,6 +241,7 @@ class QuizApp:
                 html.Div(id="progress-label", className="meta"),
                 html.Div(html.Div(id="progress-bar"), className="bar"),
                 html.Div(id="question-text", className="q"),
+                html.Div(id="question-hint", className="meta"),
                 html.Div(id="options"),
                 html.Div([
                     html.Button("Previous", id="prev-btn", className="btn"),
@@ -183,6 +258,7 @@ class QuizApp:
             Output("progress-label", "children"),
             Output("progress-bar", "style"),
             Output("question-text", "children"),
+            Output("question-hint", "children"),
             Output("options", "children"),
             Output("prev-btn", "disabled"),
             Output("next-btn", "children"),
@@ -202,9 +278,7 @@ class QuizApp:
         def select(_clicks, index, answers):
             if not ctx.triggered or not ctx.triggered[0]["value"]:
                 return no_update                         # a button was just drawn, not clicked
-            answers = list(answers)
-            answers[index] = ctx.triggered_id["index"]   # which option was clicked
-            return answers
+            return self.quiz.select_option(answers, index, ctx.triggered_id["index"])
 
         @self.app.callback(
             Output("index", "data"),
@@ -261,18 +335,27 @@ class QuizApp:
         ]
         for n, (q, picked) in enumerate(zip(self.quiz.questions, answers), start=1):
             rows = []
+            picked_options = (
+                set(picked) if q.is_multi and isinstance(picked, (list, tuple, set))
+                else {picked} if not q.is_multi and picked is not None
+                else set()
+            )
             for i, text in enumerate(q.options):
-                if i == q.answer:
-                    css, tag = "opt right", "Correct answer"
-                elif i == picked:
-                    css, tag = "opt wrong", "Your answer"
-                else:
-                    css, tag = "opt", ""
+                is_correct = i in q.correct_answers
+                is_picked = i in picked_options
+                css = "opt right" if is_correct else "opt wrong" if is_picked else "opt"
+                labels = [
+                    label for condition, label in (
+                        (is_correct, "Correct answer"),
+                        (is_picked, "Your answer"),
+                    ) if condition
+                ]
+                tag = " · ".join(labels)
                 rows.append(html.Div([html.Span(className="dot"),
                                       html.Span([f"{LETTERS[i]}. "] + render_text(text, block=False),
                                                 className="optt"),
                                       html.Span(tag, className="tag")], className=css))
-            if picked is None:
+            if not picked_options:
                 rows.append(html.Div("You did not answer this one.", className="meta"))
             children.append(html.Section(
                 [html.Div([f"{n}. "] + render_text(q.text), className="rq-title")] + rows,
@@ -313,6 +396,7 @@ border-radius:5px;font:400 .85em var(--mono)}
 button.opt{cursor:pointer}
 button.opt:hover{border-color:#66665f}
 button.opt.sel{border-color:var(--pick)}
+.opt.multi .dot{border-radius:5px}
 .dot{flex:none;width:26px;height:26px;border:2px solid var(--dim);border-radius:50%}
 .opt.sel .dot{border-color:var(--pick);background:radial-gradient(var(--pick) 45%,transparent 50%)}
 .opt:focus-visible,.btn:focus-visible{outline:2px solid var(--pick);outline-offset:2px}

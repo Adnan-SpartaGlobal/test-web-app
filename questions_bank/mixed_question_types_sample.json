@@ -1,0 +1,12 @@
+[
+  {
+    "question": "What is the capital of France?",
+    "options": ["London", "Berlin", "Madrid", "Paris"],
+    "answer": 3
+  },
+  {
+    "question": "Which of these are Python collection types?",
+    "options": ["list", "integer", "tuple", "float"],
+    "answers": [0, 2]
+  }
+]

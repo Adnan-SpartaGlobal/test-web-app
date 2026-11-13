@@ -20,7 +20,9 @@ A personal web app that enables me to answer a series of MCQ questions from a js
 </p>
 
 ## JSON Structure Example
-**Note:** Answers are given as numbers 0 indexed numbers 
+**Note:** Answers are zero-indexed option numbers. Single-answer questions use
+`answer` with one number. For multi-answer questions, use `answers` with a
+non-empty list of option numbers; the learner must select exactly that set.
 ```json
 [
   {
@@ -42,6 +44,14 @@ A personal web app that enables me to answer a series of MCQ questions from a js
       "Brown"
     ],
     "answer": 2
+  },
+  {
+    "question": "Which are Python collection types?",
+    "options": ["list", "integer", "tuple", "float"],
+    "answers": [0, 2]
   }
 ]
 ```
+
+See [questions_bank/mixed_question_types_sample.json](questions_bank/mixed_question_types_sample.json)
+for a small complete quiz containing both formats.
